@@ -419,19 +419,24 @@
         }
 
         @keyframes vtRipple {
-            0% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0.1); }
+            0% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0.2); }
             70% { box-shadow: 0 0 0 10px rgba(148, 99, 22, 0); }
             100% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0); }
         }
         .vt-marker {
-            animation: vtRipple 5s infinite;
+            animation: vtRipple 3.5s ease-out infinite;
         }
 
         .timeline-company {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text-secondary);
             transition: color 0.3s ease;
+            cursor: default;
         }
         .timeline-company:hover {
-            color: var(--color-accent) !important;
+            color: var(--color-accent);
         }
         .location-link {
             transition: all 0.3s ease;
@@ -694,7 +699,7 @@
                     <div class="vt-content vt-left slide-outward-left">
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2023 - PRESENT</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Professional Development</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">Data Analytics Upskilling</p>
+                        <p class="timeline-company">Data Analytics Upskilling</p>
                         <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;" class="caption">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Remote</span>
                         </div>
@@ -710,14 +715,14 @@
                 <div class="visual-timeline-item">
                     <div class="vt-image vt-left slide-outward-left">
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer">
-                            <img src="https://apea.asia/wp-content/uploads/2021/11/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80';">
+                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property">
                         </a>
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-content vt-right slide-outward-right">
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">2023</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance &amp; Tax Manager</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">Frasers Property Vietnam</p>
+                        <p class="timeline-company"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Frasers Property Vietnam</a></p>
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
@@ -733,7 +738,7 @@
                     <div class="vt-content vt-left slide-outward-left">
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2016 - DEC 2022</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Tax Manager</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">PwC Vietnam</p>
+                        <p class="timeline-company"><a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">PwC Vietnam</a></p>
                         <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
