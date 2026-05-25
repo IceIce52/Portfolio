@@ -222,6 +222,36 @@
         .timeline-item .exp-highlights {
             max-width: 560px;
         }
+
+        /* --- V1 Enhancements --- */
+        /* Project Thumbnails */
+        .card-thumbnail {
+            background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+            pointer-events: none;
+        }
+        .card-thumbnail i {
+            color: rgba(255, 255, 255, 0.7) !important;
+            z-index: 1;
+        }
+        
+        /* Certifications - Grayscale */
+        .cert-card img,
+        .cert-card .cert-icon {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .cert-card:hover img,
+        .cert-card:hover .cert-icon {
+            filter: grayscale(0%);
+        }
     </style>
 </head>
 <body>

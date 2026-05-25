@@ -248,6 +248,41 @@
         .timeline-item .exp-highlights {
             max-width: 560px;
         }
+
+        /* --- V1 Enhancements --- */
+        /* Project Thumbnails */
+        .card-thumbnail {
+            background: linear-gradient(135deg, #EADFCD 0%, #D8C9AE 100%) !important;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .card-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--color-accent) 1px, transparent 1px);
+            background-size: 16px 16px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .card-thumbnail i {
+            color: var(--color-accent-hover) !important;
+            z-index: 1;
+        }
+        
+        /* Certifications - Blend mode */
+        .cert-card img,
+        .cert-card .cert-icon {
+            mix-blend-mode: multiply;
+            opacity: 0.85;
+            transition: all 0.3s ease;
+        }
+        .cert-card:hover img,
+        .cert-card:hover .cert-icon {
+            opacity: 1;
+            mix-blend-mode: normal;
+        }
     </style>
 
 </head>
