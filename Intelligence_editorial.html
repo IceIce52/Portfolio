@@ -419,12 +419,27 @@
         }
 
         @keyframes vtRipple {
-            0% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0.2); }
+            0% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0.1); }
             70% { box-shadow: 0 0 0 10px rgba(148, 99, 22, 0); }
             100% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0); }
         }
         .vt-marker {
-            animation: vtRipple 2s infinite;
+            animation: vtRipple 5s infinite;
+        }
+
+        .timeline-company {
+            transition: color 0.3s ease;
+        }
+        .timeline-company:hover {
+            color: var(--color-accent) !important;
+        }
+        .location-link {
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .location-link:hover {
+            background-color: rgba(0,0,0,0.08) !important;
+            color: var(--color-text-primary) !important;
         }
 
         .slide-in-left {
@@ -677,11 +692,13 @@
                 <!-- Timeline Item 1 -->
                 <div class="visual-timeline-item">
                     <div class="vt-content vt-left slide-outward-left">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">AUG 2023 - PRESENT</p>
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2023 - PRESENT</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Professional Development</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;">Data Analytics Upskilling</p>
-                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Remote</p>
-                        <p class="body-sm text-tertiary">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">Data Analytics Upskilling</p>
+                        <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;" class="caption">
+                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Remote</span>
+                        </div>
+                        <p class="body-sm" style="color: var(--color-text-secondary);">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-image vt-right slide-outward-right">
@@ -698,13 +715,15 @@
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-content vt-right slide-outward-right">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">2023</p>
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">2023</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance &amp; Tax Manager</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">Frasers Property Vietnam</a></p>
-                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Ho Chi Minh City, Vietnam</p>
-                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 8px;">
-                            <p class="body-sm text-tertiary"><strong>US$2M (5%) deal price reduction</strong> — negotiated via tax due diligence for an 83-mall acquisition.</p>
-                            <p class="body-sm text-tertiary"><strong>18+ hours/month saved</strong> — architected an automated Power BI workflow for a 7-member finance team.</p>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">Frasers Property Vietnam</p>
+                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
+                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
+                        </a>
+                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 10px;">
+                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$2M</strong> (5%) deal price reduction — negotiated via tax due diligence for an 83-mall acquisition.</p>
+                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">18+ hours/month</strong> saved — architected an automated Power BI workflow for a 7-member finance team.</p>
                         </div>
                     </div>
                 </div>
@@ -712,13 +731,15 @@
                 <!-- Timeline Item 3 -->
                 <div class="visual-timeline-item">
                     <div class="vt-content vt-left slide-outward-left">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">AUG 2016 - DEC 2022</p>
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2016 - DEC 2022</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Tax Manager</h3>
-                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;"><a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">PwC Vietnam</a></p>
-                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Ho Chi Minh City, Vietnam</p>
-                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 8px; text-align: right;">
-                            <p class="body-sm text-tertiary"><strong>Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
-                            <p class="body-sm text-tertiary"><strong>US$27.3M saved in tax penalties</strong> — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text-secondary);">PwC Vietnam</p>
+                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
+                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
+                        </a>
+                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 10px; text-align: right;">
+                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
+                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$27.3M</strong> saved in tax penalties — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
                         </div>
                     </div>
                     <div class="vt-marker"></div>
