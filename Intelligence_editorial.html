@@ -68,6 +68,11 @@
         /* Contact & footer background */
         .bg-accent { background-color: var(--color-text-primary); }
 
+        /* Unify Hero section font to match Monotone (sans-serif) */
+        #about * {
+            font-family: 'Inter', system-ui, sans-serif !important;
+        }
+
         /* Navbar background fix for editorial palette */
         .navbar {
             background-color: rgba(250, 248, 243, 0.95) !important;
@@ -256,6 +261,106 @@
             max-width: 560px;
         }
 
+        /* --- Visual Timeline Component --- */
+        .visual-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-xl) 0;
+        }
+        .visual-timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--color-border, #E2DDD4);
+            transform: translateX(-50%);
+        }
+        .visual-timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: var(--space-4xl);
+        }
+        .visual-timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .vt-content, .vt-image {
+            width: calc(50% - 40px); /* 40px gap from center */
+        }
+        .vt-left {
+            text-align: right;
+            padding-right: var(--space-lg);
+        }
+        .vt-right {
+            text-align: left;
+            padding-left: var(--space-lg);
+        }
+        .vt-marker {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--color-bg-primary, #FAF8F3);
+            border: 2px solid var(--color-accent);
+            z-index: 2;
+        }
+        .vt-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(36, 52, 71, 0.08);
+            transition: transform 0.4s ease;
+        }
+        .vt-image img:hover {
+            transform: translateY(-4px);
+        }
+        .vt-content .exp-highlights {
+            align-items: flex-end;
+        }
+        .vt-right .exp-highlights {
+            align-items: flex-start;
+        }
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .visual-timeline-line {
+                left: 20px;
+                transform: none;
+            }
+            .visual-timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+            .vt-content, .vt-image {
+                width: 100%;
+                text-align: left;
+                padding: 0;
+            }
+            .vt-marker {
+                left: 20px;
+                top: 0;
+                transform: translate(-50%, 0);
+                margin-top: 24px;
+            }
+            .vt-image {
+                margin-top: var(--space-md);
+                order: 2;
+            }
+            .vt-content {
+                order: 1;
+            }
+            .vt-content .exp-highlights {
+                align-items: flex-start;
+            }
+        }
+
         /* --- V2 Enhancements --- */
         /* Typography Polish */
         p {
@@ -300,8 +405,58 @@
             opacity: 1;
             mix-blend-mode: normal;
         }
-    </style>
 
+        /* --- Visual Timeline Animations & Enhancements --- */
+        .visual-timeline-item {
+            transition: all 0.45s ease-in-out;
+        }
+        .visual-timeline-item:hover .vt-image img {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .visual-timeline-item:hover .vt-content {
+            transform: translateY(-4px);
+        }
+
+        @keyframes vtRipple {
+            0% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(148, 99, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(148, 99, 22, 0); }
+        }
+        .vt-marker {
+            animation: vtRipple 2s infinite;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-outward-left {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .slide-outward-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-outward-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .slide-outward-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
 </head>
 <body>
 
@@ -509,44 +664,68 @@
     </section>
 
     <!-- Career Timeline -->
-    <section id="experience" class="bg-secondary">
-        <div class="container-narrow">
-            <div class="section-header animate-on-scroll">
+    <section id="experience" class="bg-secondary" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+        <div class="container">
+            <div class="section-header slide-in-left" style="text-align: center; margin-bottom: var(--space-3xl);">
                 <span class="section-label caption">EXPERIENCE</span>
-                <h2 class="section-title h2">Career Timeline</h2>
+                <h2 class="section-title h2">Career Highlights</h2>
             </div>
             
-            <div class="timeline">
+            <div class="visual-timeline">
+                <div class="visual-timeline-line"></div>
+                
                 <!-- Timeline Item 1 -->
-                <div class="timeline-item animate-on-scroll stagger-1">
-                    <div class="timeline-dot active"></div>
-                    <p class="timeline-date caption">AUG 2023 - PRESENT</p>
-                    <h3 class="timeline-role h3">Professional Development</h3>
-                    <p class="timeline-company">Data Analytics Upskilling</p>
-                    <p class="body-sm text-tertiary">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
+                <div class="visual-timeline-item">
+                    <div class="vt-content vt-left slide-outward-left">
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">AUG 2023 - PRESENT</p>
+                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Professional Development</h3>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;">Data Analytics Upskilling</p>
+                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Remote</p>
+                        <p class="body-sm text-tertiary">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
+                    </div>
+                    <div class="vt-marker"></div>
+                    <div class="vt-image vt-right slide-outward-right">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data Analytics Desk">
+                    </div>
                 </div>
                 
                 <!-- Timeline Item 2 -->
-                <div class="timeline-item animate-on-scroll stagger-2">
-                    <div class="timeline-dot"></div>
-                    <p class="timeline-date caption">2023</p>
-                    <h3 class="timeline-role h3">Finance &amp; Tax Manager</h3>
-                    <p class="timeline-company">Frasers Property Vietnam</p>
-                    <div class="exp-highlights">
-                        <p class="body-sm text-tertiary"><strong>US$2M (5%) deal price reduction</strong> — negotiated via tax due diligence for an 83-mall acquisition.</p>
-                        <p class="body-sm text-tertiary"><strong>18+ hours/month saved</strong> — architected an automated Power BI workflow for a 7-member finance team.</p>
+                <div class="visual-timeline-item">
+                    <div class="vt-image vt-left slide-outward-left">
+                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer">
+                            <img src="https://apea.asia/wp-content/uploads/2021/11/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80';">
+                        </a>
+                    </div>
+                    <div class="vt-marker"></div>
+                    <div class="vt-content vt-right slide-outward-right">
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">2023</p>
+                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance &amp; Tax Manager</h3>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">Frasers Property Vietnam</a></p>
+                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Ho Chi Minh City, Vietnam</p>
+                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 8px;">
+                            <p class="body-sm text-tertiary"><strong>US$2M (5%) deal price reduction</strong> — negotiated via tax due diligence for an 83-mall acquisition.</p>
+                            <p class="body-sm text-tertiary"><strong>18+ hours/month saved</strong> — architected an automated Power BI workflow for a 7-member finance team.</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
-                <div class="timeline-item animate-on-scroll stagger-3">
-                    <div class="timeline-dot"></div>
-                    <p class="timeline-date caption">AUG 2016 - DEC 2022</p>
-                    <h3 class="timeline-role h3">Tax Manager</h3>
-                    <p class="timeline-company">PwC Vietnam</p>
-                    <div class="exp-highlights">
-                        <p class="body-sm text-tertiary"><strong>Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
-                        <p class="body-sm text-tertiary"><strong>US$27.3M saved in tax penalties</strong> — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
+                <div class="visual-timeline-item">
+                    <div class="vt-content vt-left slide-outward-left">
+                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary);">AUG 2016 - DEC 2022</p>
+                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Tax Manager</h3>
+                        <p class="timeline-company" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 12px;"><a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">PwC Vietnam</a></p>
+                        <p class="caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-sm); color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;"><i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Ho Chi Minh City, Vietnam</p>
+                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 8px; text-align: right;">
+                            <p class="body-sm text-tertiary"><strong>Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
+                            <p class="body-sm text-tertiary"><strong>US$27.3M saved in tax penalties</strong> — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
+                        </div>
+                    </div>
+                    <div class="vt-marker"></div>
+                    <div class="vt-image vt-right slide-outward-right">
+                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer">
+                            <img src="https://marketingtrips.com/wp-content/uploads/2023/10/pwc.jpeg" alt="Corporate Boardroom - PwC" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80';">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -572,11 +751,22 @@
                     <h3 class="cert-name text-sm">Advanced SQL</h3>
                     <p class="caption">HackerRank</p>
                 </a>
-                <a href="https://www.credly.com/badges/370374bb-f1ff-4900-967d-9764144bc111/public" target="_blank" class="card cert-card animate-on-scroll stagger-3" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px; color: #0081C6; letter-spacing: -0.5px; font-family: Arial, sans-serif;">alteryx</div>
-                    <h3 class="cert-name text-sm">Alteryx Foundational Micro-Credential</h3>
-                    <p class="caption">Alteryx</p>
-                </a>
+                <!-- Alteryx Certification -->
+                <div class="card cert-card animate-on-scroll stagger-3" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                    <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+                        <div class="cert-icon-container" style="display: flex; justify-content: center; margin-bottom: 16px;">
+                            <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" style="width: 60px; height: 60px; object-fit: contain;">
+                        </div>
+                        <h3 class="cert-name text-sm">Alteryx Advanced Designer</h3>
+                        <p class="caption">Alteryx</p>
+                    </a>
+                    
+                    <!-- Requested Credly Embed Logic -->
+                    <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; pointer-events: none;">
+                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e0434b1c-0b6f-4084-9977-d922c22252ed" data-share-badge-host="https://www.credly.com"></div>
+                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                    </div>
+                </div>
                 <div class="card cert-card animate-on-scroll stagger-4" style="display: block;">
                     <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; color: #E3000F; letter-spacing: -1px; font-family: Arial, sans-serif;">ACCA</div>
                     <h3 class="cert-name text-sm">Chief Accountant &amp; ACCA</h3>
@@ -619,5 +809,37 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Experience Section Slide In Left
+            const header = document.querySelector('#experience .section-header.slide-in-left');
+            if(header) {
+                const headerObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            headerObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                headerObserver.observe(header);
+            }
+
+            // Timeline Items Slide Outward Triggered by Marker
+            const markers = document.querySelectorAll('.vt-marker');
+            const markerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const parent = entry.target.closest('.visual-timeline-item');
+                        if (parent) {
+                            parent.querySelectorAll('.slide-outward-left, .slide-outward-right').forEach(el => el.classList.add('is-visible'));
+                        }
+                        markerObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            markers.forEach(marker => markerObserver.observe(marker));
+        });
+    </script>
 </body>
 </html>
