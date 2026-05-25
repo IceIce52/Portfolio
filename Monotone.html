@@ -223,34 +223,43 @@
             max-width: 560px;
         }
 
-        /* --- V1 Enhancements --- */
-        /* Project Thumbnails */
+        /* --- V2 Enhancements --- */
+        /* Electric Accent for vibrancy */
+        :root {
+            --color-electric: #2563EB; /* Vibrant Tech Blue */
+        }
+        .kpi-number {
+            color: var(--color-electric);
+        }
+        
+        /* Project Thumbnails - Light, airy, tech-focused */
         .card-thumbnail {
-            background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%) !important;
+            background: linear-gradient(135deg, #F5F7FA 0%, #E4E7EB 100%) !important;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .card-thumbnail::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
             pointer-events: none;
         }
         .card-thumbnail i {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: #111827 !important;
             z-index: 1;
         }
         
-        /* Certifications - Grayscale */
+        /* Certifications - Restored to full color for trust & vibrancy */
         .cert-card img,
         .cert-card .cert-icon {
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
+            filter: none;
+            transition: transform 0.3s ease;
         }
         .cert-card:hover img,
         .cert-card:hover .cert-icon {
-            filter: grayscale(0%);
+            transform: scale(1.05);
         }
     </style>
 </head>
