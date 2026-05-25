@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hien Nguyen - Business Intelligence Analyst</title>
+    <meta name="description" content="Portfolio of Hien Nguyen, a Business Intelligence Analyst with a background in Finance & Tax.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container flex justify-between items-center">
+            <a href="#" class="logo">Hien Nguyen</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="bg-primary" style="padding-top: 128px; padding-bottom: 96px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container grid grid-cols-2 items-center">
+            <div class="animate-on-scroll">
+                <div style="width: 280px; height: 350px; background-color: var(--color-bg-secondary); border-radius: 8px; overflow: hidden; margin: 0 auto;">
+                    <!-- Placeholder for profile image -->
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--color-text-tertiary);">
+                        <i data-lucide="user" style="width: 64px; height: 64px; stroke-width: 1;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="animate-on-scroll stagger-1">
+                <span class="section-label caption">HELLO, I'M</span>
+                <h1 class="display" style="margin-bottom: 16px;">Hien Nguyen</h1>
+                <h2 class="h3" style="color: var(--color-text-secondary); margin-bottom: 24px;">Business Intelligence Analyst</h2>
+                <p style="max-width: 520px; margin-bottom: 32px;">
+                    Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
+                </p>
+                <div class="flex gap-md" style="flex-wrap: wrap;">
+                    <a href="#" class="btn btn-primary">View Resume</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-secondary">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label caption">PROJECTS</span>
+                <h2 class="section-title h2">Featured Work</h2>
+                <p class="body-sm" style="color: var(--color-text-tertiary);">Selected analytics and BI projects</p>
+            </div>
+            
+            <div class="grid grid-cols-3">
+                <!-- Project 1 -->
+                <div class="card animate-on-scroll stagger-1">
+                    <div class="card-thumbnail flex items-center justify-center">
+                         <i data-lucide="bar-chart-2" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Optimized Global Effective Tax Rate Benchmarking</h3>
+                        <p class="card-desc">Lack of visibility into global tax drivers. Connected regulatory data using Power BI & DAX. Enabled executives to benchmark financial outcomes accurately.</p>
+                        <div class="tag-row" style="margin-top: auto;">
+                            <span class="tag mono">Power BI</span>
+                            <span class="tag mono">DAX</span>
+                            <span class="tag mono">SQL</span>
+                        </div>
+                        <a href="#" class="card-link">View Case Study <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card animate-on-scroll stagger-2">
+                    <div class="card-thumbnail flex items-center justify-center">
+                         <i data-lucide="pie-chart" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Automated CFO Dashboards to Save 18+ Hours/Month</h3>
+                        <p class="card-desc">Manual reporting delayed strategic decisions. Built an automated P&L and Cashflow variance model. Reclaimed 18+ hours monthly for the finance team.</p>
+                        <div class="tag-row" style="margin-top: auto;">
+                            <span class="tag mono">Power BI</span>
+                            <span class="tag mono">Excel</span>
+                            <span class="tag mono">Finance</span>
+                        </div>
+                        <a href="#" class="card-link">View Case Study <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card animate-on-scroll stagger-3">
+                    <div class="card-thumbnail flex items-center justify-center">
+                         <i data-lucide="database" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Identified Purchasing Trends via E-Commerce Analytics</h3>
+                        <p class="card-desc">Customer segmentation was poorly defined. Used advanced PostgreSQL queries to perform cohort analysis. Uncovered key purchasing trends for targeted marketing.</p>
+                        <div class="tag-row" style="margin-top: auto;">
+                            <span class="tag mono">SQL</span>
+                            <span class="tag mono">PostgreSQL</span>
+                            <span class="tag mono">Python</span>
+                        </div>
+                        <a href="#" class="card-link">View Case Study <span>→</span></a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="card animate-on-scroll stagger-1">
+                    <div class="card-thumbnail flex items-center justify-center">
+                         <i data-lucide="home" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Projected Valuation with Property Forecasting Model</h3>
+                        <p class="card-desc">Real estate portfolio lacked reliable revenue projections. Developed a time-series forecasting model using Python. Delivered accurate valuation metrics for strategic planning.</p>
+                        <div class="tag-row" style="margin-top: auto;">
+                            <span class="tag mono">Python</span>
+                            <span class="tag mono">Pandas</span>
+                            <span class="tag mono">StatsModels</span>
+                        </div>
+                        <a href="#" class="card-link">View Case Study <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card animate-on-scroll stagger-2">
+                    <div class="card-thumbnail flex items-center justify-center">
+                         <i data-lucide="globe" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Improved Supply Chain Efficiency Across APAC</h3>
+                        <p class="card-desc">Cross-border trade metrics were siloed. Engineered an interactive pipeline visibility tool using Alteryx and Tableau. Streamlined tracking and boosted supply chain efficiency.</p>
+                        <div class="tag-row" style="margin-top: auto;">
+                            <span class="tag mono">Alteryx</span>
+                            <span class="tag mono">Tableau</span>
+                            <span class="tag mono">Excel</span>
+                        </div>
+                        <a href="#" class="card-link">View Case Study <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-primary">
+        <div class="container-narrow">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label caption">SKILLS</span>
+                <h2 class="section-title h2">Technical Toolbox</h2>
+            </div>
+            
+            <div class="tag-row animate-on-scroll stagger-1">
+                <span class="skill-tag mono">Power BI</span>
+                <span class="skill-tag mono">DAX</span>
+                <span class="skill-tag mono">Data Modeling</span>
+                <span class="skill-tag mono">SQL</span>
+                <span class="skill-tag mono">PostgreSQL</span>
+                <span class="skill-tag mono">Python</span>
+                <span class="skill-tag mono">Pandas</span>
+                <span class="skill-tag mono">Microsoft Fabric</span>
+                <span class="skill-tag mono">Alteryx</span>
+                <span class="skill-tag mono">Excel</span>
+                <span class="skill-tag mono">Power Query</span>
+                <span class="skill-tag mono">Data Visualization</span>
+                <span class="skill-tag mono">Financial Analysis</span>
+                <span class="skill-tag mono">Stakeholder Reporting</span>
+                <span class="skill-tag mono">Business Intelligence</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section id="experience" class="bg-secondary">
+        <div class="container-narrow">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label caption">EXPERIENCE</span>
+                <h2 class="section-title h2">Career Timeline</h2>
+            </div>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item animate-on-scroll stagger-1">
+                    <div class="timeline-dot active"></div>
+                    <p class="timeline-date caption">AUG 2023 - PRESENT</p>
+                    <h3 class="timeline-role h3">Professional Development</h3>
+                    <p class="timeline-company">Data Analytics Upskilling</p>
+                    <p class="body-sm text-tertiary">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item animate-on-scroll stagger-2">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-date caption">2023</p>
+                    <h3 class="timeline-role h3">Finance & Tax Manager</h3>
+                    <p class="timeline-company">Frasers Property Vietnam</p>
+                    <p class="body-sm text-tertiary">Spearheaded tax due diligence for an 83-mall acquisition, negotiating a US$2M (5%) deal price reduction. Architected an automated Power BI workflow that reclaimed 18+ hours monthly for a 7-member finance team.</p>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item animate-on-scroll stagger-3">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-date caption">AUG 2016 - DEC 2022</p>
+                    <h3 class="timeline-role h3">Tax Manager</h3>
+                    <p class="timeline-company">PwC Vietnam</p>
+                    <p class="body-sm text-tertiary">Consistently ranked as a Top 3 Rising Star with "Exceed Expectation" performance over 6 years. Led a complex 3-year tax dispute for a global logistics firm, analyzing extensive shipping data to successfully save US$27.3M in penalties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="bg-primary">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label caption">QUALIFICATIONS</span>
+                <h2 class="section-title h2">Certifications</h2>
+            </div>
+            
+            <div class="grid grid-cols-4">
+                <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" class="card cert-card animate-on-scroll stagger-1" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon">
+                    <h3 class="cert-name text-sm">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
+                    <p class="caption">Microsoft</p>
+                </a>
+                <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" class="card cert-card animate-on-scroll stagger-2" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon">
+                    <h3 class="cert-name text-sm">Advanced SQL</h3>
+                    <p class="caption">HackerRank</p>
+                </a>
+                <a href="https://www.credly.com/badges/370374bb-f1ff-4900-967d-9764144bc111/public" target="_blank" class="card cert-card animate-on-scroll stagger-3" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px; color: #0081C6; letter-spacing: -0.5px; font-family: Arial, sans-serif;">alteryx</div>
+                    <h3 class="cert-name text-sm">Alteryx Foundational Micro-Credential</h3>
+                    <p class="caption">Alteryx</p>
+                </a>
+                <div class="card cert-card animate-on-scroll stagger-4" style="display: block;">
+                    <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; color: #E3000F; letter-spacing: -1px; font-family: Arial, sans-serif;">ACCA</div>
+                    <h3 class="cert-name text-sm">Chief Accountant & ACCA</h3>
+                    <p class="caption">In Progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-accent" style="padding-top: 128px; padding-bottom: 128px;">
+        <div class="container-narrow">
+            <div class="animate-on-scroll">
+                <span class="section-label caption" style="color: rgba(255,255,255,0.6);">GET IN TOUCH</span>
+                <h2 class="display" style="color: white; margin-bottom: 24px;">Let's Connect</h2>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 48px; max-width: 480px;">
+                    I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
+                </p>
+                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white" style="margin-bottom: 32px;">ntxhien52@gmail.com</a>
+                
+                <div class="flex gap-lg" style="margin-top: 32px;">
+                    <a href="#" aria-label="LinkedIn" style="color: rgba(255,255,255,0.6); transition: color var(--transition-base);" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub" style="color: rgba(255,255,255,0.6); transition: color var(--transition-base);" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                        <i data-lucide="github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #1A1A1A; padding: 24px 0;">
+        <div class="container flex justify-between items-center">
+            <p class="caption" style="margin: 0;">© 2026 Hien Nguyen</p>
+            <p class="caption" style="margin: 0;">Designed & Built by Hien Nguyen</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
