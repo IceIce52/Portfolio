@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
@@ -24,19 +24,57 @@
 
     <style>
         :root {
+            /* Editorial v1 — Full Design System Fixes */
             --color-bg-primary: #FAF8F3;
-            --color-bg-secondary: #F3EFE6;
+            --color-bg-secondary: #F0EBE0;
             --color-surface: #FFFFFF;
             --color-text-primary: #243447;
-            --color-text-secondary: #1A202C;
-            --color-text-tertiary: #718096;
-            --color-accent: #B7791F;
-            --color-accent-hover: #2F855A;
-            --color-border: #E2E8F0;
-            --color-divider: #E2E8F0;
-            --font-heading: 'Georgia', serif;
+            --color-text-secondary: #3D4F5F;
+            --color-text-tertiary: #5A6B7D;
+            --color-accent: #946316;
+            --color-accent-hover: #7A5211;
+            --color-accent-light: #F5EDDF;
+            --color-border: #E2DDD4;
+            --color-divider: #E2DDD4;
+            --font-heading: 'Lora', Georgia, serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
         }
+
+        /* Contact & footer background */
         .bg-accent { background-color: var(--color-text-primary); }
+
+        /* Navbar background fix for editorial palette */
+        .navbar {
+            background-color: rgba(250, 248, 243, 0.95) !important;
+        }
+
+        /* Card elevation */
+        .card {
+            box-shadow: 0 1px 3px rgba(36, 52, 71, 0.06);
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(36, 52, 71, 0.1);
+            border-bottom-color: var(--color-accent);
+        }
+
+        /* Accessibility: focus visible */
+        .btn:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Fix card-desc truncation — remove line clamp */
+        .card-desc {
+            -webkit-line-clamp: unset;
+            display: block;
+            overflow: visible;
+        }
+
+        /* h3 size increase */
+        h3 {
+            font-size: 1.5rem;
+        }
     </style>
 
 </head>
@@ -190,22 +228,37 @@
                 <h2 class="section-title h2">Technical Toolbox</h2>
             </div>
             
-            <div class="tag-row animate-on-scroll stagger-1">
-                <span class="skill-tag mono">Power BI</span>
-                <span class="skill-tag mono">DAX</span>
-                <span class="skill-tag mono">Data Modeling</span>
-                <span class="skill-tag mono">SQL</span>
-                <span class="skill-tag mono">PostgreSQL</span>
-                <span class="skill-tag mono">Python</span>
-                <span class="skill-tag mono">Pandas</span>
-                <span class="skill-tag mono">Microsoft Fabric</span>
-                <span class="skill-tag mono">Alteryx</span>
-                <span class="skill-tag mono">Excel</span>
-                <span class="skill-tag mono">Power Query</span>
-                <span class="skill-tag mono">Data Visualization</span>
-                <span class="skill-tag mono">Financial Analysis</span>
-                <span class="skill-tag mono">Stakeholder Reporting</span>
-                <span class="skill-tag mono">Business Intelligence</span>
+            <div class="grid grid-cols-3 animate-on-scroll stagger-1" style="gap: 32px;">
+                <div class="skill-group">
+                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Data & Visualization</h3>
+                    <div class="tag-row">
+                        <span class="skill-tag mono">Power BI</span>
+                        <span class="skill-tag mono">DAX</span>
+                        <span class="skill-tag mono">Data Modeling</span>
+                        <span class="skill-tag mono">Microsoft Fabric</span>
+                        <span class="skill-tag mono">Tableau</span>
+                        <span class="skill-tag mono">Alteryx</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Programming</h3>
+                    <div class="tag-row">
+                        <span class="skill-tag mono">Python</span>
+                        <span class="skill-tag mono">Pandas</span>
+                        <span class="skill-tag mono">SQL</span>
+                        <span class="skill-tag mono">PostgreSQL</span>
+                        <span class="skill-tag mono">Power Query</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Domain Expertise</h3>
+                    <div class="tag-row">
+                        <span class="skill-tag mono">Financial Analysis</span>
+                        <span class="skill-tag mono">Tax Compliance</span>
+                        <span class="skill-tag mono">Stakeholder Reporting</span>
+                        <span class="skill-tag mono">Business Intelligence</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -234,7 +287,10 @@
                     <p class="timeline-date caption">2023</p>
                     <h3 class="timeline-role h3">Finance & Tax Manager</h3>
                     <p class="timeline-company">Frasers Property Vietnam</p>
-                    <p class="body-sm text-tertiary">Spearheaded tax due diligence for an 83-mall acquisition, negotiating a US$2M (5%) deal price reduction. Architected an automated Power BI workflow that reclaimed 18+ hours monthly for a 7-member finance team.</p>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <p class="body-sm text-tertiary"><strong>US$2M (5%) deal price reduction</strong> — negotiated via tax due diligence for an 83-mall acquisition.</p>
+                        <p class="body-sm text-tertiary"><strong>18+ hours/month saved</strong> — architected an automated Power BI workflow for a 7-member finance team.</p>
+                    </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
@@ -243,7 +299,10 @@
                     <p class="timeline-date caption">AUG 2016 - DEC 2022</p>
                     <h3 class="timeline-role h3">Tax Manager</h3>
                     <p class="timeline-company">PwC Vietnam</p>
-                    <p class="body-sm text-tertiary">Consistently ranked as a Top 3 Rising Star with "Exceed Expectation" performance over 6 years. Led a complex 3-year tax dispute for a global logistics firm, analyzing extensive shipping data to successfully save US$27.3M in penalties.</p>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <p class="body-sm text-tertiary"><strong>Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
+                        <p class="body-sm text-tertiary"><strong>US$27.3M saved in tax penalties</strong> — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
+                    </div>
                 </div>
             </div>
         </div>
