@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hien Nguyen - Business Intelligence Analyst</title>
-    <meta name="description" content="Portfolio of Hien Nguyen, a Business Intelligence Analyst with a background in Finance & Tax.">
+    <meta name="description" content="Portfolio of Hien Nguyen, a Business Intelligence Analyst with a background in Finance &amp; Tax. Specializing in Power BI, SQL, Python, and financial data analytics.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,20 +24,38 @@
 
     <style>
         :root {
-            /* Editorial v1 — Full Design System Fixes */
+            /* ═══ Editorial v2 — Full Design System ═══ */
+
+            /* Backgrounds */
             --color-bg-primary: #FAF8F3;
             --color-bg-secondary: #F0EBE0;
+            --color-bg-footer: #243447;
             --color-surface: #FFFFFF;
+
+            /* Text */
             --color-text-primary: #243447;
             --color-text-secondary: #3D4F5F;
             --color-text-tertiary: #5A6B7D;
+            --color-text-on-dark: rgba(255, 255, 255, 0.90);
+            --color-text-on-dark-muted: rgba(255, 255, 255, 0.65);
+
+            /* Accent (Editorial Gold) */
             --color-accent: #946316;
             --color-accent-hover: #7A5211;
             --color-accent-light: #F5EDDF;
+
+            /* Borders */
             --color-border: #E2DDD4;
             --color-divider: #E2DDD4;
+
+            /* Typography */
             --font-heading: 'Lora', Georgia, serif;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(36, 52, 71, 0.06);
+            --shadow-md: 0 4px 12px rgba(36, 52, 71, 0.10);
+            --shadow-lg: 0 8px 24px rgba(36, 52, 71, 0.12);
         }
 
         /* Contact & footer background */
@@ -48,13 +66,19 @@
             background-color: rgba(250, 248, 243, 0.95) !important;
         }
 
-        /* Card elevation */
+        /* Card elevation — using shadow tokens */
         .card {
-            box-shadow: 0 1px 3px rgba(36, 52, 71, 0.06);
+            box-shadow: var(--shadow-sm);
         }
         .card:hover {
-            box-shadow: 0 4px 12px rgba(36, 52, 71, 0.1);
+            box-shadow: var(--shadow-md);
             border-bottom-color: var(--color-accent);
+        }
+
+        /* Button: 44px min target for WCAG 2.5.8 */
+        .btn {
+            padding: 14px 28px;
+            min-height: 44px;
         }
 
         /* Accessibility: focus visible */
@@ -64,7 +88,24 @@
             outline-offset: 2px;
         }
 
-        /* Fix card-desc truncation — remove line clamp */
+        /* Skip-to-content link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            z-index: 200;
+            padding: 12px 24px;
+            background-color: var(--color-accent);
+            color: var(--color-surface);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        /* Fix card-desc truncation */
         .card-desc {
             -webkit-line-clamp: unset;
             display: block;
@@ -75,10 +116,145 @@
         h3 {
             font-size: 1.5rem;
         }
+
+        /* Hero KPI ribbon */
+        .kpi-ribbon {
+            display: flex;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        .kpi-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .kpi-number {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        .kpi-label {
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Profile photo placeholder with initials */
+        .profile-photo {
+            width: 280px;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            /* Replace background-color with your real photo:
+               background-image: url('img/headshot.jpg');
+               background-size: cover;
+               background-position: center; */
+            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-accent-light) 100%);
+        }
+        .profile-initials {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            opacity: 0.35;
+            user-select: none;
+        }
+
+        /* Social links — CSS-only hover (keyboard accessible) */
+        .social-link {
+            color: var(--color-text-on-dark-muted);
+            transition: color var(--transition-base);
+            padding: 10px;
+            display: inline-flex;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-link:hover,
+        .social-link:focus-visible {
+            color: var(--color-text-on-dark);
+        }
+
+        /* CTA card (6th card to fix orphan gap) */
+        .card-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--color-accent-light);
+            border-bottom-color: var(--color-accent);
+            min-height: 200px;
+        }
+        .card-cta:hover {
+            background-color: var(--color-accent);
+        }
+        .card-cta:hover .card-cta-text,
+        .card-cta:hover .card-cta-icon {
+            color: var(--color-surface);
+        }
+        .card-cta-icon {
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+            transition: color var(--transition-base);
+        }
+        .card-cta-text {
+            font-weight: 600;
+            color: var(--color-accent);
+            font-size: 1.125rem;
+            transition: color var(--transition-base);
+        }
+
+        /* Footer text fix for dark background */
+        .footer-text {
+            color: var(--color-text-on-dark-muted);
+        }
+
+        /* Skill group title class */
+        .skill-group-title {
+            margin-bottom: var(--space-md);
+            font-size: 1.1rem;
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        /* Experience number emphasis */
+        .exp-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        .exp-highlights strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        /* Timeline description max-width for readability */
+        .timeline-item p.body-sm,
+        .timeline-item .exp-highlights {
+            max-width: 560px;
+        }
     </style>
 
 </head>
 <body>
+
+    <!-- Skip to content (Accessibility) -->
+    <a href="#about" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -97,25 +273,41 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="bg-primary" style="padding-top: 128px; padding-bottom: 96px; min-height: 80vh; display: flex; align-items: center;">
+    <section id="about" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-4xl); min-height: 80vh; display: flex; align-items: center;">
         <div class="container grid grid-cols-2 items-center">
             <div class="animate-on-scroll">
-                <div style="width: 280px; height: 350px; background-color: var(--color-bg-secondary); border-radius: 8px; overflow: hidden; margin: 0 auto;">
-                    <!-- Placeholder for profile image -->
-                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--color-text-tertiary);">
-                        <i data-lucide="user" style="width: 64px; height: 64px; stroke-width: 1;"></i>
-                    </div>
+                <div class="profile-photo">
+                    <!-- Replace this div with an <img> tag when you have a real headshot:
+                         <img src="img/headshot.jpg" alt="Hien Nguyen" style="width:100%;height:100%;object-fit:cover;"> -->
+                    <div class="profile-initials">HN</div>
                 </div>
             </div>
             <div class="animate-on-scroll stagger-1">
                 <span class="section-label caption">HELLO, I'M</span>
-                <h1 class="display" style="margin-bottom: 16px;">Hien Nguyen</h1>
-                <h2 class="h3" style="color: var(--color-text-secondary); margin-bottom: 24px;">Business Intelligence Analyst</h2>
-                <p style="max-width: 520px; margin-bottom: 32px;">
+                <h1 class="display" style="margin-bottom: var(--space-md);">Hien Nguyen</h1>
+                <h2 class="h3" style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">Business Intelligence Analyst</h2>
+                
+                <!-- Hero KPI Ribbon — the number leads, the story follows -->
+                <div class="kpi-ribbon">
+                    <div class="kpi-item">
+                        <span class="kpi-number">US$27.3M</span>
+                        <span class="kpi-label">Tax Penalties Saved</span>
+                    </div>
+                    <div class="kpi-item">
+                        <span class="kpi-number">18+ hrs</span>
+                        <span class="kpi-label">Monthly Automation</span>
+                    </div>
+                    <div class="kpi-item">
+                        <span class="kpi-number">3</span>
+                        <span class="kpi-label">Certifications</span>
+                    </div>
+                </div>
+
+                <p style="max-width: 520px; margin-bottom: var(--space-xl);">
                     Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
                 </p>
                 <div class="flex gap-md" style="flex-wrap: wrap;">
-                    <a href="#" class="btn btn-primary">View Resume</a>
+                    <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary">Get in Touch</a>
                     <a href="#projects" class="btn btn-outline">View Projects</a>
                 </div>
             </div>
@@ -139,13 +331,12 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Optimized Global Effective Tax Rate Benchmarking</h3>
-                        <p class="card-desc">Lack of visibility into global tax drivers. Connected regulatory data using Power BI & DAX. Enabled executives to benchmark financial outcomes accurately.</p>
+                        <p class="card-desc">Lack of visibility into global tax drivers. Connected regulatory data using Power BI &amp; DAX. Enabled executives to benchmark financial outcomes accurately.</p>
                         <div class="tag-row" style="margin-top: auto;">
                             <span class="tag mono">Power BI</span>
                             <span class="tag mono">DAX</span>
                             <span class="tag mono">SQL</span>
                         </div>
-                        <a href="#" class="card-link">View Case Study <span>→</span></a>
                     </div>
                 </div>
 
@@ -156,13 +347,12 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Automated CFO Dashboards to Save 18+ Hours/Month</h3>
-                        <p class="card-desc">Manual reporting delayed strategic decisions. Built an automated P&L and Cashflow variance model. Reclaimed 18+ hours monthly for the finance team.</p>
+                        <p class="card-desc">Manual reporting delayed strategic decisions. Built an automated P&amp;L and Cashflow variance model. Reclaimed 18+ hours monthly for the finance team.</p>
                         <div class="tag-row" style="margin-top: auto;">
                             <span class="tag mono">Power BI</span>
                             <span class="tag mono">Excel</span>
                             <span class="tag mono">Finance</span>
                         </div>
-                        <a href="#" class="card-link">View Case Study <span>→</span></a>
                     </div>
                 </div>
 
@@ -179,7 +369,6 @@
                             <span class="tag mono">PostgreSQL</span>
                             <span class="tag mono">Python</span>
                         </div>
-                        <a href="#" class="card-link">View Case Study <span>→</span></a>
                     </div>
                 </div>
                 
@@ -196,7 +385,6 @@
                             <span class="tag mono">Pandas</span>
                             <span class="tag mono">StatsModels</span>
                         </div>
-                        <a href="#" class="card-link">View Case Study <span>→</span></a>
                     </div>
                 </div>
 
@@ -213,9 +401,14 @@
                             <span class="tag mono">Tableau</span>
                             <span class="tag mono">Excel</span>
                         </div>
-                        <a href="#" class="card-link">View Case Study <span>→</span></a>
                     </div>
                 </div>
+
+                <!-- Project 6 — CTA card to fill grid orphan -->
+                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none;">
+                    <i data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5;"></i>
+                    <span class="card-cta-text">View All Projects</span>
+                </a>
             </div>
         </div>
     </section>
@@ -228,9 +421,9 @@
                 <h2 class="section-title h2">Technical Toolbox</h2>
             </div>
             
-            <div class="grid grid-cols-3 animate-on-scroll stagger-1" style="gap: 32px;">
+            <div class="grid grid-cols-3 animate-on-scroll stagger-1" style="gap: var(--space-xl);">
                 <div class="skill-group">
-                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Data & Visualization</h3>
+                    <h3 class="skill-group-title">Data &amp; Visualization</h3>
                     <div class="tag-row">
                         <span class="skill-tag mono">Power BI</span>
                         <span class="skill-tag mono">DAX</span>
@@ -241,7 +434,7 @@
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Programming</h3>
+                    <h3 class="skill-group-title">Programming</h3>
                     <div class="tag-row">
                         <span class="skill-tag mono">Python</span>
                         <span class="skill-tag mono">Pandas</span>
@@ -251,7 +444,7 @@
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3 class="h4" style="margin-bottom: 16px; font-size: 1.1rem; color: var(--color-text-primary);">Domain Expertise</h3>
+                    <h3 class="skill-group-title">Domain Expertise</h3>
                     <div class="tag-row">
                         <span class="skill-tag mono">Financial Analysis</span>
                         <span class="skill-tag mono">Tax Compliance</span>
@@ -285,9 +478,9 @@
                 <div class="timeline-item animate-on-scroll stagger-2">
                     <div class="timeline-dot"></div>
                     <p class="timeline-date caption">2023</p>
-                    <h3 class="timeline-role h3">Finance & Tax Manager</h3>
+                    <h3 class="timeline-role h3">Finance &amp; Tax Manager</h3>
                     <p class="timeline-company">Frasers Property Vietnam</p>
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div class="exp-highlights">
                         <p class="body-sm text-tertiary"><strong>US$2M (5%) deal price reduction</strong> — negotiated via tax due diligence for an 83-mall acquisition.</p>
                         <p class="body-sm text-tertiary"><strong>18+ hours/month saved</strong> — architected an automated Power BI workflow for a 7-member finance team.</p>
                     </div>
@@ -299,7 +492,7 @@
                     <p class="timeline-date caption">AUG 2016 - DEC 2022</p>
                     <h3 class="timeline-role h3">Tax Manager</h3>
                     <p class="timeline-company">PwC Vietnam</p>
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div class="exp-highlights">
                         <p class="body-sm text-tertiary"><strong>Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
                         <p class="body-sm text-tertiary"><strong>US$27.3M saved in tax penalties</strong> — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
                     </div>
@@ -334,7 +527,7 @@
                 </a>
                 <div class="card cert-card animate-on-scroll stagger-4" style="display: block;">
                     <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; color: #E3000F; letter-spacing: -1px; font-family: Arial, sans-serif;">ACCA</div>
-                    <h3 class="cert-name text-sm">Chief Accountant & ACCA</h3>
+                    <h3 class="cert-name text-sm">Chief Accountant &amp; ACCA</h3>
                     <p class="caption">In Progress</p>
                 </div>
             </div>
@@ -342,21 +535,21 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-accent" style="padding-top: 128px; padding-bottom: 128px;">
+    <section id="contact" class="bg-accent" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <div class="container-narrow">
             <div class="animate-on-scroll">
-                <span class="section-label caption" style="color: rgba(255,255,255,0.6);">GET IN TOUCH</span>
-                <h2 class="display" style="color: white; margin-bottom: 24px;">Let's Connect</h2>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 48px; max-width: 480px;">
+                <span class="section-label caption" style="color: var(--color-text-on-dark-muted);">GET IN TOUCH</span>
+                <h2 class="display" style="color: var(--color-text-on-dark); margin-bottom: var(--space-lg);">Let's Connect</h2>
+                <p style="color: var(--color-text-on-dark); margin-bottom: var(--space-2xl); max-width: 480px;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
-                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white" style="margin-bottom: 32px;">ntxhien52@gmail.com</a>
+                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white" style="margin-bottom: var(--space-xl);">ntxhien52@gmail.com</a>
                 
-                <div class="flex gap-lg" style="margin-top: 32px;">
-                    <a href="#" aria-label="LinkedIn" style="color: rgba(255,255,255,0.6); transition: color var(--transition-base);" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                <div class="flex gap-md" style="margin-top: var(--space-xl);">
+                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="social-link">
                         <i data-lucide="linkedin"></i>
                     </a>
-                    <a href="#" aria-label="GitHub" style="color: rgba(255,255,255,0.6); transition: color var(--transition-base);" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                    <a href="https://github.com/yourprofile" aria-label="GitHub" class="social-link">
                         <i data-lucide="github"></i>
                     </a>
                 </div>
@@ -365,10 +558,10 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: #1A1A1A; padding: 24px 0;">
+    <footer style="background-color: var(--color-bg-footer); padding: var(--space-lg) 0;">
         <div class="container flex justify-between items-center">
-            <p class="caption" style="margin: 0;">© 2026 Hien Nguyen</p>
-            <p class="caption" style="margin: 0;">Designed & Built by Hien Nguyen</p>
+            <p class="caption footer-text" style="margin: 0;">© 2026 Hien Nguyen</p>
+            <p class="caption footer-text" style="margin: 0;">Designed &amp; Built by Hien Nguyen</p>
         </div>
     </footer>
 
