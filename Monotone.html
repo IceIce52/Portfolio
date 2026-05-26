@@ -114,55 +114,63 @@
         }
 
         [data-theme="dark"] {
-            --color-bg-primary: #111827;
-            --color-bg-secondary: #0f1522;
-            --color-bg-dark: #0f1522;
-            --color-surface: #1f2937;
+            --color-bg-primary: #0F172A;
+            --color-bg-secondary: #111827;
+            --color-bg-dark: #1E293B;
+            --color-surface: #1E293B;
 
-            --color-text-primary: #ffffff;
-            --color-text-secondary: #9ca3af;
-            --color-text-tertiary: #6b7280;
+            --color-text-primary: #F8FAFC;
+            --color-text-secondary: #CBD5E1;
+            --color-text-tertiary: #94A3B8;
             --color-text-on-dark: rgba(255,255,255,0.92);
             --color-text-on-dark-muted: rgba(255,255,255,0.70);
 
-            --color-accent: #9146ff;
-            --color-accent-hover: #7B3FD9;
-            --color-accent-soft: rgba(145, 70, 255, 0.15);
+            --color-accent: #8B5CF6;
+            --color-accent-hover: #A78BFA;
+            --color-accent-soft: rgba(139, 92, 246, 0.15);
 
-            --color-border: rgba(255, 255, 255, 0.1);
-            --color-divider: rgba(255, 255, 255, 0.05);
+            --color-border: rgba(248, 250, 252, 0.08);
+            --color-divider: rgba(248, 250, 252, 0.04);
 
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
-            --shadow-lg: 0 16px 48px rgba(0,0,0,0.7);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
 
-            --color-hero-btn-bg: #9146ff;
-            --color-hero-btn-text: #ffffff;
-            --color-hero-btn-hover: #7B3FD9;
-            --color-hero-outline-border: rgba(255, 255, 255, 0.2);
-            --color-hero-outline-text: #ffffff;
-            --color-hero-outline-hover: rgba(255, 255, 255, 0.05);
+            --color-hero-btn-bg: #7C3AED;
+            --color-hero-btn-text: #F8FAFC;
+            --color-hero-btn-hover: #8B5CF6;
+            --color-hero-outline-border: rgba(248, 250, 252, 0.2);
+            --color-hero-outline-text: #F8FAFC;
+            --color-hero-outline-hover: rgba(248, 250, 252, 0.05);
 
-            --color-navbar-bg: rgba(17, 24, 39, 0.82);
-            --color-navbar-border: rgba(255, 255, 255, 0.05);
+            --color-navbar-bg: rgba(15, 23, 42, 0.82);
+            --color-navbar-border: rgba(248, 250, 252, 0.05);
 
-            --color-contact-bg: #1f2937;
-            --color-contact-label: #bf94ff;
-            --color-contact-heading: #ffffff;
-            --color-contact-text: #9ca3af;
-            --color-contact-btn-bg: #ffffff;
-            --color-contact-btn-text: #000000;
-            --color-contact-btn-border: transparent;
-            --color-contact-btn-hover-bg: #e5e7eb;
-            --color-contact-btn-hover-text: #000000;
-            --color-contact-social-bg: rgba(255, 255, 255, 0.05);
-            --color-contact-social-hover-bg: rgba(145, 70, 255, 0.2);
-            --color-contact-social-hover-text: #bf94ff;
+            --color-contact-bg: #111827;
+            --color-contact-label: #A78BFA;
+            --color-contact-heading: #F8FAFC;
+            --color-contact-text: #CBD5E1;
+            --color-contact-btn-bg: rgba(248, 250, 252, 0.03);
+            --color-contact-btn-text: #F8FAFC;
+            --color-contact-btn-border: rgba(248, 250, 252, 0.1);
+            --color-contact-btn-hover-bg: rgba(248, 250, 252, 0.08);
+            --color-contact-btn-hover-text: #F8FAFC;
+            --color-contact-social-bg: rgba(248, 250, 252, 0.05);
+            --color-contact-social-hover-bg: rgba(139, 92, 246, 0.2);
+            --color-contact-social-hover-text: #A78BFA;
 
-            --color-footer-bg: #0f1522;
-            --color-preloader-text: #9146ff;
+            --color-footer-bg: #0F172A;
+            --color-preloader-text: #8B5CF6;
             
-            --color-badge-bg: rgba(255,255,255,0.05);
+            --color-badge-bg: rgba(248, 250, 252, 0.06);
+        }
+
+        [data-theme="dark"] .section-label {
+            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            font-weight: 700;
         }
 
         /* Typography Scale */
@@ -209,23 +217,23 @@
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             min-height: 48px; padding: 14px 24px; border-radius: 999px; font-weight: 600;
-            transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+            transition: transform var(--transition-base), background-color var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), color var(--transition-base);
             text-decoration: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 1rem;
         }
         .btn:hover { transform: translateY(-2px); }
-        .btn-primary { background: var(--color-accent); color: white; box-shadow: var(--shadow-sm); }
-        .btn-primary:hover { background: var(--color-accent-hover); box-shadow: var(--shadow-md); color: white; }
-        .btn-outline { border: 1px solid var(--color-border); background: white; color: var(--color-text-primary); }
-        .btn-outline:hover { background: var(--color-bg-secondary); color: var(--color-text-primary); }
+        .btn-primary { background-color: var(--color-accent); color: white; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background-color: var(--color-accent-hover); box-shadow: var(--shadow-md); color: white; }
+        .btn-outline { border: 1px solid var(--color-border); background-color: white; color: var(--color-text-primary); }
+        .btn-outline:hover { background-color: var(--color-bg-secondary); color: var(--color-text-primary); }
 
         /* Card System Upgrade */
         .card {
             display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden;
-            border: 1px solid var(--color-border); background: white;
-            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+            border: 1px solid var(--color-border); background-color: white;
+            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
             text-decoration: none;
         }
-        .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.25); }
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.25); }
         .card-thumbnail img { width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); }
         .card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
@@ -367,11 +375,10 @@
         (function() {
             try {
                 var storedTheme = localStorage.getItem('theme');
-                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
+                if (storedTheme) {
+                    document.documentElement.setAttribute('data-theme', storedTheme);
                 } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.documentElement.setAttribute('data-theme', 'dark');
                 }
             } catch (e) {}
         })();
@@ -698,7 +705,7 @@
         <style>
             /* Certifications Visual Refinement */
             [data-theme="dark"] #certifications {
-                background: linear-gradient(180deg, #0F1522 0%, #111827 100%);
+                background-color: var(--color-bg-primary);
             }
             #certifications .cert-card {
                 text-decoration: none; 
@@ -710,24 +717,25 @@
                 padding: var(--space-xl) var(--space-lg); 
                 border-radius: 16px; 
                 transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease, background-color 250ms ease; 
-                background: var(--color-surface);
+                background-color: var(--color-surface);
                 border: 1px solid var(--color-border);
                 height: 100%;
                 position: relative;
             }
             #certifications .cert-card:hover {
-                transform: translateY(-4px);
+                transform: translateY(-2px);
                 box-shadow: var(--shadow-md);
                 border-color: rgba(37, 99, 235, 0.25);
             }
             [data-theme="dark"] #certifications .cert-card {
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.08);
+                background-color: rgba(248, 250, 252, 0.03);
+                border: 1px solid rgba(248, 250, 252, 0.08);
             }
             [data-theme="dark"] #certifications .cert-card:hover {
-                border-color: rgba(145, 70, 255, 0.3);
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-                background: rgba(255, 255, 255, 0.04);
+                border-color: rgba(139, 92, 246, 0.3);
+                box-shadow: var(--shadow-md);
+                background-color: rgba(248, 250, 252, 0.04);
+                transform: translateY(-2px);
             }
             
             #certifications .cert-icon-wrapper {
@@ -905,32 +913,34 @@
                 color: var(--color-contact-text) !important;
                 transition: color 200ms ease;
             }
-            #contact .btn-white {
+            #contact .contact-btn {
                 background-color: var(--color-contact-btn-bg) !important;
                 color: var(--color-contact-btn-text) !important;
                 border: 1px solid var(--color-contact-btn-border) !important;
-                transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease !important;
-            }
-            #contact .btn-white:hover {
-                background-color: var(--color-contact-btn-hover-bg) !important;
-                color: var(--color-contact-btn-hover-text) !important;
-            }
-            #contact .contact-icon {
-                background-color: var(--color-contact-social-bg) !important;
-                color: var(--color-contact-social-text) !important;
-                transition: background-color 200ms ease, color 200ms ease, transform 200ms ease !important;
-                width: 44px !important;
-                height: 44px !important;
-                display: flex !important;
+                transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease !important;
+                display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
+                gap: 12px !important;
+                height: 56px !important;
+                padding: 0 32px !important;
                 border-radius: var(--radius-sm) !important;
+                font-family: var(--font-body) !important;
+                font-weight: 500 !important;
+                font-size: 1.0625rem !important;
+                text-decoration: none !important;
             }
-            #contact .contact-icon:hover,
-            #contact .contact-icon:focus-visible {
-                background-color: var(--color-contact-social-hover-bg) !important;
-                color: var(--color-contact-social-hover-text) !important;
+            #contact .contact-btn:hover,
+            #contact .contact-btn:focus-visible {
+                background-color: var(--color-contact-btn-hover-bg) !important;
+                color: var(--color-contact-btn-hover-text) !important;
+                border-color: rgba(139, 92, 246, 0.4) !important;
                 transform: translateY(-2px) !important;
+                box-shadow: var(--shadow-sm) !important;
+            }
+            #contact .contact-btn i {
+                width: 24px !important;
+                height: 24px !important;
             }
         </style>
         <div class="container-narrow">
@@ -940,12 +950,12 @@
                 <p style="margin-bottom: var(--space-2xl); max-width: 480px;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
-                <div class="flex gap-md justify-center mb-xl">
-                    <a href="mailto:ntxhien52@gmail.com" aria-label="Email Hien Nguyen" class="contact-icon">
-                        <i aria-hidden="true" data-lucide="mail"></i>
+                <div class="flex gap-md justify-center mb-xl" style="flex-wrap: wrap;">
+                    <a href="mailto:ntxhien52@gmail.com" class="contact-btn">
+                        <i aria-hidden="true" data-lucide="mail"></i> Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="contact-icon">
-                        <i aria-hidden="true" data-lucide="linkedin"></i>
+                    <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                        <i aria-hidden="true" data-lucide="linkedin"></i> Connect on LinkedIn
                     </a>
                 </div>
             </div>
