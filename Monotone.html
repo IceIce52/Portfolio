@@ -33,6 +33,10 @@
     <!-- v2 Design System Fixes -->
     <style>
         :root {
+            /* ===== Easing Systems ===== */
+            --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
             /* ===== Backgrounds ===== */
             --color-bg-primary: #FAFBFC;
             --color-bg-secondary: #F5F7FA;
@@ -65,7 +69,9 @@
             --radius-md: 12px;
             --radius-lg: 20px;
 
-            /* ===== Shadows ===== */
+            /* ===== Refined Shadows - Multi-layered for realistic depth ===== */
+            --shadow-micro: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+            --shadow-float: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -4px rgba(0, 0, 0, 0.04);
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
             --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
             --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
@@ -79,9 +85,10 @@
             --space-2xl: 48px;
             --space-3xl: 72px;
             --space-4xl: 96px;
+            --space-5xl: 128px; /* Added for spatial pacing */
 
             /* ===== Transition ===== */
-            --transition-base: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+            --transition-base: 300ms var(--ease-premium);
 
             /* ===== Component Semantics ===== */
             --color-hero-btn-bg: #1A1A1A;
@@ -114,11 +121,17 @@
         }
 
         [data-theme="dark"] {
-            /* ===== Enterprise Palette ===== */
-            --color-bg-primary: #0B1020;
-            --color-bg-secondary: #111827;
-            --color-bg-dark: #151B2E;
-            --color-surface: #1C2438;
+            /* ===== Enterprise Palette (Deep Tonal Hierarchy) ===== */
+            --color-bg-base: #080B12; /* Deepest backdrop */
+            --color-surface-1: #0F1420; /* Primary cards */
+            --color-surface-2: #161D2E; /* Elevated elements */
+            --color-border-subtle: rgba(255, 255, 255, 0.04);
+            --color-border-glow: rgba(255, 255, 255, 0.1);
+
+            --color-bg-primary: var(--color-bg-base);
+            --color-bg-secondary: #0A0E17;
+            --color-bg-dark: var(--color-surface-1);
+            --color-surface: var(--color-surface-1);
 
             --color-text-primary: #F8FAFC;
             --color-text-secondary: #CBD5E1;
@@ -130,9 +143,11 @@
             --color-accent-hover: #6D63D9;
             --color-accent-soft: rgba(91, 79, 207, 0.12);
 
-            --color-border: rgba(248, 250, 252, 0.06);
+            --color-border: var(--color-border-subtle);
             --color-divider: rgba(248, 250, 252, 0.04);
 
+            --shadow-micro: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--color-border-subtle) inset;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
             --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
             --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
@@ -144,10 +159,10 @@
             --color-hero-outline-text: #F8FAFC;
             --color-hero-outline-hover: rgba(248, 250, 252, 0.04);
 
-            --color-navbar-bg: rgba(11, 16, 32, 0.82);
-            --color-navbar-border: rgba(248, 250, 252, 0.05);
+            --color-navbar-bg: rgba(8, 11, 18, 0.78);
+            --color-navbar-border: var(--color-border-subtle);
 
-            --color-contact-bg: #20293A;
+            --color-contact-bg: #05070A; /* Cinematic finale */
             --color-contact-label: #7A73E8;
             --color-contact-heading: #F8FAFC;
             --color-contact-text: #CBD5E1;
@@ -160,10 +175,53 @@
             --color-contact-social-hover-bg: rgba(91, 79, 207, 0.15);
             --color-contact-social-hover-text: #7A73E8;
 
-            --color-footer-bg: #0B1020;
+            --color-footer-bg: #05070A;
             --color-preloader-text: #5B4FCF;
             
             --color-badge-bg: rgba(248, 250, 252, 0.04);
+        }
+        
+        /* Atmospheric Depth System & Continuous Section Transitions */
+        [data-theme="dark"] body {
+            background-color: var(--color-bg-base);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(91, 79, 207, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(91, 79, 207, 0.03) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        [data-theme="dark"] .bg-primary,
+        [data-theme="dark"] .bg-secondary,
+        [data-theme="dark"] .bg-accent {
+            background-color: transparent !important;
+            position: relative;
+        }
+
+        [data-theme="dark"] #about {
+            background: linear-gradient(to bottom, transparent, rgba(10, 14, 23, 0.5)) !important;
+        }
+        [data-theme="dark"] #projects {
+            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.5), rgba(10, 14, 23, 0.8)) !important;
+        }
+        [data-theme="dark"] #skills {
+            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.5)) !important;
+        }
+        [data-theme="dark"] #experience {
+            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.5), var(--color-bg-base)) !important;
+        }
+        [data-theme="dark"] #certifications {
+            background: var(--color-bg-base) !important;
+        }
+        [data-theme="dark"] #contact {
+            background: var(--color-contact-bg) !important;
+            position: relative;
+        }
+        [data-theme="dark"] #contact::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 150px;
+            background: linear-gradient(to bottom, var(--color-bg-base), transparent);
+            pointer-events: none;
         }
 
         [data-theme="dark"] .section-label {
@@ -171,15 +229,15 @@
             font-weight: 600;
         }
 
-        /* Typography Scale */
-        .display { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 700; font-family: var(--font-body); }
-        .h1 { font-size: 3rem; line-height: 1.1; font-family: var(--font-body); }
-        .h2 { font-size: 2.25rem; line-height: 1.15; font-family: var(--font-body); }
-        .h3 { font-size: 1.5rem; line-height: 1.25; font-family: var(--font-body); }
+        /* Typography Scale - Premium Typography Rhythm */
+        .display { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; font-family: var(--font-body); }
+        .h1 { font-size: 3rem; line-height: 1.1; letter-spacing: -0.02em; font-family: var(--font-body); font-weight: 600; }
+        .h2 { font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.01em; font-family: var(--font-body); font-weight: 600; }
+        .h3 { font-size: 1.5rem; line-height: 1.25; font-family: var(--font-body); font-weight: 600; }
         .body-lg { font-size: 1.125rem; line-height: 1.75; font-family: var(--font-body); }
         .body { font-size: 1rem; line-height: 1.7; font-family: var(--font-body); }
         .body-sm { font-size: 0.9375rem; line-height: 1.6; font-family: var(--font-body); }
-        .caption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-body); }
+        .section-label, .caption { font-size: 0.75rem; letter-spacing: 0.12em; font-weight: 500; opacity: 0.8; text-transform: uppercase; font-family: var(--font-body); }
 
         /* Utility Classes */
         .mb-sm { margin-bottom: var(--space-sm); }
@@ -193,15 +251,16 @@
         .mt-lg { margin-top: var(--space-lg); }
         .mt-xl { margin-top: var(--space-xl); }
 
-        /* Navbar Upgrade */
+        /* Navbar Upgrade - Glassmorphism */
         .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             background: var(--color-navbar-bg);
             border-bottom: 1px solid var(--color-navbar-border);
-            transition: background-color 200ms ease, border-color 200ms ease;
+            transition: background-color 300ms var(--ease-premium), border-color 300ms var(--ease-premium), transform 400ms var(--ease-premium);
         }
         .logo { font-weight: 700; letter-spacing: -0.02em; font-family: var(--font-body); color: var(--color-text-primary); text-decoration: none; }
         .nav-link { position: relative; color: var(--color-text-secondary); transition: color var(--transition-base); text-decoration: none; font-family: var(--font-body); }
@@ -227,15 +286,49 @@
         /* Card System Upgrade */
         .card {
             display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden;
-            border: 1px solid var(--color-border); background-color: white;
-            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+            background-color: var(--color-surface);
+            border: none;
+            box-shadow: 0 0 0 1px var(--color-border) inset, var(--shadow-micro);
+            transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), background-color 0.5s var(--ease-premium);
+            will-change: transform, box-shadow;
             text-decoration: none;
         }
-        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(248,250,252,0.12); }
-        .card-thumbnail img { width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); }
+        [data-theme="dark"] .card {
+            background-color: var(--color-surface-1);
+            box-shadow: 0 0 0 1px var(--color-border-subtle) inset, var(--shadow-micro);
+        }
+        .card:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15) inset, var(--shadow-float); 
+        }
+        [data-theme="dark"] .card:hover {
+            box-shadow: 0 0 0 1px var(--color-border-glow) inset, var(--shadow-float);
+            background-color: var(--color-surface-2);
+        }
+        .card-thumbnail { overflow: hidden; }
+        .card-thumbnail img { 
+            width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); 
+            transition: transform 0.6s var(--ease-premium);
+        }
+        [data-theme="dark"] .card-thumbnail img { border-bottom: 1px solid var(--color-border-subtle); }
+        .card:hover .card-thumbnail img { transform: scale(1.03); }
         .card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
         .card-desc { font-family: var(--font-body); color: var(--color-text-secondary); margin-bottom: var(--space-md); flex-grow: 1; line-height: 1.6; }
+
+        /* Cinematic Motion System (For Intersection Observer) */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.65s var(--ease-premium), transform 0.65s var(--ease-premium);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
 
         /* Simplified Timeline */
         .timeline-item {
@@ -286,10 +379,51 @@
         .tag { font-size: 0.75rem; padding: 4px 10px; background: var(--color-bg-secondary); border-radius: 4px; color: var(--color-text-secondary); font-family: var(--font-mono); }
         .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
         
-        .cert-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: transform 0.3s ease, box-shadow 0.3s ease; background: white; }
-        .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        /* Certifications Card System Upgrade */
+        .cert-card { 
+            text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
+            padding: var(--space-lg); border-radius: var(--radius-md); 
+            background-color: var(--color-surface);
+            border: none;
+            box-shadow: 0 0 0 1px var(--color-border) inset, var(--shadow-micro);
+            transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), background-color 0.5s var(--ease-premium);
+            will-change: transform, box-shadow;
+        }
+        [data-theme="dark"] .cert-card {
+            background-color: var(--color-surface-1);
+            box-shadow: 0 0 0 1px var(--color-border-subtle) inset, var(--shadow-micro);
+        }
+        .cert-card:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15) inset, var(--shadow-float); 
+        }
+        [data-theme="dark"] .cert-card:hover {
+            box-shadow: 0 0 0 1px var(--color-border-glow) inset, var(--shadow-float);
+            background-color: var(--color-surface-2);
+        }
         .cert-icon { margin-bottom: var(--space-md); }
         .cert-name { font-weight: 600; font-family: var(--font-body); color: var(--color-text-primary); margin-bottom: 4px; }
+
+        /* Projects Section Hierarchy */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            width: 100%;
+        }
+        @media (min-width: 992px) {
+            .projects-grid { grid-template-columns: repeat(12, 1fr); }
+            .projects-grid > * { grid-column: span 4; }
+            .project-featured { grid-column: span 12; flex-direction: row; }
+            .project-featured .card-thumbnail { width: 50%; height: auto; border-bottom: none; border-right: 1px solid var(--color-border); }
+            [data-theme="dark"] .project-featured .card-thumbnail { border-right: 1px solid var(--color-border-subtle); }
+            .project-featured .card-thumbnail img { height: 100%; }
+            .project-featured .card-content { width: 50%; padding: var(--space-3xl) var(--space-2xl); justify-content: center; }
+            .project-secondary { grid-column: span 7; }
+            .project-tertiary { grid-column: span 5; }
+            .project-quaternary { grid-column: span 6; }
+            .project-quinary { grid-column: span 6; }
+        }
 
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
@@ -459,17 +593,17 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-secondary">
+    <section id="projects" class="bg-secondary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-label caption">PROJECTS</span>
-                <h2 class="section-title h2">Featured Work</h2>
-                <p class="body-sm text-tertiary">Selected analytics and BI projects</p>
+            <div class="section-header">
+                <span class="section-label caption animate-on-scroll">PROJECTS</span>
+                <h2 class="section-title h2 animate-on-scroll stagger-1">Featured Work</h2>
+                <p class="body-sm text-tertiary animate-on-scroll stagger-2">Selected analytics and BI projects</p>
             </div>
             
-            <div class="grid grid-cols-3">
-                <!-- Project 1 -->
-                <div class="card animate-on-scroll stagger-1">
+            <div class="projects-grid animate-on-scroll stagger-3">
+                <!-- Project 1 (Dominant) -->
+                <div class="card project-featured">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="bar-chart-2" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
                     </div>
@@ -485,7 +619,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="card animate-on-scroll stagger-2">
+                <div class="card project-secondary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="pie-chart" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
                     </div>
@@ -501,7 +635,7 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="card animate-on-scroll stagger-3">
+                <div class="card project-tertiary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="database" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
                     </div>
@@ -517,7 +651,7 @@
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="card animate-on-scroll stagger-1">
+                <div class="card project-quaternary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="home" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
                     </div>
@@ -533,7 +667,7 @@
                 </div>
 
                 <!-- Project 5 -->
-                <div class="card animate-on-scroll stagger-2">
+                <div class="card project-quinary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="globe" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
                     </div>
@@ -549,7 +683,7 @@
                 </div>
 
                 <!-- Project 6 — CTA card to fill grid orphan -->
-                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none;">
+                <a href="#contact" class="card card-cta project-quinary" style="text-decoration: none;">
                     <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5;"></i>
                     <span class="card-cta-text">View All Projects</span>
                 </a>
@@ -558,14 +692,14 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="bg-primary" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+    <section id="skills" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <div class="container-narrow">
             <div class="section-header mb-3xl">
-                <span class="section-label caption">SKILLS</span>
-                <h2 class="section-title h2">Technical Toolbox</h2>
+                <span class="section-label caption animate-on-scroll">SKILLS</span>
+                <h2 class="section-title h2 animate-on-scroll stagger-1">Technical Toolbox</h2>
             </div>
             
-            <div class="grid grid-cols-2 animate-on-scroll stagger-1" style="gap: var(--space-3xl);">
+            <div class="grid grid-cols-2 animate-on-scroll stagger-2" style="gap: var(--space-3xl);">
                 <div class="skill-group">
                     <h3 class="skill-group-title">Data & Visualization</h3>
                     
@@ -624,11 +758,11 @@
     </section>
 
     <!-- Career Timeline -->
-    <section id="experience" class="bg-secondary" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+    <section id="experience" class="bg-secondary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <div class="container">
             <div class="section-header slide-in-left" style="text-align: center; margin-bottom: var(--space-3xl);">
-                <span class="section-label caption">EXPERIENCE</span>
-                <h2 class="section-title h2">Career Highlights</h2>
+                <span class="section-label caption animate-on-scroll">EXPERIENCE</span>
+                <h2 class="section-title h2 animate-on-scroll stagger-1">Career Highlights</h2>
             </div>
             
             <div class="visual-timeline">
@@ -699,7 +833,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="bg-primary">
+    <section id="certifications" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <style>
             /* Certifications Visual Refinement */
             [data-theme="dark"] #certifications {
@@ -828,9 +962,9 @@
             #certifications .cert-card:nth-child(4) .cert-icon-wrapper { opacity: 0.85; }
         </style>
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-label caption">QUALIFICATIONS</span>
-                <h2 class="section-title h2">Certifications</h2>
+            <div class="section-header">
+                <span class="section-label caption animate-on-scroll">QUALIFICATIONS</span>
+                <h2 class="section-title h2 animate-on-scroll stagger-1">Certifications</h2>
             </div>
             
             <div class="grid grid-cols-4">
@@ -942,13 +1076,14 @@
             }
         </style>
         <div class="container-narrow">
-            <div class="animate-on-scroll">
-                <span class="section-label caption">GET IN TOUCH</span>
-                <h2 class="display" style="margin-bottom: var(--space-lg);">Let's Connect</h2>
-                <p style="margin-bottom: var(--space-2xl); max-width: 480px;">
+            <div class="section-header text-center" style="display: flex; flex-direction: column; align-items: center;">
+                <span class="section-label caption animate-on-scroll">GET IN TOUCH</span>
+                <h2 class="display animate-on-scroll stagger-1" style="margin-bottom: var(--space-lg);">Let's Connect</h2>
+                <p class="animate-on-scroll stagger-2" style="margin-bottom: var(--space-2xl); max-width: 480px; text-align: center;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
-                <div class="flex gap-md justify-center mb-xl" style="flex-wrap: wrap;">
+            </div>
+            <div class="flex gap-md justify-center mb-xl animate-on-scroll stagger-3" style="flex-wrap: wrap;">
                     <a href="mailto:ntxhien52@gmail.com" class="contact-btn">
                         <i aria-hidden="true" data-lucide="mail"></i>
                         ntxhien52@gmail.com
