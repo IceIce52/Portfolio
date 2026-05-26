@@ -114,10 +114,11 @@
         }
 
         [data-theme="dark"] {
-            --color-bg-primary: #0F172A;
+            /* ===== Enterprise Palette ===== */
+            --color-bg-primary: #0B1020;
             --color-bg-secondary: #111827;
-            --color-bg-dark: #1E293B;
-            --color-surface: #1E293B;
+            --color-bg-dark: #151B2E;
+            --color-surface: #1C2438;
 
             --color-text-primary: #F8FAFC;
             --color-text-secondary: #CBD5E1;
@@ -125,52 +126,49 @@
             --color-text-on-dark: rgba(255,255,255,0.92);
             --color-text-on-dark-muted: rgba(255,255,255,0.70);
 
-            --color-accent: #8B5CF6;
-            --color-accent-hover: #A78BFA;
-            --color-accent-soft: rgba(139, 92, 246, 0.15);
+            --color-accent: #5B4FCF;
+            --color-accent-hover: #6D63D9;
+            --color-accent-soft: rgba(91, 79, 207, 0.12);
 
-            --color-border: rgba(248, 250, 252, 0.08);
+            --color-border: rgba(248, 250, 252, 0.06);
             --color-divider: rgba(248, 250, 252, 0.04);
 
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
-            --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
 
-            --color-hero-btn-bg: #7C3AED;
+            --color-hero-btn-bg: #5B4FCF;
             --color-hero-btn-text: #F8FAFC;
-            --color-hero-btn-hover: #8B5CF6;
-            --color-hero-outline-border: rgba(248, 250, 252, 0.2);
+            --color-hero-btn-hover: #6D63D9;
+            --color-hero-outline-border: rgba(248, 250, 252, 0.15);
             --color-hero-outline-text: #F8FAFC;
-            --color-hero-outline-hover: rgba(248, 250, 252, 0.05);
+            --color-hero-outline-hover: rgba(248, 250, 252, 0.04);
 
-            --color-navbar-bg: rgba(15, 23, 42, 0.82);
+            --color-navbar-bg: rgba(11, 16, 32, 0.82);
             --color-navbar-border: rgba(248, 250, 252, 0.05);
 
-            --color-contact-bg: #111827;
-            --color-contact-label: #A78BFA;
+            --color-contact-bg: #20293A;
+            --color-contact-label: #7A73E8;
             --color-contact-heading: #F8FAFC;
             --color-contact-text: #CBD5E1;
             --color-contact-btn-bg: rgba(248, 250, 252, 0.03);
             --color-contact-btn-text: #F8FAFC;
-            --color-contact-btn-border: rgba(248, 250, 252, 0.1);
-            --color-contact-btn-hover-bg: rgba(248, 250, 252, 0.08);
+            --color-contact-btn-border: rgba(248, 250, 252, 0.08);
+            --color-contact-btn-hover-bg: rgba(248, 250, 252, 0.06);
             --color-contact-btn-hover-text: #F8FAFC;
             --color-contact-social-bg: rgba(248, 250, 252, 0.05);
-            --color-contact-social-hover-bg: rgba(139, 92, 246, 0.2);
-            --color-contact-social-hover-text: #A78BFA;
+            --color-contact-social-hover-bg: rgba(91, 79, 207, 0.15);
+            --color-contact-social-hover-text: #7A73E8;
 
-            --color-footer-bg: #0F172A;
-            --color-preloader-text: #8B5CF6;
+            --color-footer-bg: #0B1020;
+            --color-preloader-text: #5B4FCF;
             
-            --color-badge-bg: rgba(248, 250, 252, 0.06);
+            --color-badge-bg: rgba(248, 250, 252, 0.04);
         }
 
         [data-theme="dark"] .section-label {
-            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            font-weight: 700;
+            color: #7A73E8;
+            font-weight: 600;
         }
 
         /* Typography Scale */
@@ -233,7 +231,7 @@
             transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
             text-decoration: none;
         }
-        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.25); }
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(248,250,252,0.12); }
         .card-thumbnail img { width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); }
         .card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
@@ -728,11 +726,11 @@
                 border-color: rgba(37, 99, 235, 0.25);
             }
             [data-theme="dark"] #certifications .cert-card {
-                background-color: rgba(248, 250, 252, 0.03);
-                border: 1px solid rgba(248, 250, 252, 0.08);
+                background-color: rgba(248, 250, 252, 0.02);
+                border: 1px solid rgba(248, 250, 252, 0.06);
             }
             [data-theme="dark"] #certifications .cert-card:hover {
-                border-color: rgba(139, 92, 246, 0.3);
+                border-color: rgba(248, 250, 252, 0.12);
                 box-shadow: var(--shadow-md);
                 background-color: rgba(248, 250, 252, 0.04);
                 transform: translateY(-2px);
@@ -895,7 +893,7 @@
     <!-- Contact Section -->
     <section id="contact" class="bg-accent" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
         <style>
-            /* Editorial Gold Visual Migration */
+            /* Contact Section Visual Refinement */
             #contact.bg-accent {
                 background-color: var(--color-contact-bg) !important;
                 transition: background-color 200ms ease;
@@ -905,7 +903,7 @@
                 transition: color 200ms ease;
             }
             #contact .display {
-                font-family: 'Lora', Georgia, serif !important;
+                font-family: var(--font-body) !important;
                 color: var(--color-contact-heading) !important;
                 transition: color 200ms ease;
             }
@@ -917,7 +915,7 @@
                 background-color: var(--color-contact-btn-bg) !important;
                 color: var(--color-contact-btn-text) !important;
                 border: 1px solid var(--color-contact-btn-border) !important;
-                transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease !important;
+                transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease !important;
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -934,7 +932,7 @@
             #contact .contact-btn:focus-visible {
                 background-color: var(--color-contact-btn-hover-bg) !important;
                 color: var(--color-contact-btn-hover-text) !important;
-                border-color: rgba(139, 92, 246, 0.4) !important;
+                border-color: rgba(122, 115, 232, 0.25) !important;
                 transform: translateY(-2px) !important;
                 box-shadow: var(--shadow-sm) !important;
             }
@@ -952,10 +950,12 @@
                 </p>
                 <div class="flex gap-md justify-center mb-xl" style="flex-wrap: wrap;">
                     <a href="mailto:ntxhien52@gmail.com" class="contact-btn">
-                        <i aria-hidden="true" data-lucide="mail"></i> Email Me
+                        <i aria-hidden="true" data-lucide="mail"></i>
+                        ntxhien52@gmail.com
                     </a>
                     <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <i aria-hidden="true" data-lucide="linkedin"></i> Connect on LinkedIn
+                        <i aria-hidden="true" data-lucide="linkedin"></i>
+                        LinkedIn
                     </a>
                 </div>
             </div>
