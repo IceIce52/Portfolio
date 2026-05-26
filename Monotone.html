@@ -8,9 +8,14 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%232563EB'>HN</text></svg>">
     
-    <!-- Google Fonts -->
+    <!-- Preconnects & Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preload" as="image" href="img/headshot.jpg" type="image/jpeg" fetchpriority="high">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- CSS -->
@@ -20,9 +25,10 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/v2-fixes.css">
 
     <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
 
     <!-- v2 Design System Fixes -->
     <style>
@@ -164,7 +170,7 @@
 
         /* Hero Dashboard Preview */
         .dashboard-preview { margin-top: var(--space-xl); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
-        .dashboard-preview img { width: 100%; display: block; }
+        .dashboard-preview img { width: 100%; height: auto; display: block; }
         
         /* Profile Image */
         .profile-img-container { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin-bottom: var(--space-md); border: 2px solid var(--color-border); }
@@ -172,7 +178,7 @@
 
         /* Architecture Section */
         .architecture-section { background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center; box-shadow: var(--shadow-sm); margin-bottom: var(--space-4xl); margin-top: var(--space-4xl); }
-        .architecture-section img { max-width: 100%; border-radius: var(--radius-md); margin-top: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+        .architecture-section img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin-top: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
 
         /* Accessibility Focus */
         :focus-visible { outline: 3px solid rgba(37,99,235,0.45); outline-offset: 3px; }
@@ -201,8 +207,6 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
         }
-
-        /* --- Migration Overrides --- */
 
         /* 1. Hero Buttons */
         #about .btn {
@@ -248,232 +252,32 @@
             transform: none !important;
         }
 
-        /* 2. Project Cards */
-        #projects .card {
-            border-radius: 16px;
-        }
-
-        /* Project Thumbnails */
-        .card-thumbnail {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E4E7EB 100%) !important;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .card-thumbnail::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
-            pointer-events: none;
-        }
-        .card-thumbnail i {
-            color: #111827 !important;
-            z-index: 1;
-        }
-
-        /* CTA Card Restoration */
-        .card-cta {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
-            background-color: #E5E2DC !important;
-            border-bottom-color: #1A1A1A !important;
-            min-height: 200px !important;
-            text-decoration: none !important;
-            box-shadow: 0 1px 3px rgba(26, 26, 26, 0.06) !important;
-            transform: none !important;
-        }
-        .card-cta:hover {
-            background-color: #1A1A1A !important;
-            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.10) !important;
-            transform: none !important;
-        }
-        .card-cta:hover .card-cta-text,
-        .card-cta:hover .card-cta-icon {
-            color: #FFFFFF !important;
-        }
-        .card-cta-icon {
-            color: #1A1A1A !important;
-            margin-bottom: 16px !important;
-            transition: color 200ms ease !important;
-        }
-        .card-cta-text {
-            font-weight: 600 !important;
-            color: #1A1A1A !important;
-            font-size: 1.125rem !important;
-            transition: color 200ms ease !important;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-        }
-
-        /* 3. Visual Timeline Component */
-        .visual-timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: var(--space-xl) 0;
-        }
-        .visual-timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: var(--color-text-tertiary);
-            opacity: 0.2;
-            transform: translateX(-50%);
-        }
-        .visual-timeline-item {
+        /* Critical Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: var(--color-bg-primary, #FAFBFC);
             display: flex;
-            align-items: center;
             justify-content: center;
-            position: relative;
-            margin-bottom: var(--space-4xl);
-            transition: all 0.45s ease-in-out;
+            align-items: center;
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s;
         }
-        .visual-timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        .vt-content, .vt-image {
-            width: calc(50% - 40px);
-        }
-        .vt-left {
-            text-align: right;
-            padding-right: var(--space-lg);
-        }
-        .vt-right {
-            text-align: left;
-            padding-left: var(--space-lg);
-        }
-        .vt-marker {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--color-bg-primary, #fff);
-            border: 2px solid var(--color-text-primary);
-            z-index: 2;
-            animation: vtRipple 3.5s ease-out infinite;
-        }
-        .vt-image img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease;
-        }
-        .visual-timeline-item:hover .vt-image img {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-        .visual-timeline-item:hover .vt-content {
-            transform: translateY(-4px);
-        }
-        .vt-content .exp-highlights {
-            align-items: flex-end;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .vt-right .exp-highlights {
-            align-items: flex-start;
-            text-align: left;
-        }
-        .vt-left .exp-highlights {
-            text-align: right;
-        }
-        @keyframes vtRipple {
-            0% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0.2); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 129, 198, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0); }
-        }
-        .location-link {
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .location-link:hover {
-            background-color: rgba(0,0,0,0.08) !important;
-            color: var(--color-text-primary) !important;
-        }
-        .slide-in-left {
+        .preloader-brand {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: -0.02em;
             opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            animation: pulseFade 1.2s infinite alternate;
         }
-        .slide-in-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .slide-outward-left {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .slide-outward-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .slide-outward-right {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .slide-outward-right.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        @media (max-width: 768px) {
-            .visual-timeline-line {
-                left: 20px;
-                transform: none;
-            }
-            .visual-timeline-item {
-                flex-direction: column !important;
-                align-items: flex-start;
-                padding-left: 50px;
-            }
-            .vt-content, .vt-image {
-                width: 100%;
-                text-align: left;
-                padding: 0;
-            }
-            .vt-marker {
-                left: 20px;
-                top: 0;
-                transform: translate(-50%, 0);
-                margin-top: 24px;
-            }
-            .vt-image {
-                margin-top: var(--space-md);
-                order: 2;
-            }
-            .vt-content {
-                order: 1;
-            }
-            .vt-content .exp-highlights,
-            .vt-left .exp-highlights,
-            .vt-right .exp-highlights {
-                align-items: flex-start;
-                text-align: left;
-            }
-            .vt-left {
-                text-align: left;
-                padding-right: 0;
-            }
-            .vt-right {
-                padding-left: 0;
-            }
-        }
+        @keyframes pulseFade { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+        body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 </head>
 <body>
+    <div id="preloader"><div class="preloader-brand">HN</div></div>
 
     <!-- Skip to content (Accessibility) -->
     <a href="#about" class="skip-link">Skip to main content</a>
@@ -500,7 +304,7 @@
             <div class="grid grid-cols-2 items-center mb-xl">
                 <div class="animate-on-scroll">
                     <div class="profile-img-container">
-                        <img src="img/headshot.jpg" alt="Hien Nguyen" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Hien+Nguyen&background=F5F7FA&color=111827&size=240';">
+                        <img src="img/headshot.jpg" alt="Hien Nguyen" fetchpriority="high" width="240" height="240" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Hien+Nguyen&background=F5F7FA&color=111827&size=240';">
                     </div>
                     <span class="section-label caption">HELLO, I'M</span>
                     <h1 class="display mb-sm">Hien Nguyen</h1>
@@ -531,7 +335,7 @@
                 </div>
                 <div class="animate-on-scroll stagger-1">
                     <div class="dashboard-preview">
-                        <img src="img/powerbi-dashboard-preview.png" alt="Power BI Executive Dashboard" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
+                        <img src="img/powerbi-dashboard-preview.png" alt="Power BI Executive Dashboard" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
                     </div>
                 </div>
             </div>
@@ -697,7 +501,7 @@
             <div class="architecture-section animate-on-scroll mt-2xl">
                 <h3 class="h3 mb-md">Analytics Workflow</h3>
                 <p class="body-sm" style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">From raw data extraction to automated executive dashboards.</p>
-                <img src="img/data-pipeline-diagram.png" alt="Data Pipeline Architecture" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
+                <img src="img/data-pipeline-diagram.png" alt="Data Pipeline Architecture" loading="lazy" decoding="async" width="800" height="400" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
             </div>
             
         </div>
@@ -727,7 +531,7 @@
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-image vt-right slide-outward-right">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data Analytics Desk">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data Analytics Desk" loading="lazy" decoding="async" width="800" height="533">
                     </div>
                 </div>
                 
@@ -735,7 +539,7 @@
                 <div class="visual-timeline-item">
                     <div class="vt-image vt-left slide-outward-left">
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer">
-                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';">
+                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" loading="lazy" decoding="async" width="800" height="533" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';">
                         </a>
                     </div>
                     <div class="vt-marker"></div>
@@ -770,7 +574,7 @@
                     <div class="vt-marker"></div>
                     <div class="vt-image vt-right slide-outward-right">
                         <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer">
-                            <img src="https://marketingtrips.com/wp-content/uploads/2023/10/pwc.jpeg" alt="Corporate Boardroom - PwC" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80';">
+                            <img src="https://marketingtrips.com/wp-content/uploads/2023/10/pwc.jpeg" alt="Corporate Boardroom - PwC" loading="lazy" decoding="async" width="800" height="533" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80';">
                         </a>
                     </div>
                 </div>
@@ -788,12 +592,12 @@
             
             <div class="grid grid-cols-4">
                 <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" class="card cert-card animate-on-scroll stagger-1" style="text-decoration: none; color: inherit; display: block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon" width="48" height="48">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon" width="48" height="48" loading="lazy" decoding="async">
                     <h3 class="cert-name text-sm">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
                     <p class="caption">Microsoft</p>
                 </a>
                 <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" class="card cert-card animate-on-scroll stagger-2" style="text-decoration: none; color: inherit; display: block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon" width="48" height="48">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon" width="48" height="48" loading="lazy" decoding="async">
                     <h3 class="cert-name text-sm">Advanced SQL</h3>
                     <p class="caption">HackerRank</p>
                 </a>
@@ -801,16 +605,15 @@
                 <div class="card cert-card animate-on-scroll stagger-3" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
                         <div class="cert-icon-container" style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" style="width: 60px; height: 60px; object-fit: contain;">
+                            <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" width="60" height="60" loading="lazy" decoding="async" style="width: 60px; height: 60px; object-fit: contain;">
                         </div>
                         <h3 class="cert-name text-sm">Alteryx Advanced Designer</h3>
                         <p class="caption">Alteryx</p>
                     </a>
                     
                     <!-- Requested Credly Embed Logic -->
-                    <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; pointer-events: none;">
+                    <div id="credly-embed-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; pointer-events: none;">
                         <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e0434b1c-0b6f-4084-9977-d922c22252ed" data-share-badge-host="https://www.credly.com"></div>
-                        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                     </div>
                 </div>
                 <div class="card cert-card animate-on-scroll stagger-4" style="display: block;">
@@ -853,39 +656,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Experience Section Slide In Left
-            const header = document.querySelector('#experience .section-header.slide-in-left');
-            if(header) {
-                const headerObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            headerObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
-                headerObserver.observe(header);
-            }
-
-            // Timeline Items Slide Outward Triggered by Marker
-            const markers = document.querySelectorAll('.vt-marker');
-            const markerObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const parent = entry.target.closest('.visual-timeline-item');
-                        if (parent) {
-                            parent.querySelectorAll('.slide-outward-left, .slide-outward-right').forEach(el => el.classList.add('is-visible'));
-                        }
-                        markerObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            markers.forEach(marker => markerObserver.observe(marker));
-        });
-    </script>
+    <script defer src="js/main.js"></script>
 </body>
 </html>
