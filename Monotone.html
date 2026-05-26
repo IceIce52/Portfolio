@@ -695,6 +695,132 @@
 
     <!-- Certifications Section -->
     <section id="certifications" class="bg-primary">
+        <style>
+            /* Certifications Visual Refinement */
+            [data-theme="dark"] #certifications {
+                background: linear-gradient(180deg, #0F1522 0%, #111827 100%);
+            }
+            #certifications .cert-card {
+                text-decoration: none; 
+                color: inherit; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                text-align: center; 
+                padding: var(--space-xl) var(--space-lg); 
+                border-radius: 16px; 
+                transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease, background-color 250ms ease; 
+                background: var(--color-surface);
+                border: 1px solid var(--color-border);
+                height: 100%;
+                position: relative;
+            }
+            #certifications .cert-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-md);
+                border-color: rgba(37, 99, 235, 0.25);
+            }
+            [data-theme="dark"] #certifications .cert-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            [data-theme="dark"] #certifications .cert-card:hover {
+                border-color: rgba(145, 70, 255, 0.3);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+                background: rgba(255, 255, 255, 0.04);
+            }
+            
+            #certifications .cert-icon-wrapper {
+                width: 64px;
+                height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: var(--space-md);
+            }
+            #certifications .cert-icon {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+            #certifications .cert-logo-text {
+                font-weight: 800;
+                font-size: 26px;
+                color: #E3000F;
+                letter-spacing: -0.5px;
+                font-family: Arial, sans-serif;
+                line-height: 1;
+            }
+            [data-theme="dark"] #certifications .cert-logo-text {
+                opacity: 0.9;
+            }
+
+            #certifications .cert-name {
+                font-weight: 600;
+                font-family: var(--font-body);
+                color: var(--color-text-primary);
+                font-size: 1rem;
+                line-height: 1.4;
+                margin-bottom: 4px;
+            }
+            #certifications .cert-issuer {
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--color-text-secondary);
+                margin-bottom: var(--space-sm);
+                font-weight: 600;
+            }
+            #certifications .cert-skills {
+                font-size: 0.8125rem;
+                color: var(--color-text-tertiary);
+                line-height: 1.6;
+                margin-bottom: var(--space-lg);
+            }
+            
+            #certifications .cert-cta-wrapper {
+                margin-top: auto;
+            }
+            #certifications .cert-cta {
+                font-size: 0.75rem;
+                font-weight: 500;
+                font-family: var(--font-body);
+                color: var(--color-text-tertiary);
+                transition: color 250ms ease;
+            }
+            #certifications .cert-card:hover .cert-cta {
+                color: var(--color-text-secondary);
+            }
+            [data-theme="dark"] #certifications .cert-card:hover .cert-cta {
+                color: var(--color-text-on-dark-muted);
+            }
+
+            #certifications .cert-status-badge {
+                font-size: 0.6875rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 4px 10px;
+                border-radius: 9999px;
+                background: var(--color-bg-secondary);
+                color: var(--color-text-secondary);
+                display: inline-block;
+            }
+            [data-theme="dark"] #certifications .cert-status-badge {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            /* Subtle Issuer Hierarchy Weighting */
+            [data-theme="dark"] #certifications .cert-card:nth-child(1) { border-color: rgba(255, 255, 255, 0.10); }
+            [data-theme="dark"] #certifications .cert-card:nth-child(2) { border-color: rgba(255, 255, 255, 0.08); }
+            [data-theme="dark"] #certifications .cert-card:nth-child(3) { border-color: rgba(255, 255, 255, 0.06); }
+            [data-theme="dark"] #certifications .cert-card:nth-child(4) { border-color: rgba(255, 255, 255, 0.04); }
+            
+            #certifications .cert-card:nth-child(1) .cert-icon-wrapper { opacity: 1; }
+            #certifications .cert-card:nth-child(2) .cert-icon-wrapper { opacity: 0.95; }
+            #certifications .cert-card:nth-child(3) .cert-icon-wrapper { opacity: 0.90; }
+            #certifications .cert-card:nth-child(4) .cert-icon-wrapper { opacity: 0.85; }
+        </style>
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <span class="section-label caption">QUALIFICATIONS</span>
@@ -702,35 +828,57 @@
             </div>
             
             <div class="grid grid-cols-4">
-                <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" class="card cert-card animate-on-scroll stagger-1" style="text-decoration: none; color: inherit; display: block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon" width="48" height="48" loading="lazy" decoding="async">
-                    <h3 class="cert-name text-sm">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
-                    <p class="caption">Microsoft</p>
+                <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-1">
+                    <div class="cert-icon-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="cert-name">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-skills">Data Modeling &middot; Power BI &middot; Lakehouses &middot; Delta Parquet</p>
+                    <div class="cert-cta-wrapper">
+                        <span class="cert-cta">Verified Credential &rarr;</span>
+                    </div>
                 </a>
-                <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" class="card cert-card animate-on-scroll stagger-2" style="text-decoration: none; color: inherit; display: block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon" width="48" height="48" loading="lazy" decoding="async">
-                    <h3 class="cert-name text-sm">Advanced SQL</h3>
-                    <p class="caption">HackerRank</p>
+                
+                <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-2">
+                    <div class="cert-icon-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="cert-name">Advanced SQL</h3>
+                    <p class="cert-issuer">HackerRank</p>
+                    <p class="cert-skills">Joins &middot; Subqueries &middot; CTEs &middot; Window Functions &middot; Query Optimization</p>
+                    <div class="cert-cta-wrapper">
+                        <span class="cert-cta">Verified Credential &rarr;</span>
+                    </div>
                 </a>
-                <!-- Alteryx Certification -->
-                <div class="card cert-card animate-on-scroll stagger-3" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-                    <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
-                        <div class="cert-icon-container" style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" width="60" height="60" loading="lazy" decoding="async" style="width: 60px; height: 60px; object-fit: contain;">
-                        </div>
-                        <h3 class="cert-name text-sm">Alteryx Advanced Designer</h3>
-                        <p class="caption">Alteryx</p>
-                    </a>
+
+                <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-3">
+                    <div class="cert-icon-wrapper">
+                        <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="cert-name">Alteryx Advanced Designer</h3>
+                    <p class="cert-issuer">Alteryx</p>
+                    <p class="cert-skills">ETL Automation &middot; Data Preparation &middot; Spatial Analytics &middot; Macros</p>
+                    <div class="cert-cta-wrapper">
+                        <span class="cert-cta">Verified Credential &rarr;</span>
+                    </div>
                     
                     <!-- Requested Credly Embed Logic -->
                     <div id="credly-embed-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; pointer-events: none;">
                         <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e0434b1c-0b6f-4084-9977-d922c22252ed" data-share-badge-host="https://www.credly.com"></div>
                     </div>
-                </div>
-                <div class="card cert-card animate-on-scroll stagger-4" style="display: block;">
-                    <div class="cert-icon" style="display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; color: #E3000F; letter-spacing: -1px; font-family: Arial, sans-serif;">ACCA</div>
-                    <h3 class="cert-name text-sm">Chief Accountant &amp; ACCA</h3>
-                    <p class="caption">In Progress</p>
+                </a>
+
+                <div class="card cert-card animate-on-scroll stagger-4">
+                    <div class="cert-icon-wrapper">
+                        <div class="cert-icon cert-logo-text">ACCA</div>
+                    </div>
+                    <h3 class="cert-name">Chief Accountant &amp; ACCA Candidate</h3>
+                    <p class="cert-issuer">ACCA</p>
+                    <p class="cert-skills">Corporate Reporting &middot; Financial Analysis &middot; IFRS &middot; Tax Governance</p>
+                    <div class="cert-cta-wrapper">
+                        <span class="cert-status-badge">In Progress</span>
+                    </div>
                 </div>
             </div>
         </div>
