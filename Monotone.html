@@ -27,205 +27,245 @@
     <!-- v2 Design System Fixes -->
     <style>
         :root {
-            /* ═══ Base v2 — Full Design System ═══ */
+            /* ===== Backgrounds ===== */
+            --color-bg-primary: #FAFBFC;
+            --color-bg-secondary: #F5F7FA;
+            --color-bg-dark: #111827;
+            --color-surface: #FFFFFF;
 
-            /* Text: fix tertiary contrast on bg-secondary */
-            --color-text-tertiary: #5F6673;
-            --color-text-on-dark: rgba(255, 255, 255, 0.90);
-            --color-text-on-dark-muted: rgba(255, 255, 255, 0.65);
+            /* ===== Text ===== */
+            --color-text-primary: #111827;
+            --color-text-secondary: #374151;
+            --color-text-tertiary: #6B7280;
+            --color-text-on-dark: rgba(255,255,255,0.92);
+            --color-text-on-dark-muted: rgba(255,255,255,0.70);
 
-            /* Accent */
-            --color-accent-hover: #333333;
-            --color-accent-light: #E5E2DC;
+            /* ===== Accent ===== */
+            --color-accent: #2563EB;
+            --color-accent-hover: #1D4ED8;
+            --color-accent-soft: #DBEAFE;
 
-            /* Typography */
-            --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+            /* ===== Borders ===== */
+            --color-border: #E5E7EB;
+            --color-divider: #E5E7EB;
 
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.06);
-            --shadow-md: 0 4px 12px rgba(26, 26, 26, 0.10);
-            --shadow-lg: 0 8px 24px rgba(26, 26, 26, 0.12);
-        }
+            /* ===== Typography ===== */
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-heading: 'IBM Plex Serif', Georgia, serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
-        /* Card elevation — using shadow tokens */
-        .card {
-            box-shadow: var(--shadow-sm);
-        }
-        .card:hover {
-            box-shadow: var(--shadow-md);
-        }
+            /* ===== Radius ===== */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
 
-        /* Button: 44px min target for WCAG 2.5.8 */
-        .btn {
-            padding: 14px 28px;
-            min-height: 44px;
-        }
+            /* ===== Shadows ===== */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
 
-        /* Accessibility: focus visible */
-        .btn:focus-visible,
-        a:focus-visible {
-            outline: 2px solid var(--color-accent);
-            outline-offset: 2px;
-        }
+            /* ===== Spacing ===== */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 72px;
+            --space-4xl: 96px;
 
-        /* Skip-to-content link */
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 16px;
-            z-index: 200;
-            padding: 12px 24px;
-            background-color: var(--color-accent);
-            color: var(--color-surface);
-            border-radius: var(--border-radius-sm);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-        .skip-link:focus {
-            top: 12px;
+            /* ===== Transition ===== */
+            --transition-base: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* Fix card-desc truncation */
-        .card-desc {
-            -webkit-line-clamp: unset;
-            display: block;
-            overflow: visible;
-        }
+        /* Typography Scale */
+        .display { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 700; font-family: var(--font-body); }
+        .h1 { font-size: 3rem; line-height: 1.1; font-family: var(--font-body); }
+        .h2 { font-size: 2.25rem; line-height: 1.15; font-family: var(--font-body); }
+        .h3 { font-size: 1.5rem; line-height: 1.25; font-family: var(--font-body); }
+        .body-lg { font-size: 1.125rem; line-height: 1.75; font-family: var(--font-body); }
+        .body { font-size: 1rem; line-height: 1.7; font-family: var(--font-body); }
+        .body-sm { font-size: 0.9375rem; line-height: 1.6; font-family: var(--font-body); }
+        .caption { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-body); }
 
-        /* h3 size increase */
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        /* Hero KPI ribbon */
-        .kpi-ribbon {
-            display: flex;
-            gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
-            flex-wrap: wrap;
-        }
-        .kpi-item {
-            display: flex;
-            flex-direction: column;
-        }
-        .kpi-number {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-        .kpi-label {
-            font-size: 0.75rem;
-            color: var(--color-text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 500;
-            margin-top: 2px;
-        }
-
-        /* Profile photo placeholder with initials */
-        .profile-photo {
-            width: 280px;
-            height: 350px;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 0 auto;
-            position: relative;
-            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-accent-light) 100%);
-        }
-        .profile-initials {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            opacity: 0.2;
-            user-select: none;
-        }
-
-        /* Social links — CSS-only hover (keyboard accessible) */
-        .social-link {
-            color: var(--color-text-on-dark-muted);
-            transition: color var(--transition-base);
-            padding: 10px;
-            display: inline-flex;
-            min-width: 44px;
-            min-height: 44px;
-            align-items: center;
-            justify-content: center;
-        }
-        .social-link:hover,
-        .social-link:focus-visible {
-            color: var(--color-text-on-dark);
-        }
-
-        /* CTA card (6th card to fix orphan gap) */
-        .card-cta {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: var(--color-accent-light);
-            border-bottom-color: var(--color-accent);
-            min-height: 200px;
-        }
-        .card-cta:hover {
-            background-color: var(--color-accent);
-        }
-        .card-cta:hover .card-cta-text,
-        .card-cta:hover .card-cta-icon {
-            color: var(--color-surface);
-        }
-        .card-cta-icon {
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            transition: color var(--transition-base);
-        }
-        .card-cta-text {
-            font-weight: 600;
-            color: var(--color-text-primary);
-            font-size: 1.125rem;
-            transition: color var(--transition-base);
-        }
-
-        /* Footer text fix for dark background */
-        .footer-text {
-            color: var(--color-text-on-dark-muted);
-        }
-
-        /* Skill group title class */
-        .skill-group-title {
-            margin-bottom: var(--space-md);
-            font-size: 1.1rem;
-            color: var(--color-text-primary);
-            font-weight: 600;
-        }
-
-        /* Experience number emphasis */
-        .exp-highlights {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        .exp-highlights strong {
-            color: var(--color-text-primary);
-            font-weight: 600;
-        }
-
-        /* Timeline description max-width for readability */
-        .timeline-item p.body-sm,
-        .timeline-item .exp-highlights {
-            max-width: 560px;
-        }
+        /* Utility Classes */
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mb-2xl { margin-bottom: var(--space-2xl); }
+        .mb-3xl { margin-bottom: var(--space-3xl); }
         
-        /* --- Visual Timeline Component --- */
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+
+        /* Navbar Upgrade */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.82);
+            border-bottom: 1px solid rgba(229,231,235,0.7);
+        }
+        .logo { font-weight: 700; letter-spacing: -0.02em; font-family: var(--font-body); color: var(--color-text-primary); text-decoration: none; }
+        .nav-link { position: relative; color: var(--color-text-secondary); transition: color var(--transition-base); text-decoration: none; font-family: var(--font-body); }
+        .nav-link::after {
+            content: ''; position: absolute; left: 0; bottom: -8px; width: 100%; height: 2px;
+            background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition-base);
+        }
+        .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+
+        /* Button System Upgrade */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            min-height: 48px; padding: 14px 24px; border-radius: 999px; font-weight: 600;
+            transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+            text-decoration: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 1rem;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: var(--color-accent); color: white; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--color-accent-hover); box-shadow: var(--shadow-md); color: white; }
+        .btn-outline { border: 1px solid var(--color-border); background: white; color: var(--color-text-primary); }
+        .btn-outline:hover { background: var(--color-bg-secondary); color: var(--color-text-primary); }
+
+        /* Card System Upgrade */
+        .card {
+            display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden;
+            border: 1px solid var(--color-border); background: white;
+            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+            text-decoration: none;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.25); }
+        .card-thumbnail img { width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); }
+        .card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
+        .card-desc { font-family: var(--font-body); color: var(--color-text-secondary); margin-bottom: var(--space-md); flex-grow: 1; line-height: 1.6; }
+
+        /* Simplified Timeline */
+        .timeline-item {
+            display: grid; grid-template-columns: 120px 1fr; gap: var(--space-xl);
+            padding: var(--space-xl) 0; border-bottom: 1px solid var(--color-divider);
+        }
+        .timeline-year { color: var(--color-text-tertiary); font-family: var(--font-mono); font-weight: 500; font-size: 1rem; }
+        .timeline-role { margin-bottom: 6px; font-weight: 600; font-size: 1.25rem; color: var(--color-text-primary); font-family: var(--font-body); }
+        .timeline-company { font-weight: 500; margin-bottom: 12px; color: var(--color-text-secondary); display: block; text-decoration: none; font-family: var(--font-body); font-size: 1.125rem; }
+        .timeline-company:hover { color: var(--color-accent); }
+        .timeline-desc { color: var(--color-text-secondary); line-height: 1.6; font-family: var(--font-body); }
+
+        /* Skills Progress UI */
+        .skill-group-title { margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--color-text-primary); font-weight: 600; font-family: var(--font-body); }
+        .skill-bar { display: grid; grid-template-columns: 120px 1fr 100px; align-items: center; gap: var(--space-md); margin-bottom: 16px; font-family: var(--font-mono); font-size: 0.875rem; color: var(--color-text-secondary); }
+        .skill-bar-name { font-weight: 600; display: flex; align-items: center; gap: 8px; color: var(--color-text-primary); }
+        .skill-track { height: 8px; background: var(--color-bg-secondary); border-radius: 4px; overflow: hidden; width: 100%; }
+        .skill-fill { height: 100%; background: var(--color-text-tertiary); border-radius: 4px; }
+        .skill-level { text-align: right; font-weight: 500; }
+
+        /* Hero Dashboard Preview */
+        .dashboard-preview { margin-top: var(--space-xl); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
+        .dashboard-preview img { width: 100%; display: block; }
+        
+        /* Profile Image */
+        .profile-img-container { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin-bottom: var(--space-md); border: 2px solid var(--color-border); }
+        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* Architecture Section */
+        .architecture-section { background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center; box-shadow: var(--shadow-sm); margin-bottom: var(--space-4xl); margin-top: var(--space-4xl); }
+        .architecture-section img { max-width: 100%; border-radius: var(--radius-md); margin-top: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+
+        /* Accessibility Focus */
+        :focus-visible { outline: 3px solid rgba(37,99,235,0.45); outline-offset: 3px; }
+        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 200; padding: 12px 24px; background: var(--color-accent); color: var(--color-surface); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+        .skip-link:focus { top: 12px; }
+
+        /* Hero KPI Ribbon */
+        .kpi-ribbon { display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); flex-wrap: wrap; }
+        .kpi-item { display: flex; flex-direction: column; }
+        .kpi-number { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: var(--color-accent); line-height: 1.2; letter-spacing: -0.01em; }
+        .kpi-label { font-size: 0.75rem; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 2px; font-family: var(--font-body); }
+
+        /* Social Link */
+        .social-link { color: var(--color-text-on-dark-muted); transition: color var(--transition-base); padding: 10px; display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+        .social-link:hover, .social-link:focus-visible { color: var(--color-text-on-dark); }
+        
+        .tag { font-size: 0.75rem; padding: 4px 10px; background: var(--color-bg-secondary); border-radius: 4px; color: var(--color-text-secondary); font-family: var(--font-mono); }
+        .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        
+        .cert-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: transform 0.3s ease, box-shadow 0.3s ease; background: white; }
+        .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .cert-icon { margin-bottom: var(--space-md); }
+        .cert-name { font-weight: 600; font-family: var(--font-body); color: var(--color-text-primary); margin-bottom: 4px; }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
+
+        /* --- Migration Overrides --- */
+
+        /* 1. Hero Buttons */
+        .hero-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 28px !important;
+            min-height: 44px !important;
+            border-radius: var(--radius-sm, 6px) !important;
+            font-weight: 500 !important;
+            font-size: 0.875rem !important;
+            letter-spacing: 0.01em !important;
+            transition: all var(--transition-base) !important;
+            border: 1px solid transparent !important;
+            transform: none !important;
+            font-family: var(--font-body) !important;
+        }
+        .hero-btn:focus-visible {
+            outline: 2px solid var(--color-accent) !important;
+            outline-offset: 2px !important;
+        }
+        .btn-primary.hero-btn {
+            background-color: var(--color-accent) !important;
+            color: white !important;
+            box-shadow: var(--shadow-sm) !important;
+        }
+        .btn-primary.hero-btn:hover {
+            background-color: var(--color-accent-hover) !important;
+            box-shadow: var(--shadow-md) !important;
+        }
+        .btn-outline.hero-btn {
+            background-color: white !important;
+            color: var(--color-text-primary) !important;
+            border-color: var(--color-border) !important;
+        }
+        .btn-outline.hero-btn:hover {
+            background-color: var(--color-bg-secondary) !important;
+            color: var(--color-text-primary) !important;
+        }
+
+        /* 2. Project Cards */
+        #projects .card {
+            border-radius: 16px;
+        }
+
+        /* Project Thumbnails */
+        .card-thumbnail {
+            background: linear-gradient(135deg, #F5F7FA 0%, #E4E7EB 100%) !important;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .card-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
+            pointer-events: none;
+        }
+        .card-thumbnail i {
+            color: #111827 !important;
+            z-index: 1;
+        }
+
+        /* 3. Visual Timeline Component */
         .visual-timeline {
             position: relative;
             max-width: 1000px;
@@ -248,12 +288,13 @@
             justify-content: center;
             position: relative;
             margin-bottom: var(--space-4xl);
+            transition: all 0.45s ease-in-out;
         }
         .visual-timeline-item:last-child {
             margin-bottom: 0;
         }
         .vt-content, .vt-image {
-            width: calc(50% - 40px); /* 40px gap from center */
+            width: calc(50% - 40px);
         }
         .vt-left {
             text-align: right;
@@ -274,6 +315,7 @@
             background-color: var(--color-bg-primary, #fff);
             border: 2px solid var(--color-text-primary);
             z-index: 2;
+            animation: vtRipple 3.5s ease-out infinite;
         }
         .vt-image img {
             width: 100%;
@@ -283,16 +325,67 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.4s ease;
         }
-        .vt-image img:hover {
+        .visual-timeline-item:hover .vt-image img {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .visual-timeline-item:hover .vt-content {
             transform: translateY(-4px);
         }
         .vt-content .exp-highlights {
             align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .vt-right .exp-highlights {
             align-items: flex-start;
+            text-align: left;
         }
-        /* Mobile responsiveness */
+        .vt-left .exp-highlights {
+            text-align: right;
+        }
+        @keyframes vtRipple {
+            0% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 129, 198, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0); }
+        }
+        .location-link {
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .location-link:hover {
+            background-color: rgba(0,0,0,0.08) !important;
+            color: var(--color-text-primary) !important;
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-outward-left {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .slide-outward-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-outward-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .slide-outward-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         @media (max-width: 768px) {
             .visual-timeline-line {
                 left: 20px;
@@ -321,119 +414,19 @@
             .vt-content {
                 order: 1;
             }
-            .vt-content .exp-highlights {
+            .vt-content .exp-highlights,
+            .vt-left .exp-highlights,
+            .vt-right .exp-highlights {
                 align-items: flex-start;
+                text-align: left;
             }
-        }
-
-        /* --- V2 Enhancements --- */
-        /* Electric Accent for vibrancy */
-        :root {
-            --color-electric: #2563EB; /* Vibrant Tech Blue */
-        }
-        .kpi-number {
-            color: var(--color-electric);
-        }
-        
-        /* Project Thumbnails - Light, airy, tech-focused */
-        .card-thumbnail {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E4E7EB 100%) !important;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .card-thumbnail::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
-            pointer-events: none;
-        }
-        .card-thumbnail i {
-            color: #111827 !important;
-            z-index: 1;
-        }
-        
-        /* Certifications - Restored to full color for trust & vibrancy */
-        .cert-card img,
-        .cert-card .cert-icon {
-            filter: none;
-            transition: transform 0.3s ease;
-        }
-        .cert-card:hover img,
-        .cert-card:hover .cert-icon {
-            transform: scale(1.05);
-        }
-
-        /* --- Visual Timeline Animations & Enhancements --- */
-        .visual-timeline-item {
-            transition: all 0.45s ease-in-out;
-        }
-        .visual-timeline-item:hover .vt-image img {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-        .visual-timeline-item:hover .vt-content {
-            transform: translateY(-4px);
-        }
-
-        @keyframes vtRipple {
-            0% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0.2); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 129, 198, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 129, 198, 0); }
-        }
-        .vt-marker {
-            animation: vtRipple 3.5s ease-out infinite;
-        }
-
-        .timeline-company {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-text-secondary);
-            transition: color 0.3s ease;
-            cursor: default;
-        }
-        .timeline-company:hover {
-            color: var(--color-electric);
-        }
-        .location-link {
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .location-link:hover {
-            background-color: rgba(0,0,0,0.08) !important;
-            color: var(--color-text-primary) !important;
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .slide-in-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-outward-left {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .slide-outward-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-outward-right {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .slide-outward-right.is-visible {
-            opacity: 1;
-            transform: translateX(0);
+            .vt-left {
+                text-align: left;
+                padding-right: 0;
+            }
+            .vt-right {
+                padding-left: 0;
+            }
         }
     </style>
 </head>
@@ -460,41 +453,43 @@
 
     <!-- Hero Section -->
     <section id="about" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-4xl); min-height: 80vh; display: flex; align-items: center;">
-        <div class="container grid grid-cols-2 items-center">
-            <div class="animate-on-scroll">
-                <div class="profile-photo">
-                    <!-- Replace this div with an <img> tag when you have a real headshot:
-                         <img src="img/headshot.jpg" alt="Hien Nguyen" style="width:100%;height:100%;object-fit:cover;"> -->
-                    <div class="profile-initials">HN</div>
-                </div>
-            </div>
-            <div class="animate-on-scroll stagger-1">
-                <span class="section-label caption">HELLO, I'M</span>
-                <h1 class="display" style="margin-bottom: var(--space-md);">Hien Nguyen</h1>
-                <h2 class="h3" style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">Business Intelligence Analyst</h2>
-                
-                <!-- Hero KPI Ribbon — the number leads, the story follows -->
-                <div class="kpi-ribbon">
-                    <div class="kpi-item">
-                        <span class="kpi-number">US$27.3M</span>
-                        <span class="kpi-label">Tax Penalties Saved</span>
+        <div class="container">
+            <div class="grid grid-cols-2 items-center mb-xl">
+                <div class="animate-on-scroll">
+                    <div class="profile-img-container">
+                        <img src="img/headshot.jpg" alt="Hien Nguyen" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Hien+Nguyen&background=F5F7FA&color=111827&size=240';">
                     </div>
-                    <div class="kpi-item">
-                        <span class="kpi-number">18+ hrs</span>
-                        <span class="kpi-label">Monthly Automation</span>
+                    <span class="section-label caption">HELLO, I'M</span>
+                    <h1 class="display mb-sm">Hien Nguyen</h1>
+                    <h2 class="h3 mb-lg" style="color: var(--color-text-secondary);">Business Intelligence Analyst</h2>
+                    
+                    <div class="kpi-ribbon">
+                        <div class="kpi-item">
+                            <span class="kpi-number">US$27.3M</span>
+                            <span class="kpi-label">Tax Penalties Saved</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-number">18+ hrs</span>
+                            <span class="kpi-label">Monthly Automation</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-number">3</span>
+                            <span class="kpi-label">Certifications</span>
+                        </div>
                     </div>
-                    <div class="kpi-item">
-                        <span class="kpi-number">3</span>
-                        <span class="kpi-label">Certifications</span>
-                    </div>
-                </div>
 
-                <p style="max-width: 520px; margin-bottom: var(--space-xl);">
-                    Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
-                </p>
-                <div class="flex gap-md" style="flex-wrap: wrap;">
-                    <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary">Get in Touch</a>
-                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                    <p class="body mb-xl" style="max-width: 520px;">
+                        Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
+                    </p>
+                    <div class="flex gap-md" style="flex-wrap: wrap;">
+                        <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary hero-btn">Get in Touch</a>
+                        <a href="#projects" class="btn btn-outline hero-btn">View Projects</a>
+                    </div>
+                </div>
+                <div class="animate-on-scroll stagger-1">
+                    <div class="dashboard-preview">
+                        <img src="img/powerbi-dashboard-preview.png" alt="Power BI Executive Dashboard" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
+                    </div>
                 </div>
             </div>
         </div>
@@ -506,7 +501,7 @@
             <div class="section-header animate-on-scroll">
                 <span class="section-label caption">PROJECTS</span>
                 <h2 class="section-title h2">Featured Work</h2>
-                <p class="body-sm" style="color: var(--color-text-tertiary);">Selected analytics and BI projects</p>
+                <p class="body-sm text-tertiary">Selected analytics and BI projects</p>
             </div>
             
             <div class="grid grid-cols-3">
@@ -591,54 +586,81 @@
                 </div>
 
                 <!-- Project 6 — CTA card to fill grid orphan -->
-                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none;">
-                    <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5;"></i>
-                    <span class="card-cta-text">View All Projects</span>
+                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background-color: var(--color-bg-dark); min-height: 200px;">
+                    <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5; color: var(--color-surface); margin-bottom: var(--space-md); transition: color var(--transition-base);"></i>
+                    <span class="card-cta-text" style="font-weight: 600; color: var(--color-surface); font-size: 1.125rem; transition: color var(--transition-base);">View All Projects</span>
                 </a>
+                <style>
+                    .card-cta:hover { background-color: var(--color-accent) !important; }
+                    .card-cta:hover .card-cta-text, .card-cta:hover .card-cta-icon { color: var(--color-surface) !important; }
+                </style>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="bg-primary">
+    <section id="skills" class="bg-primary" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
         <div class="container-narrow">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header mb-3xl">
                 <span class="section-label caption">SKILLS</span>
                 <h2 class="section-title h2">Technical Toolbox</h2>
             </div>
             
-            <div class="grid grid-cols-3 animate-on-scroll stagger-1" style="gap: var(--space-xl);">
+            <div class="grid grid-cols-2 animate-on-scroll stagger-1" style="gap: var(--space-3xl);">
                 <div class="skill-group">
-                    <h3 class="skill-group-title">Data &amp; Visualization</h3>
-                    <div class="tag-row">
-                        <span class="skill-tag mono">Power BI</span>
-                        <span class="skill-tag mono">DAX</span>
-                        <span class="skill-tag mono">Data Modeling</span>
-                        <span class="skill-tag mono">Microsoft Fabric</span>
-                        <span class="skill-tag mono">Tableau</span>
-                        <span class="skill-tag mono">Alteryx</span>
+                    <h3 class="skill-group-title">Data & Visualization</h3>
+                    
+                    <div class="skill-bar">
+                        <div class="skill-bar-name"><i data-lucide="bar-chart-2" style="width:16px;height:16px;"></i> Power BI</div>
+                        <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+                        <div class="skill-level">Expert</div>
+                    </div>
+                    
+                    <div class="skill-bar">
+                        <div class="skill-bar-name"><i data-lucide="database" style="width:16px;height:16px;"></i> SQL</div>
+                        <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
+                        <div class="skill-level">Expert</div>
+                    </div>
+                    
+                    <div class="skill-bar">
+                        <div class="skill-bar-name"><i data-lucide="terminal" style="width:16px;height:16px;"></i> Python</div>
+                        <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar-name"><i data-lucide="layers" style="width:16px;height:16px;"></i> Alteryx</div>
+                        <div class="skill-track"><div class="skill-fill" style="width: 75%;"></div></div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar-name"><i data-lucide="pie-chart" style="width:16px;height:16px;"></i> Tableau</div>
+                        <div class="skill-track"><div class="skill-fill" style="width: 60%;"></div></div>
+                        <div class="skill-level">Intermediate</div>
                     </div>
                 </div>
-                <div class="skill-group">
-                    <h3 class="skill-group-title">Programming</h3>
-                    <div class="tag-row">
-                        <span class="skill-tag mono">Python</span>
-                        <span class="skill-tag mono">Pandas</span>
-                        <span class="skill-tag mono">SQL</span>
-                        <span class="skill-tag mono">PostgreSQL</span>
-                        <span class="skill-tag mono">Power Query</span>
-                    </div>
-                </div>
+                
                 <div class="skill-group">
                     <h3 class="skill-group-title">Domain Expertise</h3>
-                    <div class="tag-row">
-                        <span class="skill-tag mono">Financial Analysis</span>
-                        <span class="skill-tag mono">Tax Compliance</span>
-                        <span class="skill-tag mono">Stakeholder Reporting</span>
-                        <span class="skill-tag mono">Business Intelligence</span>
+                    <div class="tag-row mb-xl">
+                        <span class="tag">Financial Analysis</span>
+                        <span class="tag">Tax Compliance</span>
+                        <span class="tag">Stakeholder Reporting</span>
+                        <span class="tag">Business Intelligence</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">ETL Workflows</span>
                     </div>
                 </div>
             </div>
+            
+            <!-- Architecture Section -->
+            <div class="architecture-section animate-on-scroll mt-2xl">
+                <h3 class="h3 mb-md">Analytics Workflow</h3>
+                <p class="body-sm" style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">From raw data extraction to automated executive dashboards.</p>
+                <img src="img/data-pipeline-diagram.png" alt="Data Pipeline Architecture" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
+            </div>
+            
         </div>
     </section>
 
@@ -674,18 +696,18 @@
                 <div class="visual-timeline-item">
                     <div class="vt-image vt-left slide-outward-left">
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer">
-                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property">
+                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';">
                         </a>
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-content vt-right slide-outward-right">
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">2023</p>
-                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance &amp; Tax Manager</h3>
+                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance & Tax Manager</h3>
                         <p class="timeline-company"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Frasers Property Vietnam</a></p>
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
-                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="exp-highlights">
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$2M</strong> (5%) deal price reduction — negotiated via tax due diligence for an 83-mall acquisition.</p>
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">18+ hours/month</strong> saved — architected an automated Power BI workflow for a 7-member finance team.</p>
                         </div>
@@ -701,7 +723,7 @@
                         <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
-                        <div class="exp-highlights" style="display: flex; flex-direction: column; gap: 10px; text-align: right;">
+                        <div class="exp-highlights">
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$27.3M</strong> saved in tax penalties — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
                         </div>
@@ -770,7 +792,7 @@
                 <p style="color: var(--color-text-on-dark); margin-bottom: var(--space-2xl); max-width: 480px;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
-                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white" style="margin-bottom: var(--space-xl);">ntxhien52@gmail.com</a>
+                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white mb-xl">ntxhien52@gmail.com</a>
                 
                 <div class="flex gap-md" style="margin-top: var(--space-xl);">
                     <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="social-link">
