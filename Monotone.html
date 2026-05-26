@@ -205,40 +205,47 @@
         /* --- Migration Overrides --- */
 
         /* 1. Hero Buttons */
-        .hero-btn {
-            display: inline-flex; align-items: center; justify-content: center;
+        #about .btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             padding: 14px 28px !important;
             min-height: 44px !important;
-            border-radius: var(--radius-sm, 6px) !important;
+            border-radius: 4px !important;
             font-weight: 500 !important;
             font-size: 0.875rem !important;
             letter-spacing: 0.01em !important;
-            transition: all var(--transition-base) !important;
+            transition: all 200ms ease !important;
             border: 1px solid transparent !important;
             transform: none !important;
-            font-family: var(--font-body) !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+            box-shadow: none !important;
+            gap: normal !important;
         }
-        .hero-btn:focus-visible {
-            outline: 2px solid var(--color-accent) !important;
+        #about .btn:focus-visible,
+        #about a:focus-visible {
+            outline: 2px solid #1A1A1A !important;
             outline-offset: 2px !important;
         }
-        .btn-primary.hero-btn {
-            background-color: var(--color-accent) !important;
-            color: white !important;
-            box-shadow: var(--shadow-sm) !important;
+        #about .btn-primary {
+            background-color: #1A1A1A !important;
+            color: #FFFFFF !important;
+            border: none !important;
         }
-        .btn-primary.hero-btn:hover {
-            background-color: var(--color-accent-hover) !important;
-            box-shadow: var(--shadow-md) !important;
+        #about .btn-primary:hover {
+            background-color: #333333 !important;
+            box-shadow: none !important;
+            transform: none !important;
         }
-        .btn-outline.hero-btn {
-            background-color: white !important;
-            color: var(--color-text-primary) !important;
-            border-color: var(--color-border) !important;
+        #about .btn-outline {
+            background-color: transparent !important;
+            color: #1A1A1A !important;
+            border: 1px solid #1A1A1A !important;
         }
-        .btn-outline.hero-btn:hover {
-            background-color: var(--color-bg-secondary) !important;
-            color: var(--color-text-primary) !important;
+        #about .btn-outline:hover {
+            background-color: #E5E2DC !important;
+            color: #1A1A1A !important;
+            transform: none !important;
         }
 
         /* 2. Project Cards */
@@ -263,6 +270,42 @@
         .card-thumbnail i {
             color: #111827 !important;
             z-index: 1;
+        }
+
+        /* CTA Card Restoration */
+        .card-cta {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            background-color: #E5E2DC !important;
+            border-bottom-color: #1A1A1A !important;
+            min-height: 200px !important;
+            text-decoration: none !important;
+            box-shadow: 0 1px 3px rgba(26, 26, 26, 0.06) !important;
+            transform: none !important;
+        }
+        .card-cta:hover {
+            background-color: #1A1A1A !important;
+            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.10) !important;
+            transform: none !important;
+        }
+        .card-cta:hover .card-cta-text,
+        .card-cta:hover .card-cta-icon {
+            color: #FFFFFF !important;
+        }
+        .card-cta-icon {
+            color: #1A1A1A !important;
+            margin-bottom: 16px !important;
+            transition: color 200ms ease !important;
+        }
+        .card-cta-text {
+            font-weight: 600 !important;
+            color: #1A1A1A !important;
+            font-size: 1.125rem !important;
+            transition: color 200ms ease !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
         }
 
         /* 3. Visual Timeline Component */
@@ -482,8 +525,8 @@
                         Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
                     </p>
                     <div class="flex gap-md" style="flex-wrap: wrap;">
-                        <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary hero-btn">Get in Touch</a>
-                        <a href="#projects" class="btn btn-outline hero-btn">View Projects</a>
+                        <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary">Get in Touch</a>
+                        <a href="#projects" class="btn btn-outline">View Projects</a>
                     </div>
                 </div>
                 <div class="animate-on-scroll stagger-1">
@@ -586,14 +629,10 @@
                 </div>
 
                 <!-- Project 6 — CTA card to fill grid orphan -->
-                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background-color: var(--color-bg-dark); min-height: 200px;">
-                    <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5; color: var(--color-surface); margin-bottom: var(--space-md); transition: color var(--transition-base);"></i>
-                    <span class="card-cta-text" style="font-weight: 600; color: var(--color-surface); font-size: 1.125rem; transition: color var(--transition-base);">View All Projects</span>
+                <a href="#contact" class="card card-cta animate-on-scroll stagger-3" style="text-decoration: none;">
+                    <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5;"></i>
+                    <span class="card-cta-text">View All Projects</span>
                 </a>
-                <style>
-                    .card-cta:hover { background-color: var(--color-accent) !important; }
-                    .card-cta:hover .card-cta-text, .card-cta:hover .card-cta-icon { color: var(--color-surface) !important; }
-                </style>
             </div>
         </div>
     </section>
