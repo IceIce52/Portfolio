@@ -82,6 +82,87 @@
 
             /* ===== Transition ===== */
             --transition-base: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+            /* ===== Component Semantics ===== */
+            --color-hero-btn-bg: #1A1A1A;
+            --color-hero-btn-text: #FFFFFF;
+            --color-hero-btn-hover: #333333;
+            --color-hero-outline-border: #1A1A1A;
+            --color-hero-outline-text: #1A1A1A;
+            --color-hero-outline-hover: #E5E2DC;
+
+            --color-navbar-bg: rgba(255,255,255,0.82);
+            --color-navbar-border: rgba(229,231,235,0.7);
+
+            --color-contact-bg: #243447;
+            --color-contact-label: #946316;
+            --color-contact-heading: #FFFFFF;
+            --color-contact-text: rgba(255, 255, 255, 0.78);
+            --color-contact-btn-bg: #FFFFFF;
+            --color-contact-btn-text: #243447;
+            --color-contact-btn-border: rgba(255, 255, 255, 0.08);
+            --color-contact-btn-hover-bg: #F0EBE0;
+            --color-contact-btn-hover-text: #243447;
+            --color-contact-social-bg: rgba(255, 255, 255, 0.04);
+            --color-contact-social-hover-bg: rgba(148, 99, 22, 0.18);
+            --color-contact-social-hover-text: #FFFFFF;
+
+            --color-footer-bg: #1A1A1A;
+            --color-preloader-text: #111827;
+            
+            --color-badge-bg: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --color-bg-primary: #111827;
+            --color-bg-secondary: #0f1522;
+            --color-bg-dark: #0f1522;
+            --color-surface: #1f2937;
+
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #9ca3af;
+            --color-text-tertiary: #6b7280;
+            --color-text-on-dark: rgba(255,255,255,0.92);
+            --color-text-on-dark-muted: rgba(255,255,255,0.70);
+
+            --color-accent: #9146ff;
+            --color-accent-hover: #7B3FD9;
+            --color-accent-soft: rgba(145, 70, 255, 0.15);
+
+            --color-border: rgba(255, 255, 255, 0.1);
+            --color-divider: rgba(255, 255, 255, 0.05);
+
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.7);
+
+            --color-hero-btn-bg: #9146ff;
+            --color-hero-btn-text: #ffffff;
+            --color-hero-btn-hover: #7B3FD9;
+            --color-hero-outline-border: rgba(255, 255, 255, 0.2);
+            --color-hero-outline-text: #ffffff;
+            --color-hero-outline-hover: rgba(255, 255, 255, 0.05);
+
+            --color-navbar-bg: rgba(17, 24, 39, 0.82);
+            --color-navbar-border: rgba(255, 255, 255, 0.05);
+
+            --color-contact-bg: #1f2937;
+            --color-contact-label: #bf94ff;
+            --color-contact-heading: #ffffff;
+            --color-contact-text: #9ca3af;
+            --color-contact-btn-bg: #ffffff;
+            --color-contact-btn-text: #000000;
+            --color-contact-btn-border: transparent;
+            --color-contact-btn-hover-bg: #e5e7eb;
+            --color-contact-btn-hover-text: #000000;
+            --color-contact-social-bg: rgba(255, 255, 255, 0.05);
+            --color-contact-social-hover-bg: rgba(145, 70, 255, 0.2);
+            --color-contact-social-hover-text: #bf94ff;
+
+            --color-footer-bg: #0f1522;
+            --color-preloader-text: #9146ff;
+            
+            --color-badge-bg: rgba(255,255,255,0.05);
         }
 
         /* Typography Scale */
@@ -112,8 +193,9 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(12px);
-            background: rgba(255,255,255,0.82);
-            border-bottom: 1px solid rgba(229,231,235,0.7);
+            background: var(--color-navbar-bg);
+            border-bottom: 1px solid var(--color-navbar-border);
+            transition: background-color 200ms ease, border-color 200ms ease;
         }
         .logo { font-weight: 700; letter-spacing: -0.02em; font-family: var(--font-body); color: var(--color-text-primary); text-decoration: none; }
         .nav-link { position: relative; color: var(--color-text-secondary); transition: color var(--transition-base); text-decoration: none; font-family: var(--font-body); }
@@ -219,7 +301,7 @@
             font-weight: 500 !important;
             font-size: 0.875rem !important;
             letter-spacing: 0.01em !important;
-            transition: all 200ms ease !important;
+            transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease, transform 200ms ease !important;
             border: 1px solid transparent !important;
             transform: none !important;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
@@ -228,27 +310,27 @@
         }
         #about .btn:focus-visible,
         #about a:focus-visible {
-            outline: 2px solid #1A1A1A !important;
+            outline: 2px solid var(--color-hero-outline-border) !important;
             outline-offset: 2px !important;
         }
         #about .btn-primary {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
+            background-color: var(--color-hero-btn-bg) !important;
+            color: var(--color-hero-btn-text) !important;
             border: none !important;
         }
         #about .btn-primary:hover {
-            background-color: #333333 !important;
+            background-color: var(--color-hero-btn-hover) !important;
             box-shadow: none !important;
             transform: none !important;
         }
         #about .btn-outline {
             background-color: transparent !important;
-            color: #1A1A1A !important;
-            border: 1px solid #1A1A1A !important;
+            color: var(--color-hero-outline-text) !important;
+            border: 1px solid var(--color-hero-outline-border) !important;
         }
         #about .btn-outline:hover {
-            background-color: #E5E2DC !important;
-            color: #1A1A1A !important;
+            background-color: var(--color-hero-outline-hover) !important;
+            color: var(--color-hero-outline-text) !important;
             transform: none !important;
         }
 
@@ -257,24 +339,43 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background-color: var(--color-bg-primary, #FAFBFC);
+            background-color: var(--color-bg-primary);
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s;
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background-color 200ms ease;
         }
         .preloader-brand {
             font-family: 'Inter', system-ui, sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #111827;
+            color: var(--color-preloader-text);
             letter-spacing: -0.02em;
             opacity: 0;
             animation: pulseFade 1.2s infinite alternate;
+            transition: color 200ms ease;
         }
         @keyframes pulseFade { 0% { opacity: 0.2; } 100% { opacity: 1; } }
         body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        @media (max-width: 767px) {
+            .theme-toggle-desktop { display: none !important; }
+            .theme-toggle-mobile { display: flex !important; }
+        }
     </style>
+    <script>
+        (function() {
+            try {
+                var storedTheme = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
     <div id="preloader"><div class="preloader-brand">HN</div></div>
@@ -291,10 +392,20 @@
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle nav-link theme-toggle-desktop" aria-label="Toggle Dark Mode" style="background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;">
+                    <i aria-hidden="true" data-lucide="moon" class="moon-icon" style="display: none; width: 18px; height: 18px;"></i>
+                    <i aria-hidden="true" data-lucide="sun" class="sun-icon" style="width: 18px; height: 18px;"></i>
+                </button>
             </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                <i aria-hidden="true" data-lucide="menu"></i>
-            </button>
+            <div class="flex items-center gap-sm">
+                <button class="theme-toggle theme-toggle-mobile" aria-label="Toggle Dark Mode" style="background: transparent; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; color: var(--color-text-primary);">
+                    <i aria-hidden="true" data-lucide="moon" class="moon-icon" style="display: none; width: 20px; height: 20px;"></i>
+                    <i aria-hidden="true" data-lucide="sun" class="sun-icon" style="width: 20px; height: 20px;"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                    <i aria-hidden="true" data-lucide="menu"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -524,7 +635,7 @@
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2023 - PRESENT</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Professional Development</h3>
                         <p class="timeline-company">Data Analytics Upskilling</p>
-                        <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;" class="caption">
+                        <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; transition: background-color 200ms ease;" class="caption">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Remote</span>
                         </div>
                         <p class="body-sm" style="color: var(--color-text-secondary);">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
@@ -547,7 +658,7 @@
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">2023</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance & Tax Manager</h3>
                         <p class="timeline-company"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Frasers Property Vietnam</a></p>
-                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
+                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; text-decoration: none; transition: background-color 200ms ease;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
                         <div class="exp-highlights">
@@ -563,7 +674,7 @@
                         <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2016 - DEC 2022</p>
                         <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Tax Manager</h3>
                         <p class="timeline-company"><a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">PwC Vietnam</a></p>
-                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 9999px; font-weight: 500;">
+                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; text-decoration: none; transition: background-color 200ms ease;">
                             <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
                         </a>
                         <div class="exp-highlights">
@@ -630,36 +741,48 @@
         <style>
             /* Editorial Gold Visual Migration */
             #contact.bg-accent {
-                background-color: #243447 !important;
+                background-color: var(--color-contact-bg) !important;
+                transition: background-color 200ms ease;
             }
             #contact .section-label {
-                color: #946316 !important;
+                color: var(--color-contact-label) !important;
+                transition: color 200ms ease;
             }
             #contact .display {
                 font-family: 'Lora', Georgia, serif !important;
-                color: #FFFFFF !important;
+                color: var(--color-contact-heading) !important;
+                transition: color 200ms ease;
             }
             #contact p {
-                color: rgba(255, 255, 255, 0.78) !important;
+                color: var(--color-contact-text) !important;
+                transition: color 200ms ease;
             }
             #contact .btn-white {
-                background-color: #FFFFFF !important;
-                color: #243447 !important;
-                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+                background-color: var(--color-contact-btn-bg) !important;
+                color: var(--color-contact-btn-text) !important;
+                border: 1px solid var(--color-contact-btn-border) !important;
+                transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease !important;
             }
             #contact .btn-white:hover {
-                background-color: #F0EBE0 !important;
-                color: #243447 !important;
+                background-color: var(--color-contact-btn-hover-bg) !important;
+                color: var(--color-contact-btn-hover-text) !important;
             }
-            #contact .social-link {
-                background-color: rgba(255, 255, 255, 0.04) !important;
-                color: rgba(255, 255, 255, 0.78) !important;
-                transition: background-color var(--transition-base), color var(--transition-base) !important;
+            #contact .contact-icon {
+                background-color: var(--color-contact-social-bg) !important;
+                color: var(--color-contact-social-text) !important;
+                transition: background-color 200ms ease, color 200ms ease, transform 200ms ease !important;
+                width: 44px !important;
+                height: 44px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: var(--radius-sm) !important;
             }
-            #contact .social-link:hover,
-            #contact .social-link:focus-visible {
-                background-color: rgba(148, 99, 22, 0.18) !important;
-                color: #FFFFFF !important;
+            #contact .contact-icon:hover,
+            #contact .contact-icon:focus-visible {
+                background-color: var(--color-contact-social-hover-bg) !important;
+                color: var(--color-contact-social-hover-text) !important;
+                transform: translateY(-2px) !important;
             }
         </style>
         <div class="container-narrow">
@@ -669,14 +792,12 @@
                 <p style="margin-bottom: var(--space-2xl); max-width: 480px;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
-                <a href="mailto:ntxhien52@gmail.com" class="btn btn-white mb-xl">ntxhien52@gmail.com</a>
-                
-                <div class="flex gap-md" style="margin-top: var(--space-xl);">
-                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="social-link">
-                        <i aria-hidden="true" data-lucide="linkedin"></i>
+                <div class="flex gap-md justify-center mb-xl">
+                    <a href="mailto:ntxhien52@gmail.com" aria-label="Email Hien Nguyen" class="contact-icon">
+                        <i aria-hidden="true" data-lucide="mail"></i>
                     </a>
-                    <a href="https://github.com/yourprofile" aria-label="GitHub" class="social-link">
-                        <i aria-hidden="true" data-lucide="github"></i>
+                    <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="contact-icon">
+                        <i aria-hidden="true" data-lucide="linkedin"></i>
                     </a>
                 </div>
             </div>
@@ -684,7 +805,7 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: #1A1A1A; padding: var(--space-lg) 0;">
+    <footer style="background-color: var(--color-footer-bg); padding: var(--space-lg) 0; transition: background-color 200ms ease;">
         <div class="container flex justify-between items-center">
             <p class="caption footer-text" style="margin: 0;">© 2026 Hien Nguyen</p>
             <p class="caption footer-text" style="margin: 0;">Designed &amp; Built by Hien Nguyen</p>
