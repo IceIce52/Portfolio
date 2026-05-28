@@ -27,6 +27,17 @@
     <script defer src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+/* ===== Fix for Sticky Navbar Overlap ===== */ 
+:root {
+    --navbar-height: 74px; /* We set a hard height for the navbar here */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Tells the browser to stop scrolling EXACTLY at the bottom of the navbar */
+    scroll-padding-top: var(--navbar-height); 
+}
+
 :root {
     /* ===== Easing Systems ===== */
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -213,6 +224,9 @@
 /* ===== Components ===== */
 .navbar {
     position: sticky; top: 0; z-index: 100;
+    height: var(--navbar-height); /* Locks the navbar to the exact same height as the scroll padding */
+    display: flex; /* Ensures the inside container stays vertically centered */
+    align-items: center; 
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     background: var(--color-navbar-bg); border-bottom: 1px solid var(--color-navbar-border);
     transition: background-color var(--transition-base), border-color var(--transition-base);
@@ -782,6 +796,8 @@ html:not([data-theme="dark"]) .back-to-top:hover {
                 <a href="#about" class="nav-link">About</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certifications" class="nav-link">Qualifications</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <button class="theme-toggle nav-link theme-toggle-desktop" aria-label="Toggle Dark Mode" style="background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;">
                     <i aria-hidden="true" data-lucide="moon" class="moon-icon" style="display: none; width: 18px; height: 18px;"></i>
