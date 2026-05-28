@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hien Nguyen - Business Intelligence Analyst</title>
     <meta name="description" content="Portfolio of Hien Nguyen, a Business Intelligence Analyst with a background in Finance &amp; Tax. Specializing in Power BI, SQL, Python, and financial data analytics.">
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%232563EB'>HN</text></svg>">
     
-    <!-- Preconnects & Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preload" as="image" href="img/headshot.jpg" type="image/jpeg" fetchpriority="high">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
@@ -26,503 +22,759 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/v2-fixes.css">
+    <link rel="stylesheet" href="css/cinematic.css">
 
-    <!-- Icons -->
     <script defer src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- v2 Design System Fixes -->
     <style>
-        :root {
-            /* ===== Easing Systems ===== */
-            --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+:root {
+    /* ===== Easing Systems ===== */
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
-            /* ===== Backgrounds ===== */
-            --color-bg-primary: #FAFBFC;
-            --color-bg-secondary: #F5F7FA;
-            --color-bg-dark: #111827;
-            --color-surface: #FFFFFF;
+    /* ===== Backgrounds (Light Mode) ===== */
+    --color-bg-primary: #F9F9F8;      /* Warm Alabaster */
+    --color-bg-secondary: #F1F3F5;    /* Subtle Slate-Grey (Replaced Peach) */
+    --color-surface: #FCFCFB;         /* Ghost White */
 
-            /* ===== Text ===== */
-            --color-text-primary: #111827;
-            --color-text-secondary: #374151;
-            --color-text-tertiary: #6B7280;
-            --color-text-on-dark: rgba(255,255,255,0.92);
-            --color-text-on-dark-muted: rgba(255,255,255,0.70);
+    /* ===== Text (Light Mode) ===== */
+    --color-text-primary: #111844;    /* Deep Midnight Blue */
+    --color-text-secondary: #4A5568;  /* Slate Grey */
+    --color-text-tertiary: #718096;   /* Muted Slate */
+    --color-text-on-dark: rgba(249, 249, 248, 0.92);
+    --color-text-on-dark-muted: rgba(249, 249, 248, 0.70);
 
-            /* ===== Accent ===== */
-            --color-accent: #2563EB;
-            --color-accent-hover: #1D4ED8;
-            --color-accent-soft: #DBEAFE;
+    /* ===== Brand Identity (Light Mode - Pure Teal) ===== */
+    --color-accent: #007979;          /* Deep Teal */
+    --color-accent-hover: #0A605A;    /* Darkened Teal */
+    --color-accent-secondary: #24B1B1;/* Vibrant Teal */
+    --color-accent-soft: rgba(36, 177, 177, 0.12);
 
-            /* ===== Borders ===== */
-            --color-border: #E5E7EB;
-            --color-divider: #E5E7EB;
+    /* ===== Borders & Structural ===== */
+    --color-border: #E2E8F0;          
+    --color-divider: #EDF2F7;
+    --color-badge-bg: rgba(36, 177, 177, 0.08);
 
-            /* ===== Typography ===== */
-            --font-body: 'Inter', system-ui, sans-serif;
-            --font-heading: 'IBM Plex Serif', Georgia, serif;
-            --font-mono: 'JetBrains Mono', monospace;
+    --shadow-micro: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+    --shadow-float: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -4px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
 
-            /* ===== Radius ===== */
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
+    /* ===== Typography & Spacing ===== */
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-heading: 'IBM Plex Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
-            /* ===== Refined Shadows - Multi-layered for realistic depth ===== */
-            --shadow-micro: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
-            --shadow-float: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -4px rgba(0, 0, 0, 0.04);
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 72px;
 
-            /* ===== Spacing ===== */
-            --space-xs: 4px;
-            --space-sm: 8px;
-            --space-md: 16px;
-            --space-lg: 24px;
-            --space-xl: 32px;
-            --space-2xl: 48px;
-            --space-3xl: 72px;
-            --space-4xl: 96px;
-            --space-5xl: 128px; /* Added for spatial pacing */
+    --transition-base: 300ms var(--ease-premium);
+    
+    --color-navbar-bg: rgba(249, 249, 248, 0.85);
+    --color-navbar-border: rgba(226, 232, 240, 0.7);
+    --color-footer-bg: #111844;
+    --color-preloader-text: #111844;
+}
 
-            /* ===== Transition ===== */
-            --transition-base: 300ms var(--ease-premium);
+[data-theme="dark"] {
+    /* ===== Backgrounds (Dark Mode) ===== */
+    --color-bg-primary: #080C1D;      /* Abyssal Blue */
+    --color-bg-secondary: #0C1226;    /* Subtle Sub-Navy (Replaced Indigo) */
+    --color-surface: #111844;         /* Deep Midnight Blue */
+    --color-surface-2: #192152;       
 
-            /* ===== Component Semantics ===== */
-            --color-hero-btn-bg: #1A1A1A;
-            --color-hero-btn-text: #FFFFFF;
-            --color-hero-btn-hover: #333333;
-            --color-hero-outline-border: #1A1A1A;
-            --color-hero-outline-text: #1A1A1A;
-            --color-hero-outline-hover: #E5E2DC;
+    /* ===== Text (Dark Mode) ===== */
+    --color-text-primary: #F9F9F8;    
+    --color-text-secondary: #CBD5E1;  
+    --color-text-tertiary: #8A96A8;   
 
-            --color-navbar-bg: rgba(255,255,255,0.82);
-            --color-navbar-border: rgba(229,231,235,0.7);
+    /* ===== Brand Identity (Dark Mode - Pure Teal) ===== */
+    --color-accent: #24B1B1;          
+    --color-accent-hover: #1F9B9B;    
+    --color-accent-secondary: #A5F3F3;/* Iced Teal */
+    --color-accent-soft: rgba(36, 177, 177, 0.15); 
 
-            --color-contact-bg: #243447;
-            --color-contact-label: #946316;
-            --color-contact-heading: #FFFFFF;
-            --color-contact-text: rgba(255, 255, 255, 0.78);
-            --color-contact-btn-bg: #FFFFFF;
-            --color-contact-btn-text: #243447;
-            --color-contact-btn-border: rgba(255, 255, 255, 0.08);
-            --color-contact-btn-hover-bg: #F0EBE0;
-            --color-contact-btn-hover-text: #243447;
-            --color-contact-social-bg: rgba(255, 255, 255, 0.04);
-            --color-contact-social-hover-bg: rgba(148, 99, 22, 0.18);
-            --color-contact-social-hover-text: #FFFFFF;
+    /* ===== Borders & Structural ===== */
+    --color-border: rgba(255, 255, 255, 0.08); 
+    --color-border-subtle: rgba(255, 255, 255, 0.04);
+    --color-border-glow: rgba(36, 177, 177, 0.25);
+    --color-badge-bg: rgba(255, 255, 255, 0.05);
 
-            --color-footer-bg: #1A1A1A;
-            --color-preloader-text: #111827;
-            
-            --color-badge-bg: rgba(0,0,0,0.05);
+    --shadow-micro: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--color-border-subtle) inset;
+    
+    --color-navbar-bg: rgba(8, 12, 29, 0.85);
+    --color-navbar-border: var(--color-border-subtle);
+    --color-footer-bg: #050814;
+    --color-preloader-text: #24B1B1;
+}
+
+/* ===== Section Overrides (Fixing the Contact Section) ===== */
+#contact { 
+    background-color: var(--color-bg-primary) !important; /* Removes the jarring solid teal block */
+}
+
+/* ===== Dark Mode Section Overrides ===== */
+[data-theme="dark"] body { background-color: var(--color-bg-primary); }
+[data-theme="dark"] #about, [data-theme="dark"] #skills, [data-theme="dark"] #certifications { 
+    background-color: var(--color-bg-primary) !important; 
+}
+[data-theme="dark"] #projects, [data-theme="dark"] #experience { 
+    background-color: var(--color-bg-secondary) !important; 
+    border-top: 1px solid var(--color-border-subtle); 
+}
+[data-theme="dark"] #contact { 
+    background-color: var(--color-bg-primary) !important; /* Seamless integration */
+    border-top: 1px solid var(--color-border-subtle); 
+}
+[data-theme="dark"] #contact::before { display: none; } 
+
+/* ===== Dark Mode Component Specifics ===== */
+
+/* Pure White Titles */
+[data-theme="dark"] .display,
+[data-theme="dark"] .h2 {
+    color: #FFFFFF;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+/* ===== Unified Gradient Typography ===== */
+/* Light Mode Gradient (Deep Teal to Vibrant Teal) */
+.section-label,
+.kpi-number {
+    background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+/* Dark Mode Gradient (Alabaster to Vibrant Teal) */
+[data-theme="dark"] .section-label,
+[data-theme="dark"] .kpi-number {
+    background: linear-gradient(180deg, #F9F9F8 0%, #A5F3F3 12%, #24B1B1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Guarantee strict vertical stacking for Section Headers */
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px; 
+    margin-bottom: var(--space-2xl);
+}
+
+#contact .section-header {
+    align-items: center; 
+    text-align: center;
+}
+
+/* ===== Typography Scale ===== */
+.display { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; font-family: var(--font-heading); }
+.h1 { font-size: 3rem; line-height: 1.1; letter-spacing: -0.02em; font-family: var(--font-heading); font-weight: 600; }
+.h2 { font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.01em; font-family: var(--font-heading); font-weight: 600; margin-bottom: 0; }
+.h3 { font-size: 1.5rem; line-height: 1.25; font-family: var(--font-body); font-weight: 600; }
+.body-lg { font-size: 1.125rem; line-height: 1.6; font-family: var(--font-body); }
+.body { font-size: 1rem; line-height: 1.6; font-family: var(--font-body); }
+.body-sm { font-size: 0.9375rem; line-height: 1.6; font-family: var(--font-body); }
+.section-label, .caption { font-size: 0.75rem; letter-spacing: 0.12em; font-weight: 500; opacity: 0.8; text-transform: uppercase; font-family: var(--font-body); }
+
+/* ===== Layout Utilities ===== */
+.flex-center { display: flex; align-items: center; }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+.mb-3xl { margin-bottom: var(--space-3xl); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+/* ===== Components ===== */
+.navbar {
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: var(--color-navbar-bg); border-bottom: 1px solid var(--color-navbar-border);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+.logo { font-weight: 700; letter-spacing: -0.02em; font-family: var(--font-body); color: var(--color-text-primary); text-decoration: none; }
+.nav-link { position: relative; color: var(--color-text-secondary); transition: color var(--transition-base); text-decoration: none; font-family: var(--font-body); }
+.nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: -8px; width: 100%; height: 2px;
+    background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition-base);
+}
+.nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+
+/* Structured 8px borders for buttons */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 14px 24px; border-radius: 8px; font-weight: 600;
+    transition: all var(--transition-base);
+    text-decoration: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 1rem;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* ===== Dimensional Modern Buttons ===== */
+.btn-primary { 
+    background-color: var(--color-accent); 
+    color: #FFFFFF; 
+    /* The white blend effect: */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), var(--shadow-sm); 
+}
+
+.btn-primary:hover { 
+    background-color: var(--color-accent-hover); 
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), var(--shadow-md); 
+}
+
+[data-theme="dark"] .btn-primary { 
+    color: #080C1D; 
+    font-weight: 700;
+    /* In dark mode, we blend a translucent dark overlay instead of white to keep the text legible */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.1) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn-outline { border: 1px solid var(--color-border); background-color: transparent; color: var(--color-text-primary); }
+.btn-outline:hover { background-color: var(--color-bg-secondary); }
+
+/* Card System */
+.card {
+    display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden;
+    background-color: var(--color-surface); border: none;
+    box-shadow: 0 0 0 1px var(--color-border) inset, var(--shadow-micro);
+    transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), background-color 0.5s var(--ease-premium);
+    will-change: transform, box-shadow; text-decoration: none;
+}
+.card:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 0 0 1px rgba(36, 177, 177, 0.3) inset, var(--shadow-float); 
+}
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 0 0 1px var(--color-border-glow) inset, var(--shadow-float);
+    background-color: var(--color-surface-2);
+}
+.card-thumbnail { overflow: hidden; }
+.card-thumbnail img { 
+    width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); 
+    transition: transform 0.6s var(--ease-premium);
+}
+.card:hover .card-thumbnail img { transform: scale(1.03); }
+.card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
+.card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
+.card-desc { font-family: var(--font-body); color: var(--color-text-secondary); margin-bottom: var(--space-md); flex-grow: 1; line-height: 1.6; }
+
+/* Cinematic Motion */
+.animate-on-scroll { opacity: 0; transform: translateY(12px); transition: opacity 0.65s var(--ease-premium), transform 0.65s var(--ease-premium); }
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+.stagger-4 { transition-delay: 400ms; }
+
+/* Timeline */
+.timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-xl); padding: var(--space-xl) 0; border-bottom: 1px solid var(--color-divider); }
+.timeline-role { font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; font-family: var(--font-body); }
+.timeline-company { font-size: 1rem; font-weight: 400; color: var(--color-text-secondary); margin-bottom: 12px; display: block; text-decoration: none; font-family: var(--font-body); transition: color 0.3s ease, opacity 0.3s ease; }
+.timeline-company:hover { color: var(--color-text-primary); }
+
+.location-badge {
+    display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--space-md);
+    color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px;
+    border-radius: 9999px; font-weight: 500; text-decoration: none; font-size: 0.875rem;
+    transition: all var(--transition-base);
+}
+.location-badge:hover { background: var(--color-border); color: var(--color-text-primary); }
+
+/* Skills & Tags */
+.skill-group-title { margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--color-text-primary); font-weight: 600; font-family: var(--font-body); }
+.tag { font-size: 0.875rem; padding: 6px 14px; background: var(--color-bg-secondary); border-radius: 6px; color: var(--color-text-secondary); font-family: var(--font-mono); border: 1px solid var(--color-border); }
+[data-theme="dark"] .tag { background: rgba(255,255,255,0.03); }
+.tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ===== New Analytics Workflow Grid System ===== */
+.workflow-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin: var(--space-2xl) 0;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .workflow-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+.step-card {
+    padding: var(--space-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative top border for technical feel */
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--color-accent);
+    opacity: 0.4;
+    transition: opacity var(--transition-base);
+}
+
+.step-card:hover { 
+    transform: translateY(-2px); 
+    border-color: rgba(36, 177, 177, 0.3); 
+    box-shadow: var(--shadow-md); 
+}
+.step-card:hover::before { opacity: 1; }
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-icon-wrapper {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--color-bg-secondary);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-accent);
+}
+[data-theme="dark"] .step-icon-wrapper { background: rgba(36, 177, 177, 0.1); }
+
+.step-number {
+    font-family: var(--font-mono);
+    color: var(--color-text-tertiary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    opacity: 0.4;
+}
+
+.step-title { 
+    font-size: 1.25rem; 
+    font-weight: 600; 
+    color: var(--color-text-primary); 
+    margin-bottom: 8px; 
+    font-family: var(--font-heading); 
+}
+
+.step-desc { 
+    font-size: 0.9375rem; 
+    color: var(--color-text-secondary); 
+    line-height: 1.7; 
+}
+
+.architecture-section { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center; box-shadow: var(--shadow-sm); margin-bottom: var(--space-4xl); margin-top: var(--space-4xl); }
+[data-theme="dark"] .architecture-section { background-color: rgba(255, 255, 255, 0.01) !important; }
+.architecture-section img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin-top: 0; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+
+/* Specifics */
+.dashboard-preview { margin-top: var(--space-xl); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
+.profile-img-container { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin-bottom: var(--space-md); border: 2px solid var(--color-border); }
+.profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ===== KPI Ribbon Box Formatting ===== */
+.kpi-ribbon { 
+    display: inline-flex; 
+    flex-wrap: nowrap; /* 1. Explicitly forces a single row */
+    white-space: nowrap; /* 2. Prevents text from breaking into multiple lines */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    background-image: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+    box-shadow: var(--shadow-micro);
+    padding: var(--space-md) 0;
+}
+
+[data-theme="dark"] .kpi-ribbon {
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
+}
+
+.kpi-item { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 0 0 auto; /* 3. Prevents the individual cards from shrinking */
+    padding: 0 var(--space-xl);
+    border-right: 1px solid var(--color-border);
+}
+
+.kpi-item:last-child {
+    border-right: none;
+}
+
+.kpi-label { 
+    font-size: 0.75rem; 
+    color: var(--color-text-tertiary); 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    font-weight: 600; 
+    margin-top: 4px; 
+    font-family: var(--font-body); 
+}
+
+/* ===== Minimalist List Certifications ===== */
+.cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.cert-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg) var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: background-color var(--transition-base), padding var(--transition-base);
+}
+
+.cert-list-item:hover {
+    background-color: var(--color-bg-secondary);
+    /* Creates a subtle indent effect on hover */
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+.cert-list-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .cert-list-icon {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.cert-list-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cert-list-title {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+}
+
+.cert-list-skills {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+}
+
+.cert-list-meta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    text-align: right;
+    min-width: 140px;
+    justify-content: flex-end;
+}
+
+.cert-list-issuer {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+}
+
+.cert-list-arrow {
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.cert-list-item:hover .cert-list-arrow {
+    color: var(--color-accent);
+    transform: translate(2px, -2px);
+}
+
+.cert-status-badge {
+    font-size: 0.6875rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+    padding: 4px 10px; 
+    border-radius: 9999px; 
+    background: var(--color-badge-bg);
+    color: var(--color-text-secondary);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cert-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    .cert-list-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* ===== Global Card White Blending ===== */
+.card, .step-card, .cert-card {
+    background-image: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+}
+
+[data-theme="dark"] .card, [data-theme="dark"] .step-card, [data-theme="dark"] .cert-card {
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+}
+
+/* Projects Grid Desktop Setup */
+.projects-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); width: 100%; }
+@media (min-width: 992px) {
+    .projects-grid { grid-template-columns: repeat(12, 1fr); }
+    .projects-grid > * { grid-column: span 4; }
+    .project-featured { grid-column: span 12; flex-direction: row; }
+    .project-featured .card-thumbnail { width: 50%; height: auto; border-bottom: none; border-right: 1px solid var(--color-border); }
+    .project-featured .card-thumbnail img { height: 100%; }
+    .project-featured .card-content { width: 50%; padding: var(--space-3xl) var(--space-2xl); justify-content: center; }
+    .project-secondary { grid-column: span 7; }
+    .project-tertiary { grid-column: span 5; }
+    .project-quaternary { grid-column: span 6; }
+    .project-quinary { grid-column: span 6; }
+}
+
+/* Accessibility & Preloader */
+:focus-visible { outline: 3px solid rgba(36, 177, 177, 0.45); outline-offset: 3px; }
+.skip-link { position: absolute; top: -100%; left: 16px; z-index: 200; padding: 12px 24px; background: var(--color-accent); color: var(--color-surface); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+.skip-link:focus { top: 12px; }
+
+#preloader { position: fixed; inset: 0; z-index: 9999; background-color: var(--color-bg-primary); display: flex; justify-content: center; align-items: center; transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background-color 200ms ease; }
+.preloader-brand { font-family: 'Inter', system-ui, sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--color-preloader-text); letter-spacing: -0.02em; opacity: 0; animation: pulseFade 1.2s infinite alternate; transition: color 200ms ease; }
+@keyframes pulseFade { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 767px) { .theme-toggle-desktop { display: none !important; } .theme-toggle-mobile { display: flex !important; } }
+
+/* ===== Scroll Progress Bar Fix ===== */
+.scroll-progress {
+    background-color: var(--color-accent) !important;
+    z-index: 9999; /* Ensures it stays above the navbar */
+}
+
+[data-theme="dark"] .scroll-progress {
+    background-color: var(--color-accent) !important;
+    box-shadow: 0 0 12px rgba(36, 177, 177, 0.6); /* Adds a neon-like glow against the dark background */
+}
+
+        /* ===== Fix Badge Layout Jump ===== */
+        .location-badge {
+            border: 1px solid transparent; 
         }
 
-        [data-theme="dark"] {
-            /* ===== Enterprise Palette (Deep Tonal Hierarchy) ===== */
-            --color-bg-base: #080B12; /* Deepest backdrop */
-            --color-surface-1: #0F1420; /* Primary cards */
-            --color-surface-2: #161D2E; /* Elevated elements */
-            --color-border-subtle: rgba(255, 255, 255, 0.04);
-            --color-border-glow: rgba(255, 255, 255, 0.1);
+        /* =======================================================
+           True Gradient Blends (Company Name Hover)
+           ======================================================= */
 
-            --color-bg-primary: var(--color-bg-base);
-            --color-bg-secondary: #0A0E17;
-            --color-bg-dark: var(--color-surface-1);
-            --color-surface: var(--color-surface-1);
-
-            --color-text-primary: #F8FAFC;
-            --color-text-secondary: #CBD5E1;
-            --color-text-tertiary: #94A3B8;
-            --color-text-on-dark: rgba(255,255,255,0.92);
-            --color-text-on-dark-muted: rgba(255,255,255,0.70);
-
-            --color-accent: #5B4FCF;
-            --color-accent-hover: #6D63D9;
-            --color-accent-soft: rgba(91, 79, 207, 0.12);
-
-            --color-border: var(--color-border-subtle);
-            --color-divider: rgba(248, 250, 252, 0.04);
-
-            --shadow-micro: 0 4px 12px rgba(0, 0, 0, 0.4);
-            --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--color-border-subtle) inset;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
-            --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
-
-            --color-hero-btn-bg: #5B4FCF;
-            --color-hero-btn-text: #F8FAFC;
-            --color-hero-btn-hover: #6D63D9;
-            --color-hero-outline-border: rgba(248, 250, 252, 0.15);
-            --color-hero-outline-text: #F8FAFC;
-            --color-hero-outline-hover: rgba(248, 250, 252, 0.04);
-
-            --color-navbar-bg: rgba(8, 11, 18, 0.78);
-            --color-navbar-border: var(--color-border-subtle);
-
-            --color-contact-bg: #05070A; /* Cinematic finale */
-            --color-contact-label: #7A73E8;
-            --color-contact-heading: #F8FAFC;
-            --color-contact-text: #CBD5E1;
-            --color-contact-btn-bg: rgba(248, 250, 252, 0.03);
-            --color-contact-btn-text: #F8FAFC;
-            --color-contact-btn-border: rgba(248, 250, 252, 0.08);
-            --color-contact-btn-hover-bg: rgba(248, 250, 252, 0.06);
-            --color-contact-btn-hover-text: #F8FAFC;
-            --color-contact-social-bg: rgba(248, 250, 252, 0.05);
-            --color-contact-social-hover-bg: rgba(91, 79, 207, 0.15);
-            --color-contact-social-hover-text: #7A73E8;
-
-            --color-footer-bg: #05070A;
-            --color-preloader-text: #5B4FCF;
-            
-            --color-badge-bg: rgba(248, 250, 252, 0.04);
+        /* 1. Personal Brand (Data Analytics - Deep Teal to Vibrant Teal) */
+        .brand-personal:hover {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
-        
-        /* Atmospheric Depth System & Continuous Section Transitions */
-        [data-theme="dark"] body {
-            background-color: var(--color-bg-base);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(91, 79, 207, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(91, 79, 207, 0.03) 0%, transparent 50%);
-            background-attachment: fixed;
+        [data-theme="dark"] .brand-personal:hover {
+            background: linear-gradient(90deg, #F9F9F8 0%, #A5F3F3 40%, #24B1B1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .badge-personal:hover {
+            background: var(--color-accent-soft);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+        }
+        [data-theme="dark"] .badge-personal:hover {
+            background: rgba(36, 177, 177, 0.15);
+            color: #A5F3F3;
+            border: 1px solid rgba(36, 177, 177, 0.4);
         }
 
-        [data-theme="dark"] .bg-primary,
-        [data-theme="dark"] .bg-secondary,
-        [data-theme="dark"] .bg-accent {
-            background-color: transparent !important;
-            position: relative;
+        /* 2. Frasers Property Brand (Red & Grey) */
+        .brand-frasers:hover {
+            background: linear-gradient(90deg, #ED1C24 0%, #ED1C24 40%, #817979 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .badge-frasers:hover {
+            background: rgba(237, 28, 36, 0.08);
+            color: #ED1C24;
+            border: 1px solid rgba(237, 28, 36, 0.3);
+        }
+        [data-theme="dark"] .badge-frasers:hover {
+            /* Slightly brightened red for perfect dark mode legibility */
+            background: rgba(237, 28, 36, 0.15);
+            color: #FF4D54; 
+            border: 1px solid rgba(237, 28, 36, 0.4);
         }
 
-        [data-theme="dark"] #about {
-            background: linear-gradient(to bottom, transparent, rgba(10, 14, 23, 0.5)) !important;
+        /* 3. PwC Brand (Warm Sunset Gradient) */
+        .brand-pwc:hover {
+            background: linear-gradient(90deg, #AD1B02 0%, #D85604 33%, #E88D14 66%, #F3BE26 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
-        [data-theme="dark"] #projects {
-            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.5), rgba(10, 14, 23, 0.8)) !important;
+        .badge-pwc:hover {
+            background: rgba(216, 86, 4, 0.08);
+            color: #D85604;
+            border: 1px solid rgba(216, 86, 4, 0.3);
         }
-        [data-theme="dark"] #skills {
-            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.5)) !important;
-        }
-        [data-theme="dark"] #experience {
-            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.5), var(--color-bg-base)) !important;
-        }
-        [data-theme="dark"] #certifications {
-            background: var(--color-bg-base) !important;
-        }
-        [data-theme="dark"] #contact {
-            background: var(--color-contact-bg) !important;
-            position: relative;
-        }
-        [data-theme="dark"] #contact::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 150px;
-            background: linear-gradient(to bottom, var(--color-bg-base), transparent);
-            pointer-events: none;
+        [data-theme="dark"] .badge-pwc:hover {
+            /* Using the 'Egg Yolk' yellow/orange for maximum dark mode pop */
+            background: rgba(216, 86, 4, 0.15);
+            color: #F3BE26; 
+            border: 1px solid rgba(216, 86, 4, 0.4);
         }
 
-        [data-theme="dark"] .section-label {
-            color: #7A73E8;
-            font-weight: 600;
-        }
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    z-index: 900;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: all var(--transition-base);
+}
 
-        /* Typography Scale - Premium Typography Rhythm */
-        .display { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; font-family: var(--font-body); }
-        .h1 { font-size: 3rem; line-height: 1.1; letter-spacing: -0.02em; font-family: var(--font-body); font-weight: 600; }
-        .h2 { font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.01em; font-family: var(--font-body); font-weight: 600; }
-        .h3 { font-size: 1.5rem; line-height: 1.25; font-family: var(--font-body); font-weight: 600; }
-        .body-lg { font-size: 1.125rem; line-height: 1.75; font-family: var(--font-body); }
-        .body { font-size: 1rem; line-height: 1.7; font-family: var(--font-body); }
-        .body-sm { font-size: 0.9375rem; line-height: 1.6; font-family: var(--font-body); }
-        .section-label, .caption { font-size: 0.75rem; letter-spacing: 0.12em; font-weight: 500; opacity: 0.8; text-transform: uppercase; font-family: var(--font-body); }
+/* Class added by JavaScript when scrolling */
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
-        /* Utility Classes */
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mb-xl { margin-bottom: var(--space-xl); }
-        .mb-2xl { margin-bottom: var(--space-2xl); }
-        .mb-3xl { margin-bottom: var(--space-3xl); }
-        
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
+/* Class added by JavaScript when user stops scrolling */
+.back-to-top.is-faded {
+    opacity: 0.3; /* Drops transparency so text behind is readable */
+}
 
-        /* Navbar Upgrade - Glassmorphism */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            background: var(--color-navbar-bg);
-            border-bottom: 1px solid var(--color-navbar-border);
-            transition: background-color 300ms var(--ease-premium), border-color 300ms var(--ease-premium), transform 400ms var(--ease-premium);
-        }
-        .logo { font-weight: 700; letter-spacing: -0.02em; font-family: var(--font-body); color: var(--color-text-primary); text-decoration: none; }
-        .nav-link { position: relative; color: var(--color-text-secondary); transition: color var(--transition-base); text-decoration: none; font-family: var(--font-body); }
-        .nav-link::after {
-            content: ''; position: absolute; left: 0; bottom: -8px; width: 100%; height: 2px;
-            background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition-base);
-        }
-        .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+/* Ensure hovering ALWAYS wakes the button up completely */
+.back-to-top:hover {
+    opacity: 1 !important; 
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
 
-        /* Button System Upgrade */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            min-height: 48px; padding: 14px 24px; border-radius: 999px; font-weight: 600;
-            transition: transform var(--transition-base), background-color var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), color var(--transition-base);
-            text-decoration: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 1rem;
-        }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-primary { background-color: var(--color-accent); color: white; box-shadow: var(--shadow-sm); }
-        .btn-primary:hover { background-color: var(--color-accent-hover); box-shadow: var(--shadow-md); color: white; }
-        .btn-outline { border: 1px solid var(--color-border); background-color: white; color: var(--color-text-primary); }
-        .btn-outline:hover { background-color: var(--color-bg-secondary); color: var(--color-text-primary); }
+/* Dark Mode Overrides */
+[data-theme="dark"] .back-to-top {
+    background-color: var(--color-surface-2);
+    border-color: var(--color-border-subtle);
+}
 
-        /* Card System Upgrade */
-        .card {
-            display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden;
-            background-color: var(--color-surface);
-            border: none;
-            box-shadow: 0 0 0 1px var(--color-border) inset, var(--shadow-micro);
-            transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), background-color 0.5s var(--ease-premium);
-            will-change: transform, box-shadow;
-            text-decoration: none;
-        }
-        [data-theme="dark"] .card {
-            background-color: var(--color-surface-1);
-            box-shadow: 0 0 0 1px var(--color-border-subtle) inset, var(--shadow-micro);
-        }
-        .card:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15) inset, var(--shadow-float); 
-        }
-        [data-theme="dark"] .card:hover {
-            box-shadow: 0 0 0 1px var(--color-border-glow) inset, var(--shadow-float);
-            background-color: var(--color-surface-2);
-        }
-        .card-thumbnail { overflow: hidden; }
-        .card-thumbnail img { 
-            width: 100%; height: 240px; object-fit: cover; display: block; border-bottom: 1px solid var(--color-border); 
-            transition: transform 0.6s var(--ease-premium);
-        }
-        [data-theme="dark"] .card-thumbnail img { border-bottom: 1px solid var(--color-border-subtle); }
-        .card:hover .card-thumbnail img { transform: scale(1.03); }
-        .card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex-grow: 1; }
-        .card-title { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-sm); color: var(--color-text-primary); }
-        .card-desc { font-family: var(--font-body); color: var(--color-text-secondary); margin-bottom: var(--space-md); flex-grow: 1; line-height: 1.6; }
+[data-theme="dark"] .back-to-top:hover {
+    background-color: var(--color-accent);
+    color: #080C1D; /* Dark contrast color */
+    box-shadow: 0 4px 14px rgba(36, 177, 177, 0.25); 
+}
 
-        /* Cinematic Motion System (For Intersection Observer) */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.65s var(--ease-premium), transform 0.65s var(--ease-premium);
-        }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .stagger-1 { transition-delay: 100ms; }
-        .stagger-2 { transition-delay: 200ms; }
-        .stagger-3 { transition-delay: 300ms; }
+/* Light Mode Glass Edge */
+html:not([data-theme="dark"]) .back-to-top {
+    background-image: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+    box-shadow: inset 0 1px 0 #FFFFFF, 0 0 0 1px var(--color-border) inset, var(--shadow-sm);
+}
 
-        /* Simplified Timeline */
-        .timeline-item {
-            display: grid; grid-template-columns: 120px 1fr; gap: var(--space-xl);
-            padding: var(--space-xl) 0; border-bottom: 1px solid var(--color-divider);
-        }
-        .timeline-year { color: var(--color-text-tertiary); font-family: var(--font-mono); font-weight: 500; font-size: 1rem; }
-        .timeline-role { margin-bottom: 6px; font-weight: 600; font-size: 1.25rem; color: var(--color-text-primary); font-family: var(--font-body); }
-        .timeline-company { font-weight: 500; margin-bottom: 12px; color: var(--color-text-secondary); display: block; text-decoration: none; font-family: var(--font-body); font-size: 1.125rem; }
-        .timeline-company:hover { color: var(--color-accent); }
-        .timeline-desc { color: var(--color-text-secondary); line-height: 1.6; font-family: var(--font-body); }
+html:not([data-theme="dark"]) .back-to-top:hover {
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), var(--shadow-md);
+}
 
-        /* Skills Progress UI */
-        .skill-group-title { margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--color-text-primary); font-weight: 600; font-family: var(--font-body); }
-        .skill-bar { display: grid; grid-template-columns: 120px 1fr 100px; align-items: center; gap: var(--space-md); margin-bottom: 16px; font-family: var(--font-mono); font-size: 0.875rem; color: var(--color-text-secondary); }
-        .skill-bar-name { font-weight: 600; display: flex; align-items: center; gap: 8px; color: var(--color-text-primary); }
-        .skill-track { height: 8px; background: var(--color-bg-secondary); border-radius: 4px; overflow: hidden; width: 100%; }
-        .skill-fill { height: 100%; background: var(--color-text-tertiary); border-radius: 4px; }
-        .skill-level { text-align: right; font-weight: 500; }
-
-        /* Hero Dashboard Preview */
-        .dashboard-preview { margin-top: var(--space-xl); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
-        .dashboard-preview img { width: 100%; height: auto; display: block; }
-        
-        /* Profile Image */
-        .profile-img-container { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin-bottom: var(--space-md); border: 2px solid var(--color-border); }
-        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* Architecture Section */
-        .architecture-section { background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center; box-shadow: var(--shadow-sm); margin-bottom: var(--space-4xl); margin-top: var(--space-4xl); }
-        .architecture-section img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin-top: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
-
-        /* Accessibility Focus */
-        :focus-visible { outline: 3px solid rgba(37,99,235,0.45); outline-offset: 3px; }
-        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 200; padding: 12px 24px; background: var(--color-accent); color: var(--color-surface); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; text-decoration: none; }
-        .skip-link:focus { top: 12px; }
-
-        /* Hero KPI Ribbon */
-        .kpi-ribbon { display: flex; gap: var(--space-xl); margin-bottom: var(--space-xl); flex-wrap: wrap; }
-        .kpi-item { display: flex; flex-direction: column; }
-        .kpi-number { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: var(--color-accent); line-height: 1.2; letter-spacing: -0.01em; }
-        .kpi-label { font-size: 0.75rem; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 2px; font-family: var(--font-body); }
-
-        /* Social Link */
-        .social-link { color: var(--color-text-on-dark-muted); transition: color var(--transition-base); padding: 10px; display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
-        .social-link:hover, .social-link:focus-visible { color: var(--color-text-on-dark); }
-        
-        .tag { font-size: 0.75rem; padding: 4px 10px; background: var(--color-bg-secondary); border-radius: 4px; color: var(--color-text-secondary); font-family: var(--font-mono); }
-        .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
-        
-        /* Certifications Card System Upgrade */
-        .cert-card { 
-            text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; 
-            padding: var(--space-lg); border-radius: var(--radius-md); 
-            background-color: var(--color-surface);
-            border: none;
-            box-shadow: 0 0 0 1px var(--color-border) inset, var(--shadow-micro);
-            transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), background-color 0.5s var(--ease-premium);
-            will-change: transform, box-shadow;
-        }
-        [data-theme="dark"] .cert-card {
-            background-color: var(--color-surface-1);
-            box-shadow: 0 0 0 1px var(--color-border-subtle) inset, var(--shadow-micro);
-        }
-        .cert-card:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15) inset, var(--shadow-float); 
-        }
-        [data-theme="dark"] .cert-card:hover {
-            box-shadow: 0 0 0 1px var(--color-border-glow) inset, var(--shadow-float);
-            background-color: var(--color-surface-2);
-        }
-        .cert-icon { margin-bottom: var(--space-md); }
-        .cert-name { font-weight: 600; font-family: var(--font-body); color: var(--color-text-primary); margin-bottom: 4px; }
-
-        /* Projects Section Hierarchy */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-xl);
-            width: 100%;
-        }
-        @media (min-width: 992px) {
-            .projects-grid { grid-template-columns: repeat(12, 1fr); }
-            .projects-grid > * { grid-column: span 4; }
-            .project-featured { grid-column: span 12; flex-direction: row; }
-            .project-featured .card-thumbnail { width: 50%; height: auto; border-bottom: none; border-right: 1px solid var(--color-border); }
-            [data-theme="dark"] .project-featured .card-thumbnail { border-right: 1px solid var(--color-border-subtle); }
-            .project-featured .card-thumbnail img { height: 100%; }
-            .project-featured .card-content { width: 50%; padding: var(--space-3xl) var(--space-2xl); justify-content: center; }
-            .project-secondary { grid-column: span 7; }
-            .project-tertiary { grid-column: span 5; }
-            .project-quaternary { grid-column: span 6; }
-            .project-quinary { grid-column: span 6; }
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-        }
-
-        /* 1. Hero Buttons */
-        #about .btn {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            padding: 14px 28px !important;
-            min-height: 44px !important;
-            border-radius: 4px !important;
-            font-weight: 500 !important;
-            font-size: 0.875rem !important;
-            letter-spacing: 0.01em !important;
-            transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease, transform 200ms ease !important;
-            border: 1px solid transparent !important;
-            transform: none !important;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-            box-shadow: none !important;
-            gap: normal !important;
-        }
-        #about .btn:focus-visible,
-        #about a:focus-visible {
-            outline: 2px solid var(--color-hero-outline-border) !important;
-            outline-offset: 2px !important;
-        }
-        #about .btn-primary {
-            background-color: var(--color-hero-btn-bg) !important;
-            color: var(--color-hero-btn-text) !important;
-            border: none !important;
-        }
-        #about .btn-primary:hover {
-            background-color: var(--color-hero-btn-hover) !important;
-            box-shadow: none !important;
-            transform: none !important;
-        }
-        #about .btn-outline {
-            background-color: transparent !important;
-            color: var(--color-hero-outline-text) !important;
-            border: 1px solid var(--color-hero-outline-border) !important;
-        }
-        #about .btn-outline:hover {
-            background-color: var(--color-hero-outline-hover) !important;
-            color: var(--color-hero-outline-text) !important;
-            transform: none !important;
-        }
-
-        /* Critical Preloader */
-        #preloader {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background-color: var(--color-bg-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.6s, background-color 200ms ease;
-        }
-        .preloader-brand {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-preloader-text);
-            letter-spacing: -0.02em;
-            opacity: 0;
-            animation: pulseFade 1.2s infinite alternate;
-            transition: color 200ms ease;
-        }
-        @keyframes pulseFade { 0% { opacity: 0.2; } 100% { opacity: 1; } }
-        body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
-
-        @media (max-width: 767px) {
-            .theme-toggle-desktop { display: none !important; }
-            .theme-toggle-mobile { display: flex !important; }
-        }
-    </style>
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: var(--space-md);
+        right: var(--space-md);
+    }
+}
+</style>
     <script>
         (function() {
+            // Strictly force Dark Mode on initial load and overwrite past preferences
+            document.documentElement.setAttribute('data-theme', 'dark');
             try {
-                var storedTheme = localStorage.getItem('theme');
-                if (storedTheme) {
-                    document.documentElement.setAttribute('data-theme', storedTheme);
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                }
+                localStorage.setItem('theme', 'dark');
             } catch (e) {}
         })();
     </script>
 </head>
 <body>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <div id="preloader"><div class="preloader-brand">HN</div></div>
-
-    <!-- Skip to content (Accessibility) -->
     <a href="#about" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container flex justify-between items-center">
             <a href="#" class="logo">Hien Nguyen</a>
@@ -548,42 +800,44 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-4xl); min-height: 80vh; display: flex; align-items: center;">
+    <section id="about" class="bg-primary flex-center">
         <div class="container">
             <div class="grid grid-cols-2 items-center mb-xl">
-                <div class="animate-on-scroll">
-                    <div class="profile-img-container">
-                        <img src="img/headshot.jpg" alt="Hien Nguyen" fetchpriority="high" width="240" height="240" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Hien+Nguyen&background=F5F7FA&color=111827&size=240';">
+                <div>
+                    <div class="profile-img-container hero-cascade" data-seq="1">
+                        <img src="img/headshot.jpg" alt="Hien Nguyen" fetchpriority="high" width="120" height="120" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Hien+Nguyen&background=F5F7FA&color=111827&size=240';">
                     </div>
-                    <span class="section-label caption">HELLO, I'M</span>
-                    <h1 class="display mb-sm">Hien Nguyen</h1>
-                    <h2 class="h3 mb-lg" style="color: var(--color-text-secondary);">Business Intelligence Analyst</h2>
                     
-                    <div class="kpi-ribbon">
-                        <div class="kpi-item">
+                    <div class="section-header hero-cascade" data-seq="2">
+                        <span class="section-label caption">BUSINESS INTELLIGENCE ANALYST</span>
+                        <h1 class="display">Hien Nguyen</h1>
+                    </div>
+                    
+                    <p class="body hero-cascade" data-seq="4" style="max-width: 480px; margin-bottom: var(--space-xl);">
+                        Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I build dashboards and automation tools that translate complex financial data into executive-grade strategic insights.
+                    </p>
+
+                    <div class="kpi-ribbon mt-xl hero-cascade" data-seq="5" role="list">
+                        <div class="kpi-item" role="listitem">
                             <span class="kpi-number">US$27.3M</span>
                             <span class="kpi-label">Tax Penalties Saved</span>
                         </div>
-                        <div class="kpi-item">
+                        <div class="kpi-item" role="listitem">
                             <span class="kpi-number">18+ hrs</span>
                             <span class="kpi-label">Monthly Automation</span>
                         </div>
-                        <div class="kpi-item">
-                            <span class="kpi-number">3</span>
-                            <span class="kpi-label">Certifications</span>
+                        <div class="kpi-item" role="listitem">
+                            <span class="kpi-number">6+ yrs</span>
+                            <span class="kpi-label">Finance &amp; Tax</span>
                         </div>
                     </div>
 
-                    <p class="body mb-xl" style="max-width: 520px;">
-                        Transitioning a 6+ year career in Tax, Finance, and Corporate Reporting into data-driven business intelligence. I specialize in building dashboards and automation tools that translate complex financial data into actionable strategic insights.
-                    </p>
-                    <div class="flex gap-md" style="flex-wrap: wrap;">
-                        <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary">Get in Touch</a>
+                    <div class="flex gap-md hero-cascade mt-xl" data-seq="6" style="flex-wrap: wrap;">
+                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
                         <a href="#projects" class="btn btn-outline">View Projects</a>
                     </div>
                 </div>
-                <div class="animate-on-scroll stagger-1">
+                <div class="hero-cascade hero-visual" data-seq="7">
                     <div class="dashboard-preview">
                         <img src="img/powerbi-dashboard-preview.png" alt="Power BI Executive Dashboard" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
                     </div>
@@ -592,17 +846,15 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="bg-secondary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+    <section id="projects" class="bg-secondary">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label caption animate-on-scroll">PROJECTS</span>
-                <h2 class="section-title h2 animate-on-scroll stagger-1">Featured Work</h2>
-                <p class="body-sm text-tertiary animate-on-scroll stagger-2">Selected analytics and BI projects</p>
+            <div class="section-header reveal" data-delay="1">
+                <span class="section-label caption">PROJECTS</span>
+                <h2 class="section-title h2">Featured Work</h2>
+                <p class="body-sm text-tertiary" style="margin-top: 8px;">Selected analytics and BI projects demonstrating measurable business impact</p>
             </div>
             
-            <div class="projects-grid animate-on-scroll stagger-3">
-                <!-- Project 1 (Dominant) -->
+            <div class="projects-grid reveal" data-delay="3">
                 <div class="card project-featured">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="bar-chart-2" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
@@ -618,7 +870,6 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="card project-secondary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="pie-chart" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
@@ -634,7 +885,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="card project-tertiary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="database" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
@@ -650,7 +900,6 @@
                     </div>
                 </div>
                 
-                <!-- Project 4 -->
                 <div class="card project-quaternary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="home" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
@@ -666,7 +915,6 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
                 <div class="card project-quinary">
                     <div class="card-thumbnail flex items-center justify-center">
                          <i aria-hidden="true" data-lucide="globe" style="width: 48px; height: 48px; color: var(--color-text-tertiary); stroke-width: 1;"></i>
@@ -681,56 +929,39 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 6 — CTA card to fill grid orphan -->
-                <a href="#contact" class="card card-cta project-quinary" style="text-decoration: none;">
-                    <i aria-hidden="true" data-lucide="arrow-up-right" class="card-cta-icon" style="width: 32px; height: 32px; stroke-width: 1.5;"></i>
-                    <span class="card-cta-text">View All Projects</span>
+            </div>
+            
+            <div class="mt-2xl flex-center reveal" data-delay="4" style="justify-content: center;">
+                <a href="#contact" class="btn btn-outline" style="border-radius: 8px;">
+                    View All Projects <i aria-hidden="true" data-lucide="arrow-right" style="width: 16px; height: 16px; margin-left: 4px;"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+    <section id="skills" class="bg-primary">
         <div class="container-narrow">
-            <div class="section-header mb-3xl">
-                <span class="section-label caption animate-on-scroll">SKILLS</span>
-                <h2 class="section-title h2 animate-on-scroll stagger-1">Technical Toolbox</h2>
+            <div class="section-header reveal" data-delay="1">
+                <span class="section-label caption">SKILLS</span>
+                <h2 class="section-title h2">Technical Toolbox</h2>
             </div>
             
-            <div class="grid grid-cols-2 animate-on-scroll stagger-2" style="gap: var(--space-3xl);">
+            <div class="grid grid-cols-2 reveal" data-delay="3" style="gap: var(--space-3xl);">
                 <div class="skill-group">
-                    <h3 class="skill-group-title">Data & Visualization</h3>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-bar-name"><i data-lucide="bar-chart-2" style="width:16px;height:16px;"></i> Power BI</div>
-                        <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
-                        <div class="skill-level">Expert</div>
-                    </div>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-bar-name"><i data-lucide="database" style="width:16px;height:16px;"></i> SQL</div>
-                        <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
-                        <div class="skill-level">Expert</div>
-                    </div>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-bar-name"><i data-lucide="terminal" style="width:16px;height:16px;"></i> Python</div>
-                        <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
-                        <div class="skill-level">Advanced</div>
+                    <h3 class="skill-group-title">Data Visualization &amp; BI</h3>
+                    <div class="tag-row mb-xl">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Power Query</span>
                     </div>
 
-                    <div class="skill-bar">
-                        <div class="skill-bar-name"><i data-lucide="layers" style="width:16px;height:16px;"></i> Alteryx</div>
-                        <div class="skill-track"><div class="skill-fill" style="width: 75%;"></div></div>
-                        <div class="skill-level">Advanced</div>
-                    </div>
-
-                    <div class="skill-bar">
-                        <div class="skill-bar-name"><i data-lucide="pie-chart" style="width:16px;height:16px;"></i> Tableau</div>
-                        <div class="skill-track"><div class="skill-fill" style="width: 60%;"></div></div>
-                        <div class="skill-level">Intermediate</div>
+                    <h3 class="skill-group-title mt-lg">Data Manipulation &amp; Engineering</h3>
+                    <div class="tag-row mb-xl">
+                        <span class="tag">SQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Alteryx</span>
                     </div>
                 </div>
                 
@@ -739,43 +970,88 @@
                     <div class="tag-row mb-xl">
                         <span class="tag">Financial Analysis</span>
                         <span class="tag">Tax Compliance</span>
-                        <span class="tag">Stakeholder Reporting</span>
+                        <span class="tag">Corporate Reporting</span>
                         <span class="tag">Business Intelligence</span>
                         <span class="tag">Data Modeling</span>
                         <span class="tag">ETL Workflows</span>
+                        <span class="tag">Stakeholder Management</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Architecture Section -->
             <div class="architecture-section animate-on-scroll mt-2xl">
                 <h3 class="h3 mb-md">Analytics Workflow</h3>
                 <p class="body-sm" style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">From raw data extraction to automated executive dashboards.</p>
-                <img src="img/data-pipeline-diagram.png" alt="Data Pipeline Architecture" loading="lazy" decoding="async" width="800" height="400" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
+                
+                <div class="workflow-steps">
+                    <div class="step-card">
+                        <div class="step-header">
+                            <div class="step-icon-wrapper"><i data-lucide="database"></i></div>
+                            <div class="step-number">01</div>
+                        </div>
+                        <div>
+                            <h4 class="step-title">Extract</h4>
+                            <p class="step-desc">Pulling raw data from enterprise ERPs (SAP/Oracle), APIs, and centralized SQL databases.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <div class="step-icon-wrapper"><i data-lucide="git-merge"></i></div>
+                            <div class="step-number">02</div>
+                        </div>
+                        <div>
+                            <h4 class="step-title">Transform</h4>
+                            <p class="step-desc">Cleaning, joining, and structuring complex datasets using Alteryx, Python (Pandas), and Power Query.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <div class="step-icon-wrapper"><i data-lucide="layers"></i></div>
+                            <div class="step-number">03</div>
+                        </div>
+                        <div>
+                            <h4 class="step-title">Model</h4>
+                            <p class="step-desc">Building highly efficient Star Schemas and writing complex DAX for scalable performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <div class="step-icon-wrapper"><i data-lucide="pie-chart"></i></div>
+                            <div class="step-number">04</div>
+                        </div>
+                        <div>
+                            <h4 class="step-title">Deliver</h4>
+                            <p class="step-desc">Deploying automated, interactive Power BI dashboards tailored for executive decision-making.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="img/data-pipeline-diagram.png" alt="Data Pipeline Architecture Diagram" loading="lazy" decoding="async" width="800" height="400" style="margin-top: 0;" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
             </div>
-            
         </div>
     </section>
 
-    <!-- Career Timeline -->
-    <section id="experience" class="bg-secondary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
+    <section id="experience" class="bg-secondary">
         <div class="container">
-            <div class="section-header slide-in-left" style="text-align: center; margin-bottom: var(--space-3xl);">
-                <span class="section-label caption animate-on-scroll">EXPERIENCE</span>
-                <h2 class="section-title h2 animate-on-scroll stagger-1">Career Highlights</h2>
+            <div class="section-header reveal" data-delay="1" style="align-items: center; text-align: center; margin-bottom: var(--space-3xl); max-width: none;">
+                <span class="section-label caption">EXPERIENCE</span>
+                <h2 class="section-title h2">Career Highlights</h2>
             </div>
             
             <div class="visual-timeline">
                 <div class="visual-timeline-line"></div>
                 
-                <!-- Timeline Item 1 -->
                 <div class="visual-timeline-item">
                     <div class="vt-content vt-left slide-outward-left">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2023 - PRESENT</p>
-                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Professional Development</h3>
+                        <p class="timeline-date caption" style="margin-bottom: 8px;">AUG 2023 - PRESENT</p>
+                        <h3 class="timeline-role">Professional Development</h3>
                         <p class="timeline-company">Data Analytics Upskilling</p>
-                        <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; transition: background-color 200ms ease;" class="caption">
-                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Remote</span>
+                        <div class="location-badge">
+                            <i aria-hidden="true" data-lucide="map-pin"></i> 
+                            <span>Remote</span>
                         </div>
                         <p class="body-sm" style="color: var(--color-text-secondary);">Career break dedicated to mastering modern data stacks, attaining certifications (Fabric, SQL, Alteryx), and building a robust analytics portfolio.</p>
                     </div>
@@ -785,20 +1061,20 @@
                     </div>
                 </div>
                 
-                <!-- Timeline Item 2 -->
                 <div class="visual-timeline-item">
                     <div class="vt-image vt-left slide-outward-left">
                         <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer">
-                            <img src="img/frasers-6-ib.jpg" alt="Modern Architecture - Frasers Property" loading="lazy" decoding="async" width="800" height="533" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';">
+                            <img src="img/frasers-6-ib.webp" alt="Modern Architecture - Frasers Property" loading="lazy" decoding="async" width="800" height="533" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';">
                         </a>
                     </div>
                     <div class="vt-marker"></div>
                     <div class="vt-content vt-right slide-outward-right">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">2023</p>
-                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Finance & Tax Manager</h3>
-                        <p class="timeline-company"><a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Frasers Property Vietnam</a></p>
-                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; text-decoration: none; transition: background-color 200ms ease;">
-                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
+                        <p class="timeline-date caption" style="margin-bottom: 8px;">2023</p>
+                        <h3 class="timeline-role">Finance &amp; Tax Manager</h3>
+                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="timeline-company">Frasers Property Vietnam</a>
+                        <a href="https://www.frasersproperty.com/vn" target="_blank" rel="noopener noreferrer" class="location-badge">
+                            <i aria-hidden="true" data-lucide="map-pin"></i> 
+                            <span>HCMC, Vietnam</span>
                         </a>
                         <div class="exp-highlights">
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$2M</strong> (5%) deal price reduction — negotiated via tax due diligence for an 83-mall acquisition.</p>
@@ -807,17 +1083,17 @@
                     </div>
                 </div>
 
-                <!-- Timeline Item 3 -->
                 <div class="visual-timeline-item">
                     <div class="vt-content vt-left slide-outward-left">
-                        <p class="timeline-date caption" style="font-size: 0.875rem; color: var(--color-text-tertiary); margin-bottom: 8px;">AUG 2016 - DEC 2022</p>
-                        <h3 class="timeline-role h3" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;">Tax Manager</h3>
-                        <p class="timeline-company"><a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">PwC Vietnam</a></p>
-                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-link caption" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; color: var(--color-text-tertiary); background: var(--color-badge-bg); padding: 4px 10px; border-radius: 9999px; font-weight: 500; text-decoration: none; transition: background-color 200ms ease;">
-                            <i aria-hidden="true" data-lucide="map-pin" style="width: 14px; height: 14px;"></i> <span style="font-size: 0.875rem; line-height: 1;">Ho Chi Minh City, Vietnam</span>
+                        <p class="timeline-date caption" style="margin-bottom: 8px;">AUG 2016 - DEC 2022</p>
+                        <h3 class="timeline-role">Tax Manager</h3>
+                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="timeline-company">PwC Vietnam</a>
+                        <a href="https://www.pwc.com/vn/en.html" target="_blank" rel="noopener noreferrer" class="location-badge">
+                            <i aria-hidden="true" data-lucide="map-pin"></i> 
+                            <span>HCMC, Vietnam</span>
                         </a>
                         <div class="exp-highlights">
-                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">Top 3 Rising Star</strong> · "Exceed Expectation" for 6 consecutive years</p>
+                            <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">Top 3 Rising Star</strong> &middot; "Exceed Expectation" for 6 consecutive years</p>
                             <p class="body-sm" style="color: var(--color-text-secondary);"><strong style="font-weight: 700; color: var(--color-text-primary);">US$27.3M</strong> saved in tax penalties — led resolution of a 3-year dispute for a global logistics firm by analyzing complex shipping datasets.</p>
                         </div>
                     </div>
@@ -832,272 +1108,113 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="bg-primary" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-        <style>
-            /* Certifications Visual Refinement */
-            [data-theme="dark"] #certifications {
-                background-color: var(--color-bg-primary);
-            }
-            #certifications .cert-card {
-                text-decoration: none; 
-                color: inherit; 
-                display: flex; 
-                flex-direction: column; 
-                align-items: center; 
-                text-align: center; 
-                padding: var(--space-xl) var(--space-lg); 
-                border-radius: 16px; 
-                transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease, background-color 250ms ease; 
-                background-color: var(--color-surface);
-                border: 1px solid var(--color-border);
-                height: 100%;
-                position: relative;
-            }
-            #certifications .cert-card:hover {
-                transform: translateY(-2px);
-                box-shadow: var(--shadow-md);
-                border-color: rgba(37, 99, 235, 0.25);
-            }
-            [data-theme="dark"] #certifications .cert-card {
-                background-color: rgba(248, 250, 252, 0.02);
-                border: 1px solid rgba(248, 250, 252, 0.06);
-            }
-            [data-theme="dark"] #certifications .cert-card:hover {
-                border-color: rgba(248, 250, 252, 0.12);
-                box-shadow: var(--shadow-md);
-                background-color: rgba(248, 250, 252, 0.04);
-                transform: translateY(-2px);
-            }
-            
-            #certifications .cert-icon-wrapper {
-                width: 64px;
-                height: 64px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: var(--space-md);
-            }
-            #certifications .cert-icon {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
-            #certifications .cert-logo-text {
-                font-weight: 800;
-                font-size: 26px;
-                color: #E3000F;
-                letter-spacing: -0.5px;
-                font-family: Arial, sans-serif;
-                line-height: 1;
-            }
-            [data-theme="dark"] #certifications .cert-logo-text {
-                opacity: 0.9;
-            }
-
-            #certifications .cert-name {
-                font-weight: 600;
-                font-family: var(--font-body);
-                color: var(--color-text-primary);
-                font-size: 1rem;
-                line-height: 1.4;
-                margin-bottom: 4px;
-            }
-            #certifications .cert-issuer {
-                font-size: 0.75rem;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                color: var(--color-text-secondary);
-                margin-bottom: var(--space-sm);
-                font-weight: 600;
-            }
-            #certifications .cert-skills {
-                font-size: 0.8125rem;
-                color: var(--color-text-tertiary);
-                line-height: 1.6;
-                margin-bottom: var(--space-lg);
-            }
-            
-            #certifications .cert-cta-wrapper {
-                margin-top: auto;
-            }
-            #certifications .cert-cta {
-                font-size: 0.75rem;
-                font-weight: 500;
-                font-family: var(--font-body);
-                color: var(--color-text-tertiary);
-                transition: color 250ms ease;
-            }
-            #certifications .cert-card:hover .cert-cta {
-                color: var(--color-text-secondary);
-            }
-            [data-theme="dark"] #certifications .cert-card:hover .cert-cta {
-                color: var(--color-text-on-dark-muted);
-            }
-
-            #certifications .cert-status-badge {
-                font-size: 0.6875rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                padding: 4px 10px;
-                border-radius: 9999px;
-                background: var(--color-bg-secondary);
-                color: var(--color-text-secondary);
-                display: inline-block;
-            }
-            [data-theme="dark"] #certifications .cert-status-badge {
-                background: rgba(255, 255, 255, 0.05);
-            }
-
-            /* Subtle Issuer Hierarchy Weighting */
-            [data-theme="dark"] #certifications .cert-card:nth-child(1) { border-color: rgba(255, 255, 255, 0.10); }
-            [data-theme="dark"] #certifications .cert-card:nth-child(2) { border-color: rgba(255, 255, 255, 0.08); }
-            [data-theme="dark"] #certifications .cert-card:nth-child(3) { border-color: rgba(255, 255, 255, 0.06); }
-            [data-theme="dark"] #certifications .cert-card:nth-child(4) { border-color: rgba(255, 255, 255, 0.04); }
-            
-            #certifications .cert-card:nth-child(1) .cert-icon-wrapper { opacity: 1; }
-            #certifications .cert-card:nth-child(2) .cert-icon-wrapper { opacity: 0.95; }
-            #certifications .cert-card:nth-child(3) .cert-icon-wrapper { opacity: 0.90; }
-            #certifications .cert-card:nth-child(4) .cert-icon-wrapper { opacity: 0.85; }
-        </style>
+    <section id="certifications" class="bg-primary">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label caption animate-on-scroll">QUALIFICATIONS</span>
-                <h2 class="section-title h2 animate-on-scroll stagger-1">Certifications</h2>
+            <div class="section-header reveal" data-delay="1">
+                <span class="section-label caption">QUALIFICATIONS</span>
+                <h2 class="section-title h2">Certifications</h2>
             </div>
             
-            <div class="grid grid-cols-4">
-                <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-1">
-                    <div class="cert-icon-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
-                    </div>
-                    <h3 class="cert-name">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
-                    <p class="cert-issuer">Microsoft</p>
-                    <p class="cert-skills">Data Modeling &middot; Power BI &middot; Lakehouses &middot; Delta Parquet</p>
-                    <div class="cert-cta-wrapper">
-                        <span class="cert-cta">Verified Credential &rarr;</span>
-                    </div>
-                </a>
+            <!-- Upgraded Minimalist List Layout -->
+            <div class="cert-list">
                 
-                <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-2">
-                    <div class="cert-icon-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
+                <a href="https://learn.microsoft.com/en-gb/users/nguyenhien-3060/credentials/dfaabb49a7763e13" target="_blank" rel="noopener noreferrer" class="cert-list-item animate-on-scroll stagger-1">
+                    <div class="cert-list-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" width="24" height="24" loading="lazy">
                     </div>
-                    <h3 class="cert-name">Advanced SQL</h3>
-                    <p class="cert-issuer">HackerRank</p>
-                    <p class="cert-skills">Joins &middot; Subqueries &middot; CTEs &middot; Window Functions &middot; Query Optimization</p>
-                    <div class="cert-cta-wrapper">
-                        <span class="cert-cta">Verified Credential &rarr;</span>
+                    <div class="cert-list-main">
+                        <h3 class="cert-list-title">Microsoft Certified: Fabric Analytics Engineer Associate</h3>
+                        <p class="cert-list-skills">Data Modeling &middot; Power BI &middot; Lakehouses &middot; Delta Parquet</p>
                     </div>
-                </a>
-
-                <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" class="card cert-card animate-on-scroll stagger-3">
-                    <div class="cert-icon-wrapper">
-                        <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Designer Advanced Certification" class="cert-icon" width="64" height="64" loading="lazy" decoding="async">
-                    </div>
-                    <h3 class="cert-name">Alteryx Advanced Designer</h3>
-                    <p class="cert-issuer">Alteryx</p>
-                    <p class="cert-skills">ETL Automation &middot; Data Preparation &middot; Spatial Analytics &middot; Macros</p>
-                    <div class="cert-cta-wrapper">
-                        <span class="cert-cta">Verified Credential &rarr;</span>
-                    </div>
-                    
-                    <!-- Requested Credly Embed Logic -->
-                    <div id="credly-embed-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; pointer-events: none;">
-                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e0434b1c-0b6f-4084-9977-d922c22252ed" data-share-badge-host="https://www.credly.com"></div>
+                    <div class="cert-list-meta">
+                        <span class="cert-list-issuer">Microsoft</span>
+                        <i aria-hidden="true" data-lucide="arrow-up-right" class="cert-list-arrow"></i>
                     </div>
                 </a>
 
-                <div class="card cert-card animate-on-scroll stagger-4">
-                    <div class="cert-icon-wrapper">
-                        <div class="cert-icon cert-logo-text">ACCA</div>
+                <a href="https://www.hackerrank.com/certificates/6ae5d83db590" target="_blank" rel="noopener noreferrer" class="cert-list-item animate-on-scroll stagger-2">
+                    <div class="cert-list-icon" style="background: #000;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo" width="20" height="20" loading="lazy">
                     </div>
-                    <h3 class="cert-name">Chief Accountant &amp; ACCA Candidate</h3>
-                    <p class="cert-issuer">ACCA</p>
-                    <p class="cert-skills">Corporate Reporting &middot; Financial Analysis &middot; IFRS &middot; Tax Governance</p>
-                    <div class="cert-cta-wrapper">
+                    <div class="cert-list-main">
+                        <h3 class="cert-list-title">Advanced SQL</h3>
+                        <p class="cert-list-skills">Joins &middot; Subqueries &middot; CTEs &middot; Window Functions</p>
+                    </div>
+                    <div class="cert-list-meta">
+                        <span class="cert-list-issuer">HackerRank</span>
+                        <i aria-hidden="true" data-lucide="arrow-up-right" class="cert-list-arrow"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.credly.com/badges/e0434b1c-0b6f-4084-9977-d922c22252ed/public" target="_blank" rel="noopener noreferrer" class="cert-list-item animate-on-scroll stagger-3">
+                    <div class="cert-list-icon">
+                        <img src="https://images.credly.com/size/680x680/images/de878f56-515d-40e5-b102-e667192c6f08/Certification_Designer_Advanced.png" alt="Alteryx Logo" width="28" height="28" loading="lazy">
+                    </div>
+                    <div class="cert-list-main">
+                        <h3 class="cert-list-title">Alteryx Advanced Designer</h3>
+                        <p class="cert-list-skills">ETL Automation &middot; Data Preparation &middot; Spatial Analytics</p>
+                    </div>
+                    <div class="cert-list-meta">
+                        <span class="cert-list-issuer">Alteryx</span>
+                        <i aria-hidden="true" data-lucide="arrow-up-right" class="cert-list-arrow"></i>
+                    </div>
+                </a>
+
+                <div class="cert-list-item animate-on-scroll stagger-4">
+                    <div class="cert-list-icon flex-center justify-center" style="background: var(--color-bg-secondary);">
+                        <span style="font-weight: 800; color: var(--color-text-primary); font-size: 10px;">ACCA</span>
+                    </div>
+                    <div class="cert-list-main">
+                        <h3 class="cert-list-title">Chief Accountant &amp; ACCA Candidate</h3>
+                        <p class="cert-list-skills">Corporate Reporting &middot; Financial Analysis &middot; IFRS &middot; Tax Governance</p>
+                    </div>
+                    <div class="cert-list-meta">
                         <span class="cert-status-badge">In Progress</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-accent" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);">
-        <style>
-            /* Contact Section Visual Refinement */
-            #contact.bg-accent {
-                background-color: var(--color-contact-bg) !important;
-                transition: background-color 200ms ease;
-            }
-            #contact .section-label {
-                color: var(--color-contact-label) !important;
-                transition: color 200ms ease;
-            }
-            #contact .display {
-                font-family: var(--font-body) !important;
-                color: var(--color-contact-heading) !important;
-                transition: color 200ms ease;
-            }
-            #contact p {
-                color: var(--color-contact-text) !important;
-                transition: color 200ms ease;
-            }
-            #contact .contact-btn {
-                background-color: var(--color-contact-btn-bg) !important;
-                color: var(--color-contact-btn-text) !important;
-                border: 1px solid var(--color-contact-btn-border) !important;
-                transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease !important;
-                display: inline-flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 12px !important;
-                height: 56px !important;
-                padding: 0 32px !important;
-                border-radius: var(--radius-sm) !important;
-                font-family: var(--font-body) !important;
-                font-weight: 500 !important;
-                font-size: 1.0625rem !important;
-                text-decoration: none !important;
-            }
-            #contact .contact-btn:hover,
-            #contact .contact-btn:focus-visible {
-                background-color: var(--color-contact-btn-hover-bg) !important;
-                color: var(--color-contact-btn-hover-text) !important;
-                border-color: rgba(122, 115, 232, 0.25) !important;
-                transform: translateY(-2px) !important;
-                box-shadow: var(--shadow-sm) !important;
-            }
-            #contact .contact-btn i {
-                width: 24px !important;
-                height: 24px !important;
-            }
-        </style>
+    <section id="contact" class="bg-accent">
         <div class="container-narrow">
-            <div class="section-header text-center" style="display: flex; flex-direction: column; align-items: center;">
-                <span class="section-label caption animate-on-scroll">GET IN TOUCH</span>
-                <h2 class="display animate-on-scroll stagger-1" style="margin-bottom: var(--space-lg);">Let's Connect</h2>
-                <p class="animate-on-scroll stagger-2" style="margin-bottom: var(--space-2xl); max-width: 480px; text-align: center;">
+            <div class="section-header reveal" data-delay="1">
+                <span class="section-label caption">GET IN TOUCH</span>
+                <h2 class="display">Let's Connect</h2>
+                <p class="body" style="color: var(--color-text-secondary); margin-top: var(--space-md); margin-bottom: var(--space-2xl); max-width: 520px;">
                     I'm currently seeking Data Analyst and Business Intelligence roles. Feel free to reach out to discuss how my financial background and analytics skills can add value to your team.
                 </p>
             </div>
-            <div class="flex gap-md justify-center mb-xl animate-on-scroll stagger-3" style="flex-wrap: wrap;">
-                    <a href="mailto:ntxhien52@gmail.com" class="contact-btn">
-                        <i aria-hidden="true" data-lucide="mail"></i>
-                        ntxhien52@gmail.com
-                    </a>
-                    <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <i aria-hidden="true" data-lucide="linkedin"></i>
-                        LinkedIn
-                    </a>
-                </div>
+            
+            <div class="flex gap-md justify-center reveal" data-delay="4" style="flex-wrap: wrap;">
+                <a href="mailto:ntxhien52@gmail.com" class="btn btn-primary" aria-label="Email Me">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    Email Me
+                </a>
+                
+                <a href="https://www.linkedin.com/in/hi%E1%BB%81n-nguy%E1%BB%85n-th%E1%BB%8B-xu%C3%A2n-953b12a3/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
+
     <footer style="background-color: var(--color-footer-bg); padding: var(--space-lg) 0; transition: background-color 200ms ease;">
         <div class="container flex justify-between items-center">
             <p class="caption footer-text" style="margin: 0;">© 2026 Hien Nguyen</p>
@@ -1106,5 +1223,45 @@
     </footer>
 
     <script defer src="js/main.js"></script>
+
+    <script>
+        // Back to Top Button Logic (With Inactivity Fade)
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopBtn = document.getElementById('backToTop');
+            let scrollTimeout; // Variable to hold our inactivity timer
+
+            if (backToTopBtn) {
+                // Listen for scrolling
+                window.addEventListener('scroll', () => {
+                    // Show button if scrolled down more than 400 pixels
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.add('is-visible');
+                        backToTopBtn.classList.remove('is-faded'); // Wake it up on scroll!
+                        
+                        // Clear the timeout while the user is actively scrolling
+                        window.clearTimeout(scrollTimeout);
+
+                        // Set a timer: If they don't scroll for 2000ms (2 seconds), fade it
+                        scrollTimeout = setTimeout(() => {
+                            backToTopBtn.classList.add('is-faded');
+                        }, 2000);
+
+                    } else {
+                        // Hide completely if they scroll all the way back to the top
+                        backToTopBtn.classList.remove('is-visible');
+                        backToTopBtn.classList.remove('is-faded'); 
+                    }
+                });
+
+                // Smooth scroll to top on click
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
